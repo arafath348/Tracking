@@ -1,0 +1,1769 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.2" xsi:schemaLocation="urn:oasis:names:tc:xliff:document:1.2 http://docs.oasis-open.org/xliff/v1.2/os/xliff-core-1.2-strict.xsd">
+  <file original="3M Asset Tracking/Base.lproj/Airconsole.storyboard" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0.1" build-num="9A1004"/>
+    </header>
+    <body>
+      <trans-unit id="NBj-3v-VAD.title">
+        <source>Bluetooth</source>
+        <target>Bluetooth</target>
+        <note>Class = "UINavigationItem"; title = "Bluetooth"; ObjectID = "NBj-3v-VAD";</note>
+      </trans-unit>
+      <trans-unit id="gLQ-BW-efC.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "gLQ-BW-efC";</note>
+      </trans-unit>
+      <trans-unit id="q2H-tf-Ovq.title">
+        <source>Session Details</source>
+        <target>session Détails</target>
+        <note>Class = "UINavigationItem"; title = "Session Details"; ObjectID = "q2H-tf-Ovq";</note>
+      </trans-unit>
+      <trans-unit id="v6I-rE-oca.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "v6I-rE-oca";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="3M Asset Tracking/Base.lproj/Custom.storyboard" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0.1" build-num="9A1004"/>
+    </header>
+    <body>
+      <trans-unit id="HLi-IM-KD4.text">
+        <source>Title</source>
+        <target>Title</target>
+        <note>Class = "UILabel"; text = "Title"; ObjectID = "HLi-IM-KD4";</note>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="3M Asset Tracking/Base.lproj/Main.storyboard" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0.1" build-num="9A1004"/>
+    </header>
+    <body>
+      <trans-unit id="3DS-QH-iKW.text">
+        <source>Already Registered? Log in below</source>
+        <target>Already Registered? Log in below</target>
+        <note>Class = "UILabel"; text = "Already Registered? Log in below"; ObjectID = "3DS-QH-iKW";</note>
+      </trans-unit>
+      <trans-unit id="3LA-l8-98Y.title">
+        <source> </source>
+        <target> </target>
+      </trans-unit>
+      <trans-unit id="3Ua-Vq-k0U.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "3Ua-Vq-k0U";</note>
+      </trans-unit>
+      <trans-unit id="3Ua-Vq-k0U.normalTitle">
+        <source>SUBMIT</source>
+        <note>Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "3Ua-Vq-k0U";</note>
+      </trans-unit>
+      <trans-unit id="3qj-ed-ehQ.title">
+        <source>Data Collection Template</source>
+        <target>Data Collection Template</target>
+        <note>Class = "UINavigationItem"; title = "Data Collection Template"; ObjectID = "3qj-ed-ehQ";</note>
+      </trans-unit>
+      <trans-unit id="3v0-NW-rw2.title">
+        <source>Craeate Data Collection Template</source>
+        <target>Craeate Data Collection Template</target>
+        <note>Class = "UINavigationItem"; title = "Craeate Data Collection Template"; ObjectID = "3v0-NW-rw2";</note>
+      </trans-unit>
+      <trans-unit id="4DL-3K-Spe.normalTitle">
+        <source>YES</source>
+        <note>Class = "UIButton"; normalTitle = "YES"; ObjectID = "4DL-3K-Spe";</note>
+      </trans-unit>
+      <trans-unit id="4Iq-ta-Yk6.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="4Iq-ta-Yk6.normalTitle">
+        <source>SUBMIT</source>
+        <target>SUBMIT</target>
+      </trans-unit>
+      <trans-unit id="4k1-JV-rQw.title">
+        <source>Data Capture - Cable Accessories</source>
+        <target>Data Capture - Cable Accessories</target>
+      </trans-unit>
+      <trans-unit id="4tL-UD-pbn.title">
+        <source>Forgot Username / Password</source>
+        <target>Forgot Username / Password</target>
+      </trans-unit>
+      <trans-unit id="5m7-KS-Wog.placeholder">
+        <source>Select Company</source>
+        <target>Select Company</target>
+        <note>Class = "UITextField"; placeholder = "Select Company"; ObjectID = "5m7-KS-Wog";</note>
+      </trans-unit>
+      <trans-unit id="7Q6-3S-rNU.normalTitle">
+        <source>CANCEL</source>
+        <target>CANCEL</target>
+      </trans-unit>
+      <trans-unit id="7ww-Wu-2Xs.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="7ww-Wu-2Xs.normalTitle">
+        <source>NEXT</source>
+        <target>NEXT</target>
+      </trans-unit>
+      <trans-unit id="9An-4j-aQT.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "9An-4j-aQT";</note>
+      </trans-unit>
+      <trans-unit id="9An-4j-aQT.normalTitle">
+        <source>SUBMIT</source>
+        <note>Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "9An-4j-aQT";</note>
+      </trans-unit>
+      <trans-unit id="9bA-qX-tNC.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "9bA-qX-tNC";</note>
+      </trans-unit>
+      <trans-unit id="9m9-IQ-dl5.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+      </trans-unit>
+      <trans-unit id="32a-hK-tPo.normalTitle">
+        <source>NO</source>
+        <target>NO</target>
+      </trans-unit>
+      <trans-unit id="AUz-WR-aHK.text">
+        <source>RFID Template</source>
+        <target>RFID Template</target>
+        <note>Class = "UILabel"; text = "RFID Template"; ObjectID = "AUz-WR-aHK";</note>
+      </trans-unit>
+      <trans-unit id="Aon-rc-yTX.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+      </trans-unit>
+      <trans-unit id="Bxh-aD-DNV.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "Bxh-aD-DNV";</note>
+      </trans-unit>
+      <trans-unit id="Bxh-aD-DNV.normalTitle">
+        <source>CANCEL</source>
+        <target>CANCEL</target>
+        <note>Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "Bxh-aD-DNV";</note>
+      </trans-unit>
+      <trans-unit id="CQ1-Gy-ZNh.text">
+        <source>Template Name</source>
+        <target>Template Name</target>
+        <note>Class = "UILabel"; text = "Template Name"; ObjectID = "CQ1-Gy-ZNh";</note>
+      </trans-unit>
+      <trans-unit id="Cxm-8s-9aK.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "Cxm-8s-9aK";</note>
+      </trans-unit>
+      <trans-unit id="Cxm-8s-9aK.normalTitle">
+        <source>EXPORT DATA</source>
+        <target>EXPORT DATA</target>
+        <note>Class = "UIButton"; normalTitle = "EXPORT DATA"; ObjectID = "Cxm-8s-9aK";</note>
+      </trans-unit>
+      <trans-unit id="DRh-IW-gVJ.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="DRh-IW-gVJ.normalTitle">
+        <source>SUBMIT</source>
+        <target>SUBMIT</target>
+      </trans-unit>
+      <trans-unit id="FUQ-BF-3zb.title">
+        <source> </source>
+        <target> </target>
+      </trans-unit>
+      <trans-unit id="GL8-eb-pNR.title">
+        <source>Locator Record Capture</source>
+        <target>Locator Record Capture</target>
+        <note>Class = "UINavigationItem"; title = "Locator Record Capture"; ObjectID = "GL8-eb-pNR";</note>
+      </trans-unit>
+      <trans-unit id="GUJ-Zo-gXf.normalTitle">
+        <source>YES</source>
+        <target>YES</target>
+      </trans-unit>
+      <trans-unit id="HHB-hQ-bqA.normalTitle">
+        <source>Settings                        </source>
+        <note>Class = "UIButton"; normalTitle = "Settings                        "; ObjectID = "HHB-hQ-bqA";</note>
+      </trans-unit>
+      <trans-unit id="HHH-hZ-sGg.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "HHH-hZ-sGg";</note>
+      </trans-unit>
+      <trans-unit id="HHH-hZ-sGg.normalTitle">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; normalTitle = "Login"; ObjectID = "HHH-hZ-sGg";</note>
+      </trans-unit>
+      <trans-unit id="HLx-0W-IPz.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "HLx-0W-IPz";</note>
+      </trans-unit>
+      <trans-unit id="HLx-0W-IPz.normalTitle">
+        <source>VALIDATE</source>
+        <note>Class = "UIButton"; normalTitle = "VALIDATE"; ObjectID = "HLx-0W-IPz";</note>
+      </trans-unit>
+      <trans-unit id="Hk6-oS-uEk.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "Hk6-oS-uEk";</note>
+      </trans-unit>
+      <trans-unit id="ICf-Av-ZPH.title">
+        <source>Edit</source>
+        <target>Edit</target>
+        <note>Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "ICf-Av-ZPH";</note>
+      </trans-unit>
+      <trans-unit id="IYf-0C-oq6.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="IYf-0C-oq6.normalTitle">
+        <source>LOGIN</source>
+        <target>LOGIN</target>
+      </trans-unit>
+      <trans-unit id="Iq2-tX-UhM.title">
+        <source>Data Capture - Cable Accessories</source>
+        <note>Class = "UINavigationItem"; title = "Data Capture - Cable Accessories"; ObjectID = "Iq2-tX-UhM";</note>
+      </trans-unit>
+      <trans-unit id="K98-RQ-r1d.title">
+        <source>Change Password</source>
+        <target>Change Password</target>
+        <note>Class = "UINavigationItem"; title = "Change Password"; ObjectID = "K98-RQ-r1d";</note>
+      </trans-unit>
+      <trans-unit id="KOg-cf-Ugc.normalTitle">
+        <source>ADD</source>
+        <target>ADD</target>
+      </trans-unit>
+      <trans-unit id="KXV-d3-Vdb.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "KXV-d3-Vdb";</note>
+      </trans-unit>
+      <trans-unit id="Kko-J2-kl3.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "Kko-J2-kl3";</note>
+      </trans-unit>
+      <trans-unit id="Ku5-ug-43C.normalTitle">
+        <source>Cable Accessories                                             </source>
+        <target>Cable Accessories                                             </target>
+      </trans-unit>
+      <trans-unit id="LHS-Im-Nx6.title">
+        <source>First Login</source>
+        <note>Class = "UINavigationItem"; title = "First Login"; ObjectID = "LHS-Im-Nx6";</note>
+      </trans-unit>
+      <trans-unit id="Lu6-Cc-FqT.normalTitle">
+        <source>NO</source>
+        <note>Class = "UIButton"; normalTitle = "NO"; ObjectID = "Lu6-Cc-FqT";</note>
+      </trans-unit>
+      <trans-unit id="NU0-ba-36l.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "NU0-ba-36l";</note>
+      </trans-unit>
+      <trans-unit id="NU0-ba-36l.normalTitle">
+        <source>SUBMIT</source>
+        <note>Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "NU0-ba-36l";</note>
+      </trans-unit>
+      <trans-unit id="O60-jP-P4C.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "O60-jP-P4C";</note>
+      </trans-unit>
+      <trans-unit id="P49-dE-mqT.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "P49-dE-mqT";</note>
+      </trans-unit>
+      <trans-unit id="PMe-Ix-vct.normalTitle">
+        <source>CANCEL</source>
+        <note>Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "PMe-Ix-vct";</note>
+      </trans-unit>
+      <trans-unit id="PZD-gW-zs8.title">
+        <source>Barcode Scanner</source>
+        <target>Barcode Scanner</target>
+        <note>Class = "UINavigationItem"; title = "Barcode Scanner"; ObjectID = "PZD-gW-zs8";</note>
+      </trans-unit>
+      <trans-unit id="Pkt-Nz-de0.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "Pkt-Nz-de0";</note>
+      </trans-unit>
+      <trans-unit id="Pkt-Nz-de0.normalTitle">
+        <source>NEXT</source>
+        <note>Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "Pkt-Nz-de0";</note>
+      </trans-unit>
+      <trans-unit id="PmA-Hk-lZY.normalTitle">
+        <source>Forgot Username / Password?</source>
+        <target>Forgot Username / Password?</target>
+        <note>Class = "UIButton"; normalTitle = "Forgot Username / Password?"; ObjectID = "PmA-Hk-lZY";</note>
+      </trans-unit>
+      <trans-unit id="PxL-Qq-12g.normalTitle">
+        <source>VERIFY</source>
+        <target>VERIFY</target>
+        <note>Class = "UIButton"; normalTitle = "VERIFY"; ObjectID = "PxL-Qq-12g";</note>
+      </trans-unit>
+      <trans-unit id="Qdp-kG-yvu.normalTitle">
+        <source>RFID Marker / EMS Passive Marker               </source>
+        <target>RFID Marker / EMS Passive Marker               </target>
+      </trans-unit>
+      <trans-unit id="Qga-hW-so9.placeholder">
+        <source>bob@mmm.com</source>
+        <note>Class = "UITextField"; placeholder = "bob@mmm.com"; ObjectID = "Qga-hW-so9";</note>
+      </trans-unit>
+      <trans-unit id="Qgs-wf-DCO.normalTitle">
+        <source>Cable Accessories                                             </source>
+        <note>Class = "UIButton"; normalTitle = "Cable Accessories                                             "; ObjectID = "Qgs-wf-DCO";</note>
+      </trans-unit>
+      <trans-unit id="Qra-sh-WrR.text">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "Qra-sh-WrR";</note>
+      </trans-unit>
+      <trans-unit id="RQB-Lq-ghE.title">
+        <source>Settings</source>
+        <target>Settings</target>
+        <note>Class = "UINavigationItem"; title = "Settings"; ObjectID = "RQB-Lq-ghE";</note>
+      </trans-unit>
+      <trans-unit id="Rtk-jK-zlP.text">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "Rtk-jK-zlP";</note>
+      </trans-unit>
+      <trans-unit id="Rzh-FU-SaR.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "Rzh-FU-SaR";</note>
+      </trans-unit>
+      <trans-unit id="Rzh-FU-SaR.normalTitle">
+        <source>NEXT</source>
+        <note>Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "Rzh-FU-SaR";</note>
+      </trans-unit>
+      <trans-unit id="S4n-cP-q87.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="S4n-cP-q87.normalTitle">
+        <source>NEXT</source>
+        <target>NEXT</target>
+      </trans-unit>
+      <trans-unit id="SLN-8d-KOP.normalTitle">
+        <source>SHOW</source>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "SLN-8d-KOP";</note>
+      </trans-unit>
+      <trans-unit id="SsP-kn-XGA.normalTitle">
+        <source>Both                                                                      </source>
+        <target>Both                                                                      </target>
+      </trans-unit>
+      <trans-unit id="Ssy-7K-FcY.segmentTitles[0]">
+        <source>Password</source>
+        <note>Class = "UISegmentedControl"; Ssy-7K-FcY.segmentTitles[0] = "Password"; ObjectID = "Ssy-7K-FcY";</note>
+      </trans-unit>
+      <trans-unit id="Ssy-7K-FcY.segmentTitles[1]">
+        <source>Username</source>
+        <note>Class = "UISegmentedControl"; Ssy-7K-FcY.segmentTitles[1] = "Username"; ObjectID = "Ssy-7K-FcY";</note>
+      </trans-unit>
+      <trans-unit id="T2O-CC-1Vs.text">
+        <source>Description</source>
+        <target>Description</target>
+        <note>Class = "UILabel"; text = "Description"; ObjectID = "T2O-CC-1Vs";</note>
+      </trans-unit>
+      <trans-unit id="TNu-GN-say.normalTitle">
+        <source>SHOW</source>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "TNu-GN-say";</note>
+      </trans-unit>
+      <trans-unit id="TnS-mo-qh1.normalTitle">
+        <source>NO</source>
+        <target>NO</target>
+      </trans-unit>
+      <trans-unit id="Udr-Nc-vK4.text">
+        <source>New Template Name</source>
+        <target>New Template Name</target>
+        <note>Class = "UILabel"; text = "New Template Name"; ObjectID = "Udr-Nc-vK4";</note>
+      </trans-unit>
+      <trans-unit id="Vdf-DK-G6N.title">
+        <source> </source>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "Vdf-DK-G6N";</note>
+      </trans-unit>
+      <trans-unit id="VzD-51-l0t.title">
+        <source>EMS Passive / Path / Cable depth</source>
+        <target>Data Capture - EMS Passive</target>
+        <note>Class = "UINavigationItem"; title = "EMS Passive / Path / Cable depth"; ObjectID = "VzD-51-l0t";</note>
+      </trans-unit>
+      <trans-unit id="WBW-d7-GXS.title">
+        <source>Data Lookup Details</source>
+        <target>Data Lookup Details</target>
+        <note>Class = "UINavigationItem"; title = "Data Lookup Details"; ObjectID = "WBW-d7-GXS";</note>
+      </trans-unit>
+      <trans-unit id="WZb-um-PJu.normalTitle">
+        <source>YES</source>
+        <note>Class = "UIButton"; normalTitle = "YES"; ObjectID = "WZb-um-PJu";</note>
+      </trans-unit>
+      <trans-unit id="Wyf-5y-1qV.text">
+        <source>Description</source>
+        <target>Description</target>
+        <note>Class = "UILabel"; text = "Description"; ObjectID = "Wyf-5y-1qV";</note>
+      </trans-unit>
+      <trans-unit id="XjS-0a-vhF.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "XjS-0a-vhF";</note>
+      </trans-unit>
+      <trans-unit id="XjS-0a-vhF.normalTitle">
+        <source>LOGIN</source>
+        <note>Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "XjS-0a-vhF";</note>
+      </trans-unit>
+      <trans-unit id="XlN-RS-jLH.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "XlN-RS-jLH";</note>
+      </trans-unit>
+      <trans-unit id="Xym-cj-62W.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="Xym-cj-62W.normalTitle">
+        <source>SUBMIT</source>
+        <target>SUBMIT</target>
+      </trans-unit>
+      <trans-unit id="Ymk-SP-hmD.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+      </trans-unit>
+      <trans-unit id="Z0K-TS-NVi.title">
+        <source>Data Capture - RFID</source>
+        <target>Data Capture - RFID</target>
+        <note>Class = "UINavigationItem"; title = "Data Capture - RFID"; ObjectID = "Z0K-TS-NVi";</note>
+      </trans-unit>
+      <trans-unit id="ZwN-Wb-FcJ.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "ZwN-Wb-FcJ";</note>
+      </trans-unit>
+      <trans-unit id="aEp-N0-h05.normalTitle">
+        <source>Both                                                                      </source>
+        <note>Class = "UIButton"; normalTitle = "Both                                                                      "; ObjectID = "aEp-N0-h05";</note>
+      </trans-unit>
+      <trans-unit id="bKK-HZ-Fpc.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "bKK-HZ-Fpc";</note>
+      </trans-unit>
+      <trans-unit id="bRu-13-ZXe.title">
+        <source> </source>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "bRu-13-ZXe";</note>
+      </trans-unit>
+      <trans-unit id="bc6-Ta-Y5I.segmentTitles[0]">
+        <source>No</source>
+        <target>No</target>
+        <note>Class = "UISegmentedControl"; bc6-Ta-Y5I.segmentTitles[0] = "No"; ObjectID = "bc6-Ta-Y5I";</note>
+      </trans-unit>
+      <trans-unit id="bc6-Ta-Y5I.segmentTitles[1]">
+        <source>Yes</source>
+        <target>Yes</target>
+        <note>Class = "UISegmentedControl"; bc6-Ta-Y5I.segmentTitles[1] = "Yes"; ObjectID = "bc6-Ta-Y5I";</note>
+      </trans-unit>
+      <trans-unit id="bcy-iC-aGt.title">
+        <source>Main Menu</source>
+        <note>Class = "UINavigationItem"; title = "Main Menu"; ObjectID = "bcy-iC-aGt";</note>
+      </trans-unit>
+      <trans-unit id="bwD-yw-9aD.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "bwD-yw-9aD";</note>
+      </trans-unit>
+      <trans-unit id="cFO-8z-HuG.segmentTitles[0]">
+        <source>Password</source>
+        <target>Password</target>
+      </trans-unit>
+      <trans-unit id="cFO-8z-HuG.segmentTitles[1]">
+        <source>Username</source>
+        <target>Username</target>
+      </trans-unit>
+      <trans-unit id="cNl-yr-uGR.segmentTitles[0]">
+        <source>No</source>
+        <target>No</target>
+        <note>Class = "UISegmentedControl"; cNl-yr-uGR.segmentTitles[0] = "No"; ObjectID = "cNl-yr-uGR";</note>
+      </trans-unit>
+      <trans-unit id="cNl-yr-uGR.segmentTitles[1]">
+        <source>Yes</source>
+        <target>Yes</target>
+        <note>Class = "UISegmentedControl"; cNl-yr-uGR.segmentTitles[1] = "Yes"; ObjectID = "cNl-yr-uGR";</note>
+      </trans-unit>
+      <trans-unit id="cV5-fH-TCa.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+      </trans-unit>
+      <trans-unit id="d21-tt-Xrn.title">
+        <source>Main Menu</source>
+        <target>Main Menu</target>
+      </trans-unit>
+      <trans-unit id="eEk-6m-btp.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "eEk-6m-btp";</note>
+      </trans-unit>
+      <trans-unit id="eHF-xR-bTs.normalTitle">
+        <source>VERIFY</source>
+        <target>VERIFY</target>
+        <note>Class = "UIButton"; normalTitle = "VERIFY"; ObjectID = "eHF-xR-bTs";</note>
+      </trans-unit>
+      <trans-unit id="eVh-x9-HjJ.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "eVh-x9-HjJ";</note>
+      </trans-unit>
+      <trans-unit id="eVh-x9-HjJ.normalTitle">
+        <source>Continue</source>
+        <target>Continue</target>
+        <note>Class = "UIButton"; normalTitle = "Continue"; ObjectID = "eVh-x9-HjJ";</note>
+      </trans-unit>
+      <trans-unit id="ee0-Nn-aP0.normalTitle">
+        <source>Data Capture              </source>
+        <note>Class = "UIButton"; normalTitle = "Data Capture              "; ObjectID = "ee0-Nn-aP0";</note>
+      </trans-unit>
+      <trans-unit id="f4a-3h-4pk.normalTitle">
+        <source>CANCEL</source>
+        <target>CANCEL</target>
+        <note>Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "f4a-3h-4pk";</note>
+      </trans-unit>
+      <trans-unit id="f49-pB-EBr.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+      </trans-unit>
+      <trans-unit id="f49-pB-EBr.normalTitle">
+        <source>VALIDATE</source>
+        <target>VALIDATE</target>
+      </trans-unit>
+      <trans-unit id="fGN-Cv-MmI.normalTitle">
+        <source>NO</source>
+        <note>Class = "UIButton"; normalTitle = "NO"; ObjectID = "fGN-Cv-MmI";</note>
+      </trans-unit>
+      <trans-unit id="fas-d1-iVK.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "fas-d1-iVK";</note>
+      </trans-unit>
+      <trans-unit id="fas-d1-iVK.normalTitle">
+        <source>SUBMIT</source>
+        <target>SUBMIT</target>
+        <note>Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "fas-d1-iVK";</note>
+      </trans-unit>
+      <trans-unit id="fk3-El-BWa.normalTitle">
+        <source>SHOW</source>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "fk3-El-BWa";</note>
+      </trans-unit>
+      <trans-unit id="h9p-1k-v3e.title">
+        <source>Template Configuration</source>
+        <target>Template Configuration</target>
+        <note>Class = "UINavigationItem"; title = "Template Configuration"; ObjectID = "h9p-1k-v3e";</note>
+      </trans-unit>
+      <trans-unit id="hA2-7a-20s.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "hA2-7a-20s";</note>
+      </trans-unit>
+      <trans-unit id="hS3-cf-cEB.title">
+        <source>Craeate RFID Template</source>
+        <target>Craeate RFID Template</target>
+        <note>Class = "UINavigationItem"; title = "Craeate RFID Template"; ObjectID = "hS3-cf-cEB";</note>
+      </trans-unit>
+      <trans-unit id="ia4-iI-gSU.normalTitle">
+        <source>ADD</source>
+        <note>Class = "UIButton"; normalTitle = "ADD"; ObjectID = "ia4-iI-gSU";</note>
+      </trans-unit>
+      <trans-unit id="iuB-eO-2tA.normalTitle">
+        <source>VERIFY</source>
+        <note>Class = "UIButton"; normalTitle = "VERIFY"; ObjectID = "iuB-eO-2tA";</note>
+      </trans-unit>
+      <trans-unit id="jY1-oW-fZY.normalTitle">
+        <source>YES</source>
+        <target>YES</target>
+      </trans-unit>
+      <trans-unit id="jl0-HZ-rEw.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "jl0-HZ-rEw";</note>
+      </trans-unit>
+      <trans-unit id="jl0-HZ-rEw.normalTitle">
+        <source>SUBMIT</source>
+        <target>SUBMIT</target>
+        <note>Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "jl0-HZ-rEw";</note>
+      </trans-unit>
+      <trans-unit id="jwM-NY-fa4.normalTitle">
+        <source>ADD</source>
+        <target>ADD</target>
+        <note>Class = "UIButton"; normalTitle = "ADD"; ObjectID = "jwM-NY-fa4";</note>
+      </trans-unit>
+      <trans-unit id="k8Z-W3-JTF.text">
+        <source>Label</source>
+        <target>Label</target>
+        <note>Class = "UILabel"; text = "Label"; ObjectID = "k8Z-W3-JTF";</note>
+      </trans-unit>
+      <trans-unit id="keD-wI-oZh.normalTitle">
+        <source>RFID Marker / EMS Passive Marker               </source>
+        <note>Class = "UIButton"; normalTitle = "RFID Marker / EMS Passive Marker               "; ObjectID = "keD-wI-oZh";</note>
+      </trans-unit>
+      <trans-unit id="lOH-cR-Sg7.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "lOH-cR-Sg7";</note>
+      </trans-unit>
+      <trans-unit id="lOH-cR-Sg7.normalTitle">
+        <source>SAVE</source>
+        <target>SAVE</target>
+        <note>Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "lOH-cR-Sg7";</note>
+      </trans-unit>
+      <trans-unit id="n6X-nc-RIe.text">
+        <source>Description</source>
+        <target>Description</target>
+        <note>Class = "UILabel"; text = "Description"; ObjectID = "n6X-nc-RIe";</note>
+      </trans-unit>
+      <trans-unit id="nFi-2G-BhI.normalTitle">
+        <source>SHOW</source>
+        <target>SHOW</target>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "nFi-2G-BhI";</note>
+      </trans-unit>
+      <trans-unit id="nk6-gp-q7e.placeholder">
+        <source>Password</source>
+        <target>Password</target>
+        <note>Class = "UITextField"; placeholder = "Password"; ObjectID = "nk6-gp-q7e";</note>
+      </trans-unit>
+      <trans-unit id="o2x-Go-Pbj.text">
+        <source>New Template Name</source>
+        <target>New Template Name</target>
+        <note>Class = "UILabel"; text = "New Template Name"; ObjectID = "o2x-Go-Pbj";</note>
+      </trans-unit>
+      <trans-unit id="oYM-PR-wvm.title">
+        <source>First Login</source>
+        <target>First Login</target>
+      </trans-unit>
+      <trans-unit id="p6d-sZ-iRx.title">
+        <source>Forgot Username / Password</source>
+        <note>Class = "UINavigationItem"; title = "Forgot Username / Password"; ObjectID = "p6d-sZ-iRx";</note>
+      </trans-unit>
+      <trans-unit id="pMu-iP-pAh.normalTitle">
+        <source>SHOW</source>
+        <note>Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "pMu-iP-pAh";</note>
+      </trans-unit>
+      <trans-unit id="qgZ-f3-KeZ.title">
+        <source>RFID Data Template</source>
+        <target>RFID Data Template</target>
+        <note>Class = "UINavigationItem"; title = "RFID Data Template"; ObjectID = "qgZ-f3-KeZ";</note>
+      </trans-unit>
+      <trans-unit id="qzJ-SA-LZg.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "qzJ-SA-LZg";</note>
+      </trans-unit>
+      <trans-unit id="r1a-xI-0Zy.title">
+        <source>Language Settings</source>
+        <target>Language Settings</target>
+        <note>Class = "UINavigationItem"; title = "Language Settings"; ObjectID = "r1a-xI-0Zy";</note>
+      </trans-unit>
+      <trans-unit id="rIM-EH-LwS.title">
+        <source>Verify GPS Location</source>
+        <target>Verify GPS Location</target>
+        <note>Class = "UINavigationItem"; title = "Verify GPS Location"; ObjectID = "rIM-EH-LwS";</note>
+      </trans-unit>
+      <trans-unit id="rJc-iM-x2G.placeholder">
+        <source>Username</source>
+        <target>Username</target>
+        <note>Class = "UITextField"; placeholder = "Username"; ObjectID = "rJc-iM-x2G";</note>
+      </trans-unit>
+      <trans-unit id="rsV-Ch-9Y7.accessibilityLabel">
+        <source>Login</source>
+        <target>Login</target>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "rsV-Ch-9Y7";</note>
+      </trans-unit>
+      <trans-unit id="rsV-Ch-9Y7.normalTitle">
+        <source>SAVE</source>
+        <target>SAVE</target>
+        <note>Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "rsV-Ch-9Y7";</note>
+      </trans-unit>
+      <trans-unit id="shj-BX-rYb.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "shj-BX-rYb";</note>
+      </trans-unit>
+      <trans-unit id="tDw-qL-Zcg.normalTitle">
+        <source>Logging in for the first time? Register here</source>
+        <target>Logging in for the first time? Register here</target>
+        <note>Class = "UIButton"; normalTitle = "Logging in for the first time? Register here"; ObjectID = "tDw-qL-Zcg";</note>
+      </trans-unit>
+      <trans-unit id="tFJ-QA-OzJ.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "tFJ-QA-OzJ";</note>
+      </trans-unit>
+      <trans-unit id="uBK-1K-5H2.normalTitle">
+        <source>VERIFY</source>
+        <target>VERIFY</target>
+      </trans-unit>
+      <trans-unit id="uM2-U6-n1e.placeholder">
+        <source>bob@mmm.com</source>
+        <target>bob@mmm.com</target>
+      </trans-unit>
+      <trans-unit id="wOB-wM-BKw.title">
+        <source>Data Lookup</source>
+        <target>Data Lookup</target>
+        <note>Class = "UINavigationItem"; title = "Data Lookup"; ObjectID = "wOB-wM-BKw";</note>
+      </trans-unit>
+      <trans-unit id="wSZ-cb-TDc.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "wSZ-cb-TDc";</note>
+      </trans-unit>
+      <trans-unit id="wSZ-cb-TDc.normalTitle">
+        <source>I AGREE</source>
+        <note>Class = "UIButton"; normalTitle = "I AGREE"; ObjectID = "wSZ-cb-TDc";</note>
+      </trans-unit>
+      <trans-unit id="x1o-K8-X5Y.text">
+        <source>GPS Provider</source>
+        <target>GPS Provider</target>
+        <note>Class = "UILabel"; text = "GPS Provider"; ObjectID = "x1o-K8-X5Y";</note>
+      </trans-unit>
+      <trans-unit id="xHC-ji-dcR.normalTitle">
+        <source>Logout                        </source>
+        <note>Class = "UIButton"; normalTitle = "Logout                        "; ObjectID = "xHC-ji-dcR";</note>
+      </trans-unit>
+      <trans-unit id="y0c-Em-Lge.normalTitle">
+        <source>       Data Lookup                      </source>
+        <note>Class = "UIButton"; normalTitle = "       Data Lookup                      "; ObjectID = "y0c-Em-Lge";</note>
+      </trans-unit>
+      <trans-unit id="zA7-pa-uyf.title">
+        <source> </source>
+        <target> </target>
+        <note>Class = "UIBarButtonItem"; title = " "; ObjectID = "zA7-pa-uyf";</note>
+      </trans-unit>
+      <trans-unit id="zM3-uD-tvl.accessibilityLabel">
+        <source>Login</source>
+        <note>Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "zM3-uD-tvl";</note>
+      </trans-unit>
+      <trans-unit id="zM3-uD-tvl.normalTitle">
+        <source>NEXT</source>
+        <note>Class = "UIButton"; normalTitle = "NEXT"; ObjectID = "zM3-uD-tvl";</note>
+      </trans-unit>
+      <trans-unit id="zdu-O5-lR9.title">
+        <source>Data Capture</source>
+        <target>Data Capture</target>
+        <note>Class = "UINavigationItem"; title = "Data Capture"; ObjectID = "zdu-O5-lR9";</note>
+      </trans-unit>
+      <trans-unit id="zex-2Q-0NW.accessibilityLabel">
+        <source>Login</source>
+        <target>s'identifier</target>
+      </trans-unit>
+      <trans-unit id="zex-2Q-0NW.normalTitle">
+        <source>NEXT</source>
+        <target>NEXT</target>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="3M Asset Tracking/Info.plist" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0.1" build-num="9A1004"/>
+    </header>
+    <body>
+      <trans-unit id="CFBundleName">
+        <source>$(PRODUCT_NAME)</source>
+      </trans-unit>
+      <trans-unit id="NSCameraUsageDescription">
+        <source>Used to capture new image for photo effect</source>
+      </trans-unit>
+      <trans-unit id="NSLocationWhenInUseUsageDescription">
+        <source>Do you allow this app to know your current location?</source>
+      </trans-unit>
+      <trans-unit id="NSPhotoLibraryUsageDescription">
+        <source>$(PRODUCT_NAME) photo use</source>
+      </trans-unit>
+    </body>
+  </file>
+  <file original="3M Asset Tracking/Localizable.strings" source-language="en" datatype="plaintext" target-language="fr">
+    <header>
+      <tool tool-id="com.apple.dt.xcode" tool-name="Xcode" tool-version="9.0.1" build-num="9A1004"/>
+    </header>
+    <body>
+      <trans-unit id="%@">
+        <source>%@</source>
+        <note>text</note>
+      </trans-unit>
+      <trans-unit id="Add Installer Company">
+        <source>Add Installer Company</source>
+        <note>Add Installer Company</note>
+      </trans-unit>
+      <trans-unit id="Add Utility Company">
+        <source>Add Utility Company</source>
+        <note>Add Utility Company</note>
+      </trans-unit>
+      <trans-unit id="Address">
+        <source>Address</source>
+        <note>Address</note>
+      </trans-unit>
+      <trans-unit id="Already Registered? Log in below">
+        <source>Already Registered? Log in below</source>
+        <note>Already Registered? Log in below</note>
+      </trans-unit>
+      <trans-unit id="Application">
+        <source>Application</source>
+        <note>Application</note>
+      </trans-unit>
+      <trans-unit id="Application ID functions require SQLite 3.7.17">
+        <source>Application ID functions require SQLite 3.7.17</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel data collection template?">
+        <source>Are you sure you want to cancel data collection template?</source>
+        <note>Are you sure you want to cancel data collection template?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this Data Collection Template?">
+        <source>Are you sure you want to cancel this Data Collection Template?</source>
+        <note>Are you sure you want to cancel this Data Collection Template?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this EMS passive screen?">
+        <source>Are you sure you want to cancel this EMS passive screen?</source>
+        <note>Are you sure you want to cancel this EMS passive screen?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this RFID screen?">
+        <source>Are you sure you want to cancel this RFID screen?</source>
+        <note>Are you sure you want to cancel this RFID screen?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this RFID template?">
+        <source>Are you sure you want to cancel this RFID template?</source>
+        <note>Are you sure you want to cancel this RFID template?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this cable accessories screen?">
+        <source>Are you sure you want to cancel this cable accessories screen?</source>
+        <note>Are you sure you want to cancel this cable accessories screen?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this first login?">
+        <source>Are you sure you want to cancel this first login?</source>
+        <note>Are you sure you want to cancel this first login?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this screen?">
+        <source>Are you sure you want to cancel this screen?</source>
+        <note>Are you sure you want to cancel this screen?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to cancel this verify gps location screen?">
+        <source>Are you sure you want to cancel this verify gps location screen?</source>
+        <note>Are you sure you want to cancel this verify gps location screen?</note>
+      </trans-unit>
+      <trans-unit id="Are you sure you want to logout?">
+        <source>Are you sure you want to logout?</source>
+        <note>Are you sure you want to logout?</note>
+      </trans-unit>
+      <trans-unit id="Associate Another Company">
+        <source>Associate Another Company</source>
+        <note>Associate Another Company</note>
+      </trans-unit>
+      <trans-unit id="Barcode Scanner">
+        <source>Barcode Scanner</source>
+        <note>Barcode Scanner</note>
+      </trans-unit>
+      <trans-unit id="Bluetooth not connected">
+        <source>Bluetooth not connected</source>
+        <note>Bluetooth not connected</note>
+      </trans-unit>
+      <trans-unit id="Both">
+        <source>Both</source>
+        <note>Both</note>
+      </trans-unit>
+      <trans-unit id="CANCEL">
+        <source>CANCEL</source>
+        <note>cancel
+   CANCEL
+   verify</note>
+      </trans-unit>
+      <trans-unit id="CANCEl">
+        <source>CANCEl</source>
+        <note>save</note>
+      </trans-unit>
+      <trans-unit id="CRC Failure">
+        <source>CRC Failure</source>
+        <note>CRC Failure</note>
+      </trans-unit>
+      <trans-unit id="Cable Accessories">
+        <source>Cable Accessories</source>
+        <note>Cable Accessories</note>
+      </trans-unit>
+      <trans-unit id="Cable depth records from Locator">
+        <source>Cable depth records from Locator</source>
+        <note>Cable depth records from Locator</note>
+      </trans-unit>
+      <trans-unit id="Cancel">
+        <source>Cancel</source>
+        <note>Cancel</note>
+      </trans-unit>
+      <trans-unit id="Cancel Cable Accessories?">
+        <source>Cancel Cable Accessories?</source>
+        <note>Cancel Cable Accessories?</note>
+      </trans-unit>
+      <trans-unit id="Cancel Data Collection Template?">
+        <source>Cancel Data Collection Template?</source>
+        <note>Cancel Data Collection Template?</note>
+      </trans-unit>
+      <trans-unit id="Cancel EMS Passive?">
+        <source>Cancel EMS Passive?</source>
+        <note>Cancel EMS Passive?</note>
+      </trans-unit>
+      <trans-unit id="Cancel First Login?">
+        <source>Cancel First Login?</source>
+        <note>Cancel First Login?</note>
+      </trans-unit>
+      <trans-unit id="Cancel RFID Template?">
+        <source>Cancel RFID Template?</source>
+        <note>Cancel RFID Template?</note>
+      </trans-unit>
+      <trans-unit id="Cancel RFID?">
+        <source>Cancel RFID?</source>
+        <note>Cancel RFID Template?
+   Cancel RFID?</note>
+      </trans-unit>
+      <trans-unit id="Cancel Screen">
+        <source>Cancel Screen</source>
+        <note>Cancel Screen</note>
+      </trans-unit>
+      <trans-unit id="Cancel Verify GPS Location?">
+        <source>Cancel Verify GPS Location?</source>
+        <note>Cancel Verify GPS Location?</note>
+      </trans-unit>
+      <trans-unit id="Change Password">
+        <source>Change Password</source>
+        <note>Change Password</note>
+      </trans-unit>
+      <trans-unit id="Change Primary Function">
+        <source>Change Primary Function</source>
+        <note>Change Primary Function</note>
+      </trans-unit>
+      <trans-unit id="Cloud Storage">
+        <source>Cloud Storage</source>
+        <note>Cloud Storage</note>
+      </trans-unit>
+      <trans-unit id="Confirm Password">
+        <source>Confirm Password</source>
+        <note>Confirm Password</note>
+      </trans-unit>
+      <trans-unit id="Confirm new Password">
+        <source>Confirm new Password</source>
+        <note>Confirm new Password</note>
+      </trans-unit>
+      <trans-unit id="Connect">
+        <source>Connect</source>
+        <note>Connect</note>
+      </trans-unit>
+      <trans-unit id="Connected">
+        <source>Connected</source>
+        <note>Connected</note>
+      </trans-unit>
+      <trans-unit id="Connecting">
+        <source>Connecting</source>
+        <note>Connecting</note>
+      </trans-unit>
+      <trans-unit id="Continue">
+        <source>Continue</source>
+        <note>continue</note>
+      </trans-unit>
+      <trans-unit id="Create Data Collection Template">
+        <source>Create Data Collection Template</source>
+        <note>Create Data Collection Template</note>
+      </trans-unit>
+      <trans-unit id="Create RFID Template">
+        <source>Create RFID Template</source>
+        <note>Create RFID Template</note>
+      </trans-unit>
+      <trans-unit id="Data Capture">
+        <source>Data Capture</source>
+        <note>Logout</note>
+      </trans-unit>
+      <trans-unit id="Data Collection">
+        <source>Data Collection</source>
+        <note>Data Collection</note>
+      </trans-unit>
+      <trans-unit id="Data Collection Template">
+        <source>Data Collection Template</source>
+        <note>Data Collection Template
+   GPS Location</note>
+      </trans-unit>
+      <trans-unit id="Data Collection Template Details">
+        <source>Data Collection Template Details</source>
+        <note>Data Collection Template Details</note>
+      </trans-unit>
+      <trans-unit id="Data Lookup">
+        <source>Data Lookup</source>
+        <note>Data Lookup
+   Logout</note>
+      </trans-unit>
+      <trans-unit id="Data Storage">
+        <source>Data Storage</source>
+        <note>Data Storage</note>
+      </trans-unit>
+      <trans-unit id="Data details will be sent to registered email id">
+        <source>Data details will be sent to registered email id</source>
+        <note>Data details will be sent to registered email id</note>
+      </trans-unit>
+      <trans-unit id="Description">
+        <source>Description</source>
+        <note>Description
+   Project Name</note>
+      </trans-unit>
+      <trans-unit id="Detected Devices">
+        <source>Detected Devices</source>
+        <note>Detected Devices</note>
+      </trans-unit>
+      <trans-unit id="Device 0000">
+        <source>Device 0000</source>
+        <note>Device 0000</note>
+      </trans-unit>
+      <trans-unit id="Device 729">
+        <source>Device 729</source>
+        <note>Device 729</note>
+      </trans-unit>
+      <trans-unit id="Device 1234">
+        <source>Device 1234</source>
+        <note>Device 1234</note>
+      </trans-unit>
+      <trans-unit id="Disconnect">
+        <source>Disconnect</source>
+        <note>Disconnect</note>
+      </trans-unit>
+      <trans-unit id="Disconnected">
+        <source>Disconnected</source>
+        <note>Disconnected</note>
+      </trans-unit>
+      <trans-unit id="Do you want to lock">
+        <source>Do you want to lock</source>
+        <note>Do you want to lock</note>
+      </trans-unit>
+      <trans-unit id="Do you want to overwrite">
+        <source>Do you want to overwrite</source>
+        <note>Do you want to overwrite</note>
+      </trans-unit>
+      <trans-unit id="Done">
+        <source>Done</source>
+        <note>Done</note>
+      </trans-unit>
+      <trans-unit id="E-mail address">
+        <source>E-mail address</source>
+        <note>E-mail address</note>
+      </trans-unit>
+      <trans-unit id="EMS Passive / Path / Cable depth">
+        <source>EMS Passive / Path / Cable depth</source>
+        <note>EMS Passive / Path / Cable depth</note>
+      </trans-unit>
+      <trans-unit id="EXPORT DATA">
+        <source>EXPORT DATA</source>
+        <note>EXPORT DATA</note>
+      </trans-unit>
+      <trans-unit id="Edit">
+        <source>Edit</source>
+        <note>Edit</note>
+      </trans-unit>
+      <trans-unit id="Edit RFID Template">
+        <source>Edit RFID Template</source>
+        <note>Edit RFID Template</note>
+      </trans-unit>
+      <trans-unit id="Enter a Valid Email Address">
+        <source>Enter a Valid Email Address</source>
+        <note>Enter a Valid Email Address</note>
+      </trans-unit>
+      <trans-unit id="Enter a valid primary email address">
+        <source>Enter a valid primary email address</source>
+        <note>Enter a valid primary email address</note>
+      </trans-unit>
+      <trans-unit id="Enter the email address you registered with to receive your username.">
+        <source>Enter the email address you registered with to receive your username.</source>
+        <note>email</note>
+      </trans-unit>
+      <trans-unit id="Error in reading marker">
+        <source>Error in reading marker</source>
+        <note>Error in reading marker</note>
+      </trans-unit>
+      <trans-unit id="External GPS Unit">
+        <source>External GPS Unit</source>
+        <note>External GPS Unit</note>
+      </trans-unit>
+      <trans-unit id="External bluetooth scanner">
+        <source>External bluetooth scanner</source>
+        <note>External bluetooth scanner</note>
+      </trans-unit>
+      <trans-unit id="First Login">
+        <source>First Login</source>
+        <note>First Login</note>
+      </trans-unit>
+      <trans-unit id="Forgot Username / Password">
+        <source>Forgot Username / Password</source>
+        <note>forgot
+   Forgot Username / Password</note>
+      </trans-unit>
+      <trans-unit id="GPS Location">
+        <source>GPS Location</source>
+        <note>GPS Location</note>
+      </trans-unit>
+      <trans-unit id="GPS Provider">
+        <source>GPS Provider</source>
+        <note>GPS Provider</note>
+      </trans-unit>
+      <trans-unit id="HIDE">
+        <source>HIDE</source>
+        <note>HIDE</note>
+      </trans-unit>
+      <trans-unit id="Hi %@, Please select a company">
+        <source>Hi %@, Please select a company</source>
+        <note>str</note>
+      </trans-unit>
+      <trans-unit id="I Agree">
+        <source>I Agree</source>
+        <note>agree</note>
+      </trans-unit>
+      <trans-unit id="Image is loading...">
+        <source>Image is loading...</source>
+        <note>Image is loading...</note>
+      </trans-unit>
+      <trans-unit id="Incompatible marker">
+        <source>Incompatible marker</source>
+        <note>Incompatible marker</note>
+      </trans-unit>
+      <trans-unit id="Incomplete Data">
+        <source>Incomplete Data</source>
+        <note>Incomplete Data</note>
+      </trans-unit>
+      <trans-unit id="Installer company added successfully">
+        <source>Installer company added successfully</source>
+        <note>Installer company added successfully</note>
+      </trans-unit>
+      <trans-unit id="Label">
+        <source>Label</source>
+        <note>Label
+   Project Name</note>
+      </trans-unit>
+      <trans-unit id="Language Settings">
+        <source>Language Settings</source>
+        <note>Language Settings</note>
+      </trans-unit>
+      <trans-unit id="Last sync:%@ ago">
+        <source>Last sync:%@ ago</source>
+        <note>Last sync:%@ ago</note>
+      </trans-unit>
+      <trans-unit id="Last sync:0s ago">
+        <source>Last sync:0s ago</source>
+        <note>Last sync:0s ago</note>
+      </trans-unit>
+      <trans-unit id="Limited functionality - Cloud data access is not setup. Click here to contact 3M sales representative">
+        <source>Limited functionality - Cloud data access is not setup. Click here to contact 3M sales representative</source>
+        <note>Limited functionality - Cloud data access is not setup. Click here to contact 3M sales representative</note>
+      </trans-unit>
+      <trans-unit id="Local Storage">
+        <source>Local Storage</source>
+        <note>Local Storage</note>
+      </trans-unit>
+      <trans-unit id="Location Comments">
+        <source>Location Comments</source>
+        <note>GPS Location</note>
+      </trans-unit>
+      <trans-unit id="Locator Pairing">
+        <source>Locator Pairing</source>
+        <note>Locator Pairing</note>
+      </trans-unit>
+      <trans-unit id="Locator Record Capture">
+        <source>Locator Record Capture</source>
+        <note>Locator Record Capture</note>
+      </trans-unit>
+      <trans-unit id="Lock failed">
+        <source>Lock failed</source>
+        <note>Lock failed</note>
+      </trans-unit>
+      <trans-unit id="Log data added successfully">
+        <source>Log data added successfully</source>
+        <note>Log data added successfully</note>
+      </trans-unit>
+      <trans-unit id="Logging in for the first time? Register here">
+        <source>Logging in for the first time? Register here</source>
+        <note>Logging in for the first time? Register here</note>
+      </trans-unit>
+      <trans-unit id="Login">
+        <source>Login</source>
+        <note>Login</note>
+      </trans-unit>
+      <trans-unit id="Logout">
+        <source>Logout</source>
+        <note>Logout</note>
+      </trans-unit>
+      <trans-unit id="Main Menu">
+        <source>Main Menu</source>
+        <note>Main Menu</note>
+      </trans-unit>
+      <trans-unit id="Map">
+        <source>Map</source>
+        <note>Map</note>
+      </trans-unit>
+      <trans-unit id="Marker Data">
+        <source>Marker Data</source>
+        <note>Marker Data</note>
+      </trans-unit>
+      <trans-unit id="More than one marker detected">
+        <source>More than one marker detected</source>
+        <note>More than one marker detected</note>
+      </trans-unit>
+      <trans-unit id="New password">
+        <source>New password</source>
+        <note>New password
+   pasword</note>
+      </trans-unit>
+      <trans-unit id="New password and confirm password doesn't match">
+        <source>New password and confirm password doesn't match</source>
+        <note>New password and confirm password doesn't match</note>
+      </trans-unit>
+      <trans-unit id="Next">
+        <source>Next</source>
+        <note>Next</note>
+      </trans-unit>
+      <trans-unit id="No Barcode is detected">
+        <source>No Barcode is detected</source>
+        <note>No Barcode is detected</note>
+      </trans-unit>
+      <trans-unit id="No Internet Connection">
+        <source>No Internet Connection</source>
+        <note>Make sure your device is connected to the internet.</note>
+      </trans-unit>
+      <trans-unit id="No Network!">
+        <source>No Network!</source>
+        <note>No Network!</note>
+      </trans-unit>
+      <trans-unit id="No devices detected">
+        <source>No devices detected</source>
+        <note>No devices detected</note>
+      </trans-unit>
+      <trans-unit id="No iD Marker Found">
+        <source>No iD Marker Found</source>
+        <note>No iD Marker Found</note>
+      </trans-unit>
+      <trans-unit id="No image available">
+        <source>No image available</source>
+        <note>No image available</note>
+      </trans-unit>
+      <trans-unit id="No location found">
+        <source>No location found</source>
+        <note>No location found</note>
+      </trans-unit>
+      <trans-unit id="No records found">
+        <source>No records found</source>
+        <note>No records found</note>
+      </trans-unit>
+      <trans-unit id="No results found">
+        <source>No results found</source>
+        <note>No results found</note>
+      </trans-unit>
+      <trans-unit id="No values in dropdown">
+        <source>No values in dropdown</source>
+        <note>No values in dropdown</note>
+      </trans-unit>
+      <trans-unit id="OK">
+        <source>OK</source>
+        <note>OK</note>
+      </trans-unit>
+      <trans-unit id="Ok">
+        <source>Ok</source>
+        <note>Ok</note>
+      </trans-unit>
+      <trans-unit id="Old Password">
+        <source>Old Password</source>
+        <note>Old Password</note>
+      </trans-unit>
+      <trans-unit id="Old and new passwords are same. Please enter different new password ">
+        <source>Old and new passwords are same. Please enter different new password </source>
+        <note>Old and new passwords are same. Please enter different new password</note>
+      </trans-unit>
+      <trans-unit id="Password">
+        <source>Password</source>
+        <note>Password</note>
+      </trans-unit>
+      <trans-unit id="Password Changed Successfully">
+        <source>Password Changed Successfully</source>
+        <note>Password Changed Successfully</note>
+      </trans-unit>
+      <trans-unit id="Password reset Successful">
+        <source>Password reset Successful</source>
+        <note>Password reset Successful</note>
+      </trans-unit>
+      <trans-unit id="Please answer for security question 1">
+        <source>Please answer for security question 1</source>
+        <note>Please answer for security question 1</note>
+      </trans-unit>
+      <trans-unit id="Please answer for security question 2">
+        <source>Please answer for security question 2</source>
+        <note>Please answer for security question 2</note>
+      </trans-unit>
+      <trans-unit id="Please answer the security question 1">
+        <source>Please answer the security question 1</source>
+        <note>Please answer the security question 1</note>
+      </trans-unit>
+      <trans-unit id="Please answer the security question 2">
+        <source>Please answer the security question 2</source>
+        <note>Please answer the security question 2</note>
+      </trans-unit>
+      <trans-unit id="Please check your answers">
+        <source>Please check your answers</source>
+        <note>Please check your answers</note>
+      </trans-unit>
+      <trans-unit id="Please check your network availability">
+        <source>Please check your network availability</source>
+        <note>Please check your network availability</note>
+      </trans-unit>
+      <trans-unit id="Please connect bluetooth with any device and try again">
+        <source>Please connect bluetooth with any device and try again</source>
+        <note>Please connect bluetooth with any device and try again</note>
+      </trans-unit>
+      <trans-unit id="Please connect to internet">
+        <source>Please connect to internet</source>
+        <note>Please connect to internet</note>
+      </trans-unit>
+      <trans-unit id="Please enter a 10 digit valid primary contact number">
+        <source>Please enter a 10 digit valid primary contact number</source>
+        <note>Please enter a 10 digit valid primary contact number</note>
+      </trans-unit>
+      <trans-unit id="Please enter a 10 digit valid primary phone number">
+        <source>Please enter a 10 digit valid primary phone number</source>
+        <note>Please enter a 10 digit valid primary phone number</note>
+      </trans-unit>
+      <trans-unit id="Please enter a new template name">
+        <source>Please enter a new template name</source>
+        <note>Please enter a new template name</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid new password. Your new password length should be 8 to 15 characters">
+        <source>Please enter a valid new password. Your new password length should be 8 to 15 characters</source>
+        <note>Please enter a valid new password. Your new password length should be 8 to 15 characters</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid new password. Your new password should contain atleast 1 uppercase and a numeric">
+        <source>Please enter a valid new password. Your new password should contain atleast 1 uppercase and a numeric</source>
+        <note>Please enter a valid new password. Your new password should contain atleast 1 uppercase and a numeric</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid password. Your password length should be 8 to 15 characters">
+        <source>Please enter a valid password. Your password length should be 8 to 15 characters</source>
+        <note>Please enter a valid password. Your password length should be 8 to 15 characters</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid primary email address">
+        <source>Please enter a valid primary email address</source>
+        <note>Please enter a valid primary email address</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid username">
+        <source>Please enter a valid username</source>
+        <note>Please enter a valid username</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid username. Username cannot be blank">
+        <source>Please enter a valid username. Username cannot be blank</source>
+        <note>Please enter a valid username. Username cannot be blank</note>
+      </trans-unit>
+      <trans-unit id="Please enter a valid username. Your username length should be 8 to 15 characters">
+        <source>Please enter a valid username. Your username length should be 8 to 15 characters</source>
+        <note>Please enter a valid username. Your username length should be 8 to 15 characters</note>
+      </trans-unit>
+      <trans-unit id="Please enter company name">
+        <source>Please enter company name</source>
+        <note>Please enter company name</note>
+      </trans-unit>
+      <trans-unit id="Please enter confirm password">
+        <source>Please enter confirm password</source>
+        <note>Please enter confirm password</note>
+      </trans-unit>
+      <trans-unit id="Please enter distributor name">
+        <source>Please enter distributor name</source>
+        <note>Please enter distributor name</note>
+      </trans-unit>
+      <trans-unit id="Please enter email">
+        <source>Please enter email</source>
+        <note>Please enter email</note>
+      </trans-unit>
+      <trans-unit id="Please enter first name">
+        <source>Please enter first name</source>
+        <note>Please enter first name</note>
+      </trans-unit>
+      <trans-unit id="Please enter last name">
+        <source>Please enter last name</source>
+        <note>Please enter last name</note>
+      </trans-unit>
+      <trans-unit id="Please enter new password">
+        <source>Please enter new password</source>
+        <note>Please enter new password</note>
+      </trans-unit>
+      <trans-unit id="Please enter old password">
+        <source>Please enter old password</source>
+        <note>Please enter old password</note>
+      </trans-unit>
+      <trans-unit id="Please enter password">
+        <source>Please enter password</source>
+        <note>Please enter password</note>
+      </trans-unit>
+      <trans-unit id="Please enter primary contact number">
+        <source>Please enter primary contact number</source>
+        <note>Please enter primary contact number</note>
+      </trans-unit>
+      <trans-unit id="Please enter primary email">
+        <source>Please enter primary email</source>
+        <note>Please enter primary email</note>
+      </trans-unit>
+      <trans-unit id="Please enter primary phone number">
+        <source>Please enter primary phone number</source>
+        <note>Please enter primary phone number</note>
+      </trans-unit>
+      <trans-unit id="Please enter project name">
+        <source>Please enter project name</source>
+        <note>Please enter project name</note>
+      </trans-unit>
+      <trans-unit id="Please enter username">
+        <source>Please enter username</source>
+        <note>Please enter username</note>
+      </trans-unit>
+      <trans-unit id="Please select a company">
+        <source>Please select a company</source>
+        <note>Please select a company</note>
+      </trans-unit>
+      <trans-unit id="Please select a utility company">
+        <source>Please select a utility company</source>
+        <note>Please select a utility company</note>
+      </trans-unit>
+      <trans-unit id="Please select anyone from edit template dropdown">
+        <source>Please select anyone from edit template dropdown</source>
+        <note>Please select anyone from edit template dropdown</note>
+      </trans-unit>
+      <trans-unit id="Please select company">
+        <source>Please select company</source>
+        <note>Please select company</note>
+      </trans-unit>
+      <trans-unit id="Please select create or edit template">
+        <source>Please select create or edit template</source>
+        <note>Please select create or edit template</note>
+      </trans-unit>
+      <trans-unit id="Please select installer company name">
+        <source>Please select installer company name</source>
+        <note>Please select installer company name</note>
+      </trans-unit>
+      <trans-unit id="Please select product type">
+        <source>Please select product type</source>
+        <note>Please select product type</note>
+      </trans-unit>
+      <trans-unit id="Please select project">
+        <source>Please select project</source>
+        <note>Please select project</note>
+      </trans-unit>
+      <trans-unit id="Please select security question 1">
+        <source>Please select security question 1</source>
+        <note>Please select security question 1</note>
+      </trans-unit>
+      <trans-unit id="Please select security question 2">
+        <source>Please select security question 2</source>
+        <note>Please select security question 2</note>
+      </trans-unit>
+      <trans-unit id="Please select utility company">
+        <source>Please select utility company</source>
+        <note>Please select utility company</note>
+      </trans-unit>
+      <trans-unit id="Please select utility company type">
+        <source>Please select utility company type</source>
+        <note>Please select utility company type</note>
+      </trans-unit>
+      <trans-unit id="Please try again">
+        <source>Please try again</source>
+        <note>Please try again</note>
+      </trans-unit>
+      <trans-unit id="Primary Functional Area">
+        <source>Primary Functional Area</source>
+        <note>Primary Functional Area</note>
+      </trans-unit>
+      <trans-unit id="Product Description">
+        <source>Product Description</source>
+        <note>Product Description</note>
+      </trans-unit>
+      <trans-unit id="Product Type">
+        <source>Product Type</source>
+        <note>GPS Location
+   Product</note>
+      </trans-unit>
+      <trans-unit id="Program marker records from Locator">
+        <source>Program marker records from Locator</source>
+        <note>Program marker records from Locator</note>
+      </trans-unit>
+      <trans-unit id="Project">
+        <source>Project</source>
+        <note>GPS Location
+   Project</note>
+      </trans-unit>
+      <trans-unit id="Project Description">
+        <source>Project Description</source>
+        <note>GPS Location</note>
+      </trans-unit>
+      <trans-unit id="Project Name">
+        <source>Project Name</source>
+        <note>Project Name</note>
+      </trans-unit>
+      <trans-unit id="Project added successfully">
+        <source>Project added successfully</source>
+        <note>Project added successfully</note>
+      </trans-unit>
+      <trans-unit id="RFID Data Template">
+        <source>RFID Data Template</source>
+        <note>RFID Data Template</note>
+      </trans-unit>
+      <trans-unit id="RFID Marker / EMS Passive Marker">
+        <source>RFID Marker / EMS Passive Marker</source>
+        <note>RFID Marker / EMS Passive Marker</note>
+      </trans-unit>
+      <trans-unit id="RFID Program">
+        <source>RFID Program</source>
+        <note>RFID Program</note>
+      </trans-unit>
+      <trans-unit id="RFID Serial No">
+        <source>RFID Serial No</source>
+        <note>RFID Serial No</note>
+      </trans-unit>
+      <trans-unit id="RFID Serial Number">
+        <source>RFID Serial Number</source>
+        <note>rfid</note>
+      </trans-unit>
+      <trans-unit id="RFID Template">
+        <source>RFID Template</source>
+        <note>RFID Template</note>
+      </trans-unit>
+      <trans-unit id="RFID Template Details">
+        <source>RFID Template Details</source>
+        <note>RFID Template Details</note>
+      </trans-unit>
+      <trans-unit id="Read marker records captured from Locator">
+        <source>Read marker records captured from Locator</source>
+        <note>Read marker records captured from Locator</note>
+      </trans-unit>
+      <trans-unit id="Record Type">
+        <source>Record Type</source>
+        <note>Record Type</note>
+      </trans-unit>
+      <trans-unit id="Remaining Memory: %d%%">
+        <source>Remaining Memory: %d%%</source>
+        <note>Remaining Memory
+   Remaining Memory: %d%%</note>
+      </trans-unit>
+      <trans-unit id="SAVE">
+        <source>SAVE</source>
+        <note>CANCEL
+   save</note>
+      </trans-unit>
+      <trans-unit id="SHOW">
+        <source>SHOW</source>
+        <note>SHOW</note>
+      </trans-unit>
+      <trans-unit id="SUBMIT">
+        <source>SUBMIT</source>
+        <note>SUBMIT
+   validate
+   verify</note>
+      </trans-unit>
+      <trans-unit id="Save">
+        <source>Save</source>
+        <note>Save</note>
+      </trans-unit>
+      <trans-unit id="Save point functions require SQLite 3.7">
+        <source>Save point functions require SQLite 3.7</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Science Applied to Life">
+        <source>Science Applied to Life</source>
+        <note>Science Applied to Life</note>
+      </trans-unit>
+      <trans-unit id="Security Question 1">
+        <source>Security Question 1</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Security Question 2">
+        <source>Security Question 2</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="Select Application Language">
+        <source>Select Application Language</source>
+        <note>Select Application Language</note>
+      </trans-unit>
+      <trans-unit id="Select Company">
+        <source>Select Company</source>
+        <note>Select Company</note>
+      </trans-unit>
+      <trans-unit id="Select Description">
+        <source>Select Description</source>
+        <note>Select Description</note>
+      </trans-unit>
+      <trans-unit id="Select Installer Company">
+        <source>Select Installer Company</source>
+        <note>Select Installer Company</note>
+      </trans-unit>
+      <trans-unit id="Select Label">
+        <source>Select Label</source>
+        <note>Select Label</note>
+      </trans-unit>
+      <trans-unit id="Select Product Type">
+        <source>Select Product Type</source>
+        <note>Select Product Type</note>
+      </trans-unit>
+      <trans-unit id="Select Project">
+        <source>Select Project</source>
+        <note>Select Project</note>
+      </trans-unit>
+      <trans-unit id="Select RFID Template">
+        <source>Select RFID Template</source>
+        <note>Select RFID Template</note>
+      </trans-unit>
+      <trans-unit id="Select Template">
+        <source>Select Template</source>
+        <note>Select Template</note>
+      </trans-unit>
+      <trans-unit id="Select Template Glossary">
+        <source>Select Template Glossary</source>
+        <note>Select Template Glossary</note>
+      </trans-unit>
+      <trans-unit id="Select Utility Company">
+        <source>Select Utility Company</source>
+        <note>Select Utility Company</note>
+      </trans-unit>
+      <trans-unit id="Select Utility Type">
+        <source>Select Utility Type</source>
+        <note>Please select utility type
+   Select Utility Type</note>
+      </trans-unit>
+      <trans-unit id="Settings">
+        <source>Settings</source>
+        <note>Logout
+   Settings</note>
+      </trans-unit>
+      <trans-unit id="Smartphone scanner">
+        <source>Smartphone scanner</source>
+        <note>Smartphone scanner</note>
+      </trans-unit>
+      <trans-unit id="Something went wrong">
+        <source>Something went wrong</source>
+        <note>Something went wrong</note>
+      </trans-unit>
+      <trans-unit id="Success">
+        <source>Success</source>
+        <note>Success</note>
+      </trans-unit>
+      <trans-unit id="Sync: %@">
+        <source>Sync: %@</source>
+        <note>Sync: %@</note>
+      </trans-unit>
+      <trans-unit id="Syncing data and it may take 2-3 minutes. Please wait…">
+        <source>Syncing data and it may take 2-3 minutes. Please wait…</source>
+        <note>Syncing data and it may take 2-3 minutes. Please wait…</note>
+      </trans-unit>
+      <trans-unit id="Tap to view image">
+        <source>Tap to view image</source>
+        <note>Tap to view image</note>
+      </trans-unit>
+      <trans-unit id="Template Configuration">
+        <source>Template Configuration</source>
+        <note>Template Configuration</note>
+      </trans-unit>
+      <trans-unit id="Template added successfully">
+        <source>Template added successfully</source>
+        <note>Template added successfully</note>
+      </trans-unit>
+      <trans-unit id="Template glossary">
+        <source>Template glossary</source>
+        <note>Template glossary</note>
+      </trans-unit>
+      <trans-unit id="Template updated successfully">
+        <source>Template updated successfully</source>
+        <note>Template updated successfully</note>
+      </trans-unit>
+      <trans-unit id="Terms and Conditions">
+        <source>Terms and Conditions</source>
+        <note>terms</note>
+      </trans-unit>
+      <trans-unit id="UPC Code">
+        <source>UPC Code</source>
+        <note>GPS Location
+   UPC Code</note>
+      </trans-unit>
+      <trans-unit id="User Data Locked">
+        <source>User Data Locked</source>
+        <note>User Data Locked</note>
+      </trans-unit>
+      <trans-unit id="User data is locked on the marker. Cannot program this marker. Please place another marker to program and try again">
+        <source>User data is locked on the marker. Cannot program this marker. Please place another marker to program and try again</source>
+        <note>User data is locked on the marker. Cannot program this marker. Please place another marker to program and try again</note>
+      </trans-unit>
+      <trans-unit id="User data registered successfully">
+        <source>User data registered successfully</source>
+        <note>User data registered successfully</note>
+      </trans-unit>
+      <trans-unit id="Username">
+        <source>Username</source>
+        <note>Username</note>
+      </trans-unit>
+      <trans-unit id="Username already exists">
+        <source>Username already exists</source>
+        <note>Username already exists</note>
+      </trans-unit>
+      <trans-unit id="Username or password is incorrect">
+        <source>Username or password is incorrect</source>
+        <note>Username or password is incorrect</note>
+      </trans-unit>
+      <trans-unit id="Utility Type">
+        <source>Utility Type</source>
+        <note>GPS Location
+   utilityLbl</note>
+      </trans-unit>
+      <trans-unit id="Utility company added successfully">
+        <source>Utility company added successfully</source>
+        <note>Utility company added successfully</note>
+      </trans-unit>
+      <trans-unit id="VALIDATE">
+        <source>VALIDATE</source>
+        <note>validate</note>
+      </trans-unit>
+      <trans-unit id="VERIFY">
+        <source>VERIFY</source>
+        <note>verify</note>
+      </trans-unit>
+      <trans-unit id="Verification failed">
+        <source>Verification failed</source>
+        <note>Verification failed</note>
+      </trans-unit>
+      <trans-unit id="Welcome">
+        <source>Welcome</source>
+        <note>No comment provided by engineer.</note>
+      </trans-unit>
+      <trans-unit id="You don't have privilege to create new project">
+        <source>You don't have privilege to create new project</source>
+        <note>You don't have privilege to create new project</note>
+      </trans-unit>
+      <trans-unit id="You don't have privilege to create new template">
+        <source>You don't have privilege to create new template</source>
+        <note>You don't have privilege to create new template</note>
+      </trans-unit>
+      <trans-unit id="You don't have sufficient privilege for cloud storage">
+        <source>You don't have sufficient privilege for cloud storage</source>
+        <note>You don't have sufficient privilege for cloud storage</note>
+      </trans-unit>
+      <trans-unit id="You don't have sufficient privilege for data lookup">
+        <source>You don't have sufficient privilege for data lookup</source>
+        <note>You don't have sufficient privilege for data lookup</note>
+      </trans-unit>
+      <trans-unit id="Your data exported successfully">
+        <source>Your data exported successfully</source>
+        <note>Your data exported successfully</note>
+      </trans-unit>
+      <trans-unit id="latitude">
+        <source>latitude</source>
+        <note>latitude</note>
+      </trans-unit>
+      <trans-unit id="lease enter a 10 digit valid primary phone number">
+        <source>lease enter a 10 digit valid primary phone number</source>
+        <note>Please enter a 10 digit valid primary phone number</note>
+      </trans-unit>
+      <trans-unit id="longtitude">
+        <source>longtitude</source>
+        <note>longtitude</note>
+      </trans-unit>
+      <trans-unit id="updatedBy">
+        <source>updatedBy</source>
+        <note>updatedBy</note>
+      </trans-unit>
+      <trans-unit id="updatedDate">
+        <source>updatedDate</source>
+        <note>updatedDate</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,342 @@
+/* Class = "UILabel"; text = "Already Registered? Log in below"; ObjectID = "3DS-QH-iKW"; */
+"3DS-QH-iKW.text" = "Already Registered? Log in below";
+
+/* (No Comment) */
+"3LA-l8-98Y.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Data Collection Template"; ObjectID = "3qj-ed-ehQ"; */
+"3qj-ed-ehQ.title" = "Data Collection Template";
+
+/* Class = "UINavigationItem"; title = "Craeate Data Collection Template"; ObjectID = "3v0-NW-rw2"; */
+"3v0-NW-rw2.title" = "Craeate Data Collection Template";
+
+/* (No Comment) */
+"4Iq-ta-Yk6.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"4Iq-ta-Yk6.normalTitle" = "SUBMIT";
+
+/* (No Comment) */
+"4k1-JV-rQw.title" = "Data Capture - Cable Accessories";
+
+/* (No Comment) */
+"4tL-UD-pbn.title" = "Forgot Username / Password";
+
+/* Class = "UITextField"; placeholder = "Select Company"; ObjectID = "5m7-KS-Wog"; */
+"5m7-KS-Wog.placeholder" = "Select Company";
+
+/* (No Comment) */
+"7Q6-3S-rNU.normalTitle" = "CANCEL";
+
+/* (No Comment) */
+"7ww-Wu-2Xs.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"7ww-Wu-2Xs.normalTitle" = "NEXT";
+
+/* Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "9bA-qX-tNC"; */
+"9bA-qX-tNC.normalTitle" = "SHOW";
+
+/* (No Comment) */
+"9m9-IQ-dl5.normalTitle" = "SHOW";
+
+/* (No Comment) */
+"32a-hK-tPo.normalTitle" = "NO";
+
+/* Class = "UILabel"; text = "RFID Template"; ObjectID = "AUz-WR-aHK"; */
+"AUz-WR-aHK.text" = "RFID Template";
+
+/* (No Comment) */
+"Aon-rc-yTX.normalTitle" = "SHOW";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "Bxh-aD-DNV"; */
+"Bxh-aD-DNV.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "Bxh-aD-DNV"; */
+"Bxh-aD-DNV.normalTitle" = "CANCEL";
+
+/* Class = "UILabel"; text = "Template Name"; ObjectID = "CQ1-Gy-ZNh"; */
+"CQ1-Gy-ZNh.text" = "Template Name";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "Cxm-8s-9aK"; */
+"Cxm-8s-9aK.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "EXPORT DATA"; ObjectID = "Cxm-8s-9aK"; */
+"Cxm-8s-9aK.normalTitle" = "EXPORT DATA";
+
+/* (No Comment) */
+"DRh-IW-gVJ.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"DRh-IW-gVJ.normalTitle" = "SUBMIT";
+
+/* (No Comment) */
+"FUQ-BF-3zb.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Locator Record Capture"; ObjectID = "GL8-eb-pNR"; */
+"GL8-eb-pNR.title" = "Locator Record Capture";
+
+/* (No Comment) */
+"GUJ-Zo-gXf.normalTitle" = "YES";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "HHH-hZ-sGg"; */
+"HHH-hZ-sGg.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "HHH-hZ-sGg"; */
+"HHH-hZ-sGg.normalTitle" = "Login";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Hk6-oS-uEk"; */
+"Hk6-oS-uEk.title" = " ";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "ICf-Av-ZPH"; */
+"ICf-Av-ZPH.title" = "Edit";
+
+/* (No Comment) */
+"IYf-0C-oq6.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"IYf-0C-oq6.normalTitle" = "LOGIN";
+
+/* Class = "UINavigationItem"; title = "Change Password"; ObjectID = "K98-RQ-r1d"; */
+"K98-RQ-r1d.title" = "Change Password";
+
+/* (No Comment) */
+"KOg-cf-Ugc.normalTitle" = "ADD";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "KXV-d3-Vdb"; */
+"KXV-d3-Vdb.title" = " ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "Kko-J2-kl3"; */
+"Kko-J2-kl3.title" = " ";
+
+/* (No Comment) */
+"Ku5-ug-43C.normalTitle" = "Cable Accessories                                             ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "O60-jP-P4C"; */
+"O60-jP-P4C.title" = " ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "P49-dE-mqT"; */
+"P49-dE-mqT.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Barcode Scanner"; ObjectID = "PZD-gW-zs8"; */
+"PZD-gW-zs8.title" = "Escáner de código de barras";
+
+/* Class = "UIButton"; normalTitle = "Forgot Username / Password?"; ObjectID = "PmA-Hk-lZY"; */
+"PmA-Hk-lZY.normalTitle" = "¿Olvidó el nombre de usuario / contraseña?";
+
+/* Class = "UIButton"; normalTitle = "VERIFY"; ObjectID = "PxL-Qq-12g"; */
+"PxL-Qq-12g.normalTitle" = "VERIFY";
+
+/* (No Comment) */
+"Qdp-kG-yvu.normalTitle" = "RFID Marker / EMS Passive Marker               ";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Qra-sh-WrR"; */
+"Qra-sh-WrR.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Settings"; ObjectID = "RQB-Lq-ghE"; */
+"RQB-Lq-ghE.title" = "Settings";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Rtk-jK-zlP"; */
+"Rtk-jK-zlP.text" = "Label";
+
+/* (No Comment) */
+"S4n-cP-q87.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"S4n-cP-q87.normalTitle" = "NEXT";
+
+/* (No Comment) */
+"SsP-kn-XGA.normalTitle" = "Both                                                                      ";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "T2O-CC-1Vs"; */
+"T2O-CC-1Vs.text" = "Description";
+
+/* (No Comment) */
+"TnS-mo-qh1.normalTitle" = "NO";
+
+/* Class = "UILabel"; text = "New Template Name"; ObjectID = "Udr-Nc-vK4"; */
+"Udr-Nc-vK4.text" = "New Template Name";
+
+/* Class = "UINavigationItem"; title = "Data Capture - EMS Passive"; ObjectID = "VzD-51-l0t"; */
+"VzD-51-l0t.title" = "Data Capture - EMS Passive";
+
+/* Class = "UINavigationItem"; title = "Data Lookup Details"; ObjectID = "WBW-d7-GXS"; */
+"WBW-d7-GXS.title" = "Data Lookup Details";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "Wyf-5y-1qV"; */
+"Wyf-5y-1qV.text" = "Description";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "XlN-RS-jLH"; */
+"XlN-RS-jLH.title" = " ";
+
+/* (No Comment) */
+"Xym-cj-62W.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"Xym-cj-62W.normalTitle" = "SUBMIT";
+
+/* (No Comment) */
+"Ymk-SP-hmD.normalTitle" = "SHOW";
+
+/* Class = "UINavigationItem"; title = "Data Capture - RFID"; ObjectID = "Z0K-TS-NVi"; */
+"Z0K-TS-NVi.title" = "Data Capture - RFID";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "ZwN-Wb-FcJ"; */
+"ZwN-Wb-FcJ.title" = " ";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "bKK-HZ-Fpc"; */
+"bKK-HZ-Fpc.title" = " ";
+
+/* Class = "UISegmentedControl"; bc6-Ta-Y5I.segmentTitles[0] = "No"; ObjectID = "bc6-Ta-Y5I"; */
+"bc6-Ta-Y5I.segmentTitles[0]" = "No";
+
+/* Class = "UISegmentedControl"; bc6-Ta-Y5I.segmentTitles[1] = "Yes"; ObjectID = "bc6-Ta-Y5I"; */
+"bc6-Ta-Y5I.segmentTitles[1]" = "Yes";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "bwD-yw-9aD"; */
+"bwD-yw-9aD.title" = " ";
+
+/* (No Comment) */
+"cFO-8z-HuG.segmentTitles[0]" = "Password";
+
+/* (No Comment) */
+"cFO-8z-HuG.segmentTitles[1]" = "Username";
+
+/* Class = "UISegmentedControl"; cNl-yr-uGR.segmentTitles[0] = "No"; ObjectID = "cNl-yr-uGR"; */
+"cNl-yr-uGR.segmentTitles[0]" = "No";
+
+/* Class = "UISegmentedControl"; cNl-yr-uGR.segmentTitles[1] = "Yes"; ObjectID = "cNl-yr-uGR"; */
+"cNl-yr-uGR.segmentTitles[1]" = "Yes";
+
+/* (No Comment) */
+"cV5-fH-TCa.normalTitle" = "SHOW";
+
+/* (No Comment) */
+"d21-tt-Xrn.title" = "Main Menu";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "eEk-6m-btp"; */
+"eEk-6m-btp.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "VERIFY"; ObjectID = "eHF-xR-bTs"; */
+"eHF-xR-bTs.normalTitle" = "VERIFY";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "eVh-x9-HjJ"; */
+"eVh-x9-HjJ.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Continue"; ObjectID = "eVh-x9-HjJ"; */
+"eVh-x9-HjJ.normalTitle" = "Continue";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "f4a-3h-4pk"; */
+"f4a-3h-4pk.normalTitle" = "CANCEL";
+
+/* (No Comment) */
+"f49-pB-EBr.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"f49-pB-EBr.normalTitle" = "VALIDATE";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "fas-d1-iVK"; */
+"fas-d1-iVK.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "fas-d1-iVK"; */
+"fas-d1-iVK.normalTitle" = "SUBMIT";
+
+/* Class = "UINavigationItem"; title = "Template Configuration"; ObjectID = "h9p-1k-v3e"; */
+"h9p-1k-v3e.title" = "Template Configuration";
+
+/* Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "hA2-7a-20s"; */
+"hA2-7a-20s.normalTitle" = "SHOW";
+
+/* Class = "UINavigationItem"; title = "Craeate RFID Template"; ObjectID = "hS3-cf-cEB"; */
+"hS3-cf-cEB.title" = "Craeate RFID Template";
+
+/* (No Comment) */
+"jY1-oW-fZY.normalTitle" = "YES";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "jl0-HZ-rEw"; */
+"jl0-HZ-rEw.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "SUBMIT"; ObjectID = "jl0-HZ-rEw"; */
+"jl0-HZ-rEw.normalTitle" = "SUBMIT";
+
+/* Class = "UIButton"; normalTitle = "ADD"; ObjectID = "jwM-NY-fa4"; */
+"jwM-NY-fa4.normalTitle" = "ADD";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "k8Z-W3-JTF"; */
+"k8Z-W3-JTF.text" = "Label";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "lOH-cR-Sg7"; */
+"lOH-cR-Sg7.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "lOH-cR-Sg7"; */
+"lOH-cR-Sg7.normalTitle" = "SAVE";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "n6X-nc-RIe"; */
+"n6X-nc-RIe.text" = "Description";
+
+/* Class = "UIButton"; normalTitle = "SHOW"; ObjectID = "nFi-2G-BhI"; */
+"nFi-2G-BhI.normalTitle" = "SHOW";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "nk6-gp-q7e"; */
+"nk6-gp-q7e.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "New Template Name"; ObjectID = "o2x-Go-Pbj"; */
+"o2x-Go-Pbj.text" = "New Template Name";
+
+/* (No Comment) */
+"oYM-PR-wvm.title" = "First Login";
+
+/* Class = "UINavigationItem"; title = "RFID Data Template"; ObjectID = "qgZ-f3-KeZ"; */
+"qgZ-f3-KeZ.title" = "RFID Data Template";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "qzJ-SA-LZg"; */
+"qzJ-SA-LZg.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Language Settings"; ObjectID = "r1a-xI-0Zy"; */
+"r1a-xI-0Zy.title" = "Language Settings";
+
+/* Class = "UINavigationItem"; title = "Verify GPS Location"; ObjectID = "rIM-EH-LwS"; */
+"rIM-EH-LwS.title" = "Verify GPS Location";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "rJc-iM-x2G"; */
+"rJc-iM-x2G.placeholder" = "Username";
+
+/* Class = "UIButton"; accessibilityLabel = "Login"; ObjectID = "rsV-Ch-9Y7"; */
+"rsV-Ch-9Y7.accessibilityLabel" = "Login";
+
+/* Class = "UIButton"; normalTitle = "SAVE"; ObjectID = "rsV-Ch-9Y7"; */
+"rsV-Ch-9Y7.normalTitle" = "SAVE";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "shj-BX-rYb"; */
+"shj-BX-rYb.title" = " ";
+
+/* Class = "UIButton"; normalTitle = "Logging in for the first time? Register here"; ObjectID = "tDw-qL-Zcg"; */
+"tDw-qL-Zcg.normalTitle" = "Logging in for the first time? Register here";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "tFJ-QA-OzJ"; */
+"tFJ-QA-OzJ.title" = " ";
+
+/* (No Comment) */
+"uBK-1K-5H2.normalTitle" = "VERIFY";
+
+/* (No Comment) */
+"uM2-U6-n1e.placeholder" = "bob@mmm.com";
+
+/* Class = "UINavigationItem"; title = "Data Lookup"; ObjectID = "wOB-wM-BKw"; */
+"wOB-wM-BKw.title" = "Data Lookup";
+
+/* Class = "UILabel"; text = "GPS Provider"; ObjectID = "x1o-K8-X5Y"; */
+"x1o-K8-X5Y.text" = "GPS Provider";
+
+/* Class = "UIBarButtonItem"; title = " "; ObjectID = "zA7-pa-uyf"; */
+"zA7-pa-uyf.title" = " ";
+
+/* Class = "UINavigationItem"; title = "Data Capture"; ObjectID = "zdu-O5-lR9"; */
+"zdu-O5-lR9.title" = "Data Capture";
+
+/* (No Comment) */
+"zex-2Q-0NW.accessibilityLabel" = "Login";
+
+/* (No Comment) */
+"zex-2Q-0NW.normalTitle" = "NEXT";
+

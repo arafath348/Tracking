@@ -1,0 +1,406 @@
+"Barcode Scanner" = "Barcodelesegerät";
+"Application" = "Anwendung";
+"Template glossary" = "Vorlagenglossar";
+"Select Application Language" = "Wählen Sie die Anwendungssprache";
+"No Barcode or QR code is detected" = "Kein Barcode oder QR Code wird erkannt";
+"Select Template Glossary" = "Vorlagenvorlage auswählen";
+"Change Password" = "Passwort ändern";
+
+"Last sync:0s ago" = "Letzte Synchronisierung: vor 0s";
+"Last sync:%@ ago" = "Letzte Synchronisierung: vor %@";
+"Locator Pairing" = "Locator-Paarung";
+"Template Configuration" = "Vorlagenkonfiguration";
+"GPS Provider" = "GPS-Anbieter";
+"Language Settings" = "Spracheinstellungen";
+"Data Storage" = "Datenspeicher";
+"Add Utility Company" = "Versorgungsunternehmen hinzufügen";
+"Add Installer Company" = "Installationsfirma hinzufügen";
+"Change Primary Function" = "Ändern der primären Funktion";
+"Associate Another Company" = "Assoziieren Sie ein anderes Unternehmen";
+"Change Password" = "Passwort ändern";
+
+"Change Primary Function" = "Ändern der primären Funktion";
+
+"Syncing data and it may take 2-3 minutes. Please wait…" = "Die Synchronisierung der Daten kann 2-3 Minuten dauern. Warten Sie mal…";
+
+"Already Registered? Log in below" = "Bereits registriert? Log in unten";
+
+
+"Data Collection Template" = "Datenerfassungsvorlage";
+
+"Create Data Collection Template" = "Datenerfassungsvorlage erstellen";
+
+"Login" = "Anmeldung";
+
+"SUBMIT" = "EINREICHEN";
+
+"Data Capture - Cable Accessories" = "Datenerfassung - Kabelzubehör";
+
+"Forgot Username / Password" = "Benutzername / Passwort vergessen";
+
+"Select Company" = "Unternehmen auswählen";
+
+"NEXT" = "NÄCHSTER";
+
+"SHOW" = "Show";
+"NO" = "NEIN";
+
+"RFID Template" = "RFID-Vorlage";
+
+
+"Template Name" = "Vorlagenname";
+
+"EXPORT DATA" = "DATEN EXPORTIEREN";
+
+"Location Comments" = "Standortkommentare";
+"Search" = "Suche";
+"Locator Record Capture" = "Locator-Aufzeichnungserfassung";
+
+"YES" ="JA";
+
+"Edit" = "Bearbeiten";
+"Change Password" = "Passwort ändern";
+
+"ADD" = "HINZUFÜGEN";
+
+"Cable Accessories" ="Kabelzubehör";
+
+"PZD-gW-zs8.title" = "Barcodelesegerät";
+
+"Forgot Username / Password?" = "Benutzername / Passwort vergessen?";
+
+"VERIFY" = "ÜBERPRÜFEN";
+"Data Collection" = "Datensammlung";
+"Edit RFID Template" = "RFID-Vorlage bearbeiten";
+"RFID Marker / EMS Passive Marker" = "RFIDMarkierung/EMSPassiverMarker";
+
+"Settings" = "die Einstellungen";
+
+"NEXT" = "NÄCHSTER";
+
+"Both" = "beide";
+
+"Description" = "Beschreibung";
+"New Template Name" = "Neuer Vorlagenname";
+
+"Data Capture - EMS Passive" = "Datenerfassung - EMS Passive";
+
+"Data Lookup Details" = "Daten-Nachschlage-Details";
+
+"Description" = "Beschreibung";
+
+"Data Capture - RFID" = "Datenerfassung - RFID";
+
+
+"No" = "Nein";
+
+"Yes" = "Ja";
+
+"Password" = "Passwort";
+
+"Username" = "Nutzername";
+
+
+"Main Menu" = "Hauptmenü";
+
+"VERIFY" = "ÜBERPRÜFEN";
+
+"Continue" = "Fortsetzen";
+
+"CANCEL" = "STORNIEREN";
+
+"VALIDATE" ="BESTÄTIGEN";
+
+
+"Template Configuration" = "Vorlagenkonfiguration";
+
+"Craeate RFID Template" = "Craigte RFID Vorlage";
+
+"ADD" = "HINZUFÜGEN";
+
+"Label" = "Etikette";
+
+
+"Password" = "Passwort";
+
+"New Template Name" = "Neuer Vorlagenname";
+
+"First Login" = "Erste Anmeldung";
+
+"RFID Data Template" = "RFID-Datenvorlage";
+
+"Verify GPS Location" = "Überprüfen Sie die GPS-Position";
+
+"Username" = "Nutzername";
+
+"Logging in for the first time? Register here" = "Melden Sie sich zum ersten Mal an? Hier registrieren";
+
+"VERIFY" = "ÜBERPRÜFEN";
+
+"bob@mmm.com" = "bob@mmm.com";
+
+"Data Lookup" = "Datenabfrage";
+"GPS Provider" = "GPS-Anbieter";
+
+"Data Capture" = "Datenerfassung";
+"NEXT" = "NÄCHSTER";
+
+
+//Added Text while testing
+
+"I Agree" = "Ich stimme zu";
+"Terms and Conditions" = "Geschäftsbedingungen";
+"Please enter username" = "Bitte geben sie einen Benutzernamen ein";
+"Please enter password" = "Bitte Passwort eingeben";
+"Please check your network availability" = "Bitte überprüfen Sie Ihre Netzwerkverfügbarkeit";
+"Username or password is incorrect" = "Benutzername oder Passwort ist falsch";
+"Please select a company" = "Bitte wählen Sie eine Firma aus";
+"Hi %@, Please select a company" = "Hallo %@, Bitte wählen Sie eine Firma aus";
+
+
+//forgotlogon
+"Password" = "Passwort";
+"Username" = "Nutzername";
+"Security Question 1" = "Sicherheitsfrage 1";
+"Security Question 2" = "Sicherheitsfrage 2";
+"HIDE" = "VERBERGEN";
+"Please answer the security question 1" = "Bitte beantworten Sie die Sicherheitsfrage 1";
+"Please answer the security question 2" = "Bitte beantworten Sie die Sicherheitsfrage 2";
+"Please enter new password" = "Bitte geben Sie ein neues Passwort ein";
+"Please enter a valid new password. Your new password length should be 8 to 15 characters" = "Bitte geben Sie ein gültiges neues Passwort ein. Ihre neue Passwortlänge sollte 8 bis 15 Zeichen betragen.";
+"Please enter a valid new password. Your new password should contain atleast 1 uppercase and a numeric" = "Bitte geben Sie ein gültiges neues Passwort ein. Ihr neues Passwort sollte mindestens 1 Großbuchstaben und ein numerisches Passwort enthalten.";
+
+"Please enter confirm password" = "Bitte geben Sie das Bestätigungspasswort ein";
+"New password and confirm password doesn't match" = "Neues Passwort und Passwort bestätigen stimmt nicht überein";
+"Enter a Valid Email Address" ="Geben sie eine gültige E-Mail-Adresse an";
+"Password reset Successful" = "Passwort zurücksetzen erfolgreich";
+"Please check your answers" = "Bitte überprüfen Sie Ihre Antworten";
+"Please enter a valid username. Username cannot be blank" = "Bitte geben Sie einen gültigen Benutzernamen ein. Benutzername darf nicht leer sein.";
+"VALIDATE" = "BESTÄTIGEN";
+"Enter the email address you registered with to receive your username." = "Geben Sie die E-Mail-Adresse ein, mit der Sie sich registriert haben, um Ihren Nutzernamen zu erhalten.";
+"Confirm new Password" = "Bestätige neues Passwort";
+"E-mail address" = "E-Mail-Addresse";
+"New Password" = "neues Passwort";
+"3M Asset Tracking" = "3M-Bestandsverfolgung";
+"3M Asset Tracking User Guide" = "3M Bestandsverfolgung Benutzerhandbuch";
+//Menu
+
+"Main Menu" = "Hauptmenü";
+"You don't have privilege for data lookup" = "Sie haben keine Berechtigung für die Datensuche";
+"You don't have privilege for cloud storage" = "Sie haben keine Privilegien für Cloud-Speicher";
+
+"Logout" = "Ausloggen";
+"Are you sure you want to logout?" = "Bist du sicher, dass du dich abmelden möchtest?";
+"Settings" = "Die Einstellungen";
+"Data Lookup" = "Datenabfrage";
+
+"Last sync:0s ago" = "Letzte Synchronisierung: vor 0s";
+"Data Capture" = "Datenerfassung";
+"Sync: %@" = "Synchronisierung: %@";
+"Old Password" = "Altes Passwort";
+"Confirm Password" = "Bestätige das Passwort";
+"Save" = "Sparen";
+"SAVE" = "SPAREN";
+"Change Password" = "Passwort ändern";
+"Please enter username" = "Bitte geben sie einen Benutzernamen ein";
+"Please enter old password" = "Bitte altes Passwort eingeben";
+"Please enter new password" = "Bitte geben Sie ein neues Passwort ein";
+"Please enter a valid new password. Your new password length should be 8 to 15 characters" = "Bitte geben Sie ein gültiges neues Passwort ein. Ihre neue Passwortlänge sollte 8 bis 15 Zeichen betragen.";
+"Please enter a valid new password. Your new password should contain atleast 1 uppercase and a numeric" = "Bitte geben Sie ein gültiges neues Passwort ein. Ihr neues Passwort sollte mindestens 1 Großbuchstaben und ein numerisches Passwort enthalten.";
+
+"Please enter confirm password" = "Bitte geben Sie das Bestätigungspasswort ein";
+"New password and confirm password doesn't match" = "Neues Passwort und Passwort bestätigen stimmt nicht überein";
+
+"Old and new passwords are same. Please enter different new password" = "Alte und neue Passwörter sind gleich. Bitte geben Sie ein neues Passwort ein";
+"Password Changed Successfully" = "Das Passwort wurde erfolgreich geändert";
+
+//DataLookup
+"Project Name" = "Projektname";
+"UPC Code" = "UPC Code";
+"Product Description" = "Produktbeschreibung";
+"Record Type" = "Aufnahmetyp";
+"Address" = "Adresse";
+"No results found" = "Keine Ergebnisse gefunden";
+"Your data exported successfully" = "Ihre Daten wurden erfolgreich exportiert";
+"Search details will be sent to your registered email id" = "Die Suchdetails werden an Ihre registrierte E-Mail-ID gesendet";
+
+"Image is loading..." = "Bild wird geladen ...";
+"Are you sure you want to cancel data collection template?" = "Sind Sie sicher, dass Sie die Datenerfassungsvorlage abbrechen möchten?";
+
+"No image available" = "Kein Bild verfügbar";
+"Tap to view image" = "Tippen Sie auf, um das Bild anzuzeigen";
+
+"EXPORT DATA" = "DATEN EXPORTIEREN";
+"Marker Data" = "Markierungsdaten ";
+"Map" = "Karte";
+"RFID Template Details" = "RFID-Schablonendetails";
+"Data Collection Template Details" = "Datenerfassungsvorlagen-Details";
+"Are you sure you want to cancel this first login?" = "Möchten Sie diese erste Anmeldung wirklich abbrechen?";
+
+//Data Collection
+"Select Label" = "Etikett auswählen";
+"Select Description" = "Wählen Sie Beschreibung";
+"Create Data Collection Template" = "Datenerfassungsvorlage erstellen";
+"Cancel Data Collection Template?" = "Datenerfassungsvorlage abbrechen?";
+"Are you sure you want to cancel this Data Collection Template?" = "Sind Sie sicher, dass Sie diese Datenerfassungsvorlage abbrechen möchten?";
+"Ok" = "Ok";
+"OK" = "Ok";
+"Cancel" = "Stornieren";
+"Template added successfully" = "Vorlage erfolgreich hinzugefügt";
+"Edit" = "Bearbeiten";
+"Done" = "Erledigt";
+"No Barcode is detected" = "Kein Barcode wird erkannt";
+"Label" = "auswählen";
+"Description" = "Beschreibung";
+"Please select create or edit template" = "Bitte wählen Sie Vorlage erstellen oder bearbeiten";
+"Please enter a new template name" = "Bitte geben Sie einen neuen Vorlagennamen ein";
+"Please select anyone from edit template dropdown" = "Bitte wählen Sie jemanden aus dem Dropdown-Menü für die Bearbeitungsvorlage aus";
+"Select Template" = "Vorlage auswählen";
+"Create RFID Template" = "RFID-Vorlage erstellen";
+"Create Data Collection Template" = "Datenerfassungsvorlage erstellen";
+"Cancel RFID Template?" = "RFID-Vorlage stornieren?";
+"Are you sure you want to cancel this RFID template?" = "Sind Sie sicher, dass Sie diese RFID-Vorlage stornieren möchten?";
+"Remaining Memory: %d%%" = "Verbleibender Speicher:% d %%";
+"No Network!" = "Kein Netzwerk!";
+"Please connect to internet" = "Bitte verbinden Sie mit dem Internet";
+"No Internet Connection" = "Keine Internetverbindung";
+"Cancel Verify GPS Location?" = "Bestätigen Sie die GPS-Position?";
+"Are you sure you want to cancel this verify gps location screen?" = "Sind Sie sicher, dass Sie diesen Bestätigungs-GPS-Standortbildschirm abbrechen möchten?";
+
+//Locator
+"Cancel Screen" = "Bildschirm abbrechen";
+"Are you sure you want to cancel this screen?" = "Sind Sie sicher, dass Sie diesen Bildschirm abbrechen möchten?";
+
+"Read marker records captured from Locator" = "Lese Marker-Datensätze aus Locator";
+"Program marker records from Locator" = "Programmmarkierungsdatensätze von Locator";
+"Cable depth records from Locator" = "Kabeltiefendatensätze von Locator";
+"Log data added successfully" = "Protokolldaten wurden erfolgreich hinzugefügt";
+"Limited functionality - Data stored locally. Cloud data access is not setup. Click here to contact 3M sales representative" = "Eingeschränkte Funktionalität - Daten werden lokal gespeichert. Cloud-Datenzugriff ist nicht eingerichtet. Klicken Sie hier, um den 3M Außendienstmitarbeiter zu kontaktieren";
+"Detected Devices" = "Erkannte Geräte";
+"No devices detected" = "Keine Geräte erkannt";
+"Locator Record Capture" = "Lokalisierungsaufzeichnung";
+"Disconnect" = "Trennen";
+"Connected" = "In Verbindung gebracht";
+"Connecting" = "Verbinden";
+"Connect" = "Verbinden";
+"Disconnected" = "Getrennt";
+"Bluetooth not connected" = "Bluetooth nicht verbunden";
+"Please connect bluetooth with any device and try again" = "Bitte verbinden Sie Bluetooth mit jedem Gerät und versuchen Sie es erneut";
+"Verification failed" = "Verifizierung fehlgeschlagen";
+"Please try again" = "Bitte versuche es erneut";
+"Lock failed" = "Sperre fehlgeschlagen";
+"More than one marker detected" = "Mehr als eine Markierung erkannt";
+"CRC Failure" = "CRC-Fehler";
+"Incomplete Data" = "Unvollständige Daten";
+"No iD Marker Found" = "Kein iD Marker gefunden";
+"Error in reading marker" = "Fehler beim Lesen des Markers";
+"User Data Locked" = "Benutzerdaten gesperrt";
+"User data is locked on the marker. Cannot program this marker. Please place another marker to program and try again" = "Benutzerdaten sind auf dem Marker gesperrt. Dieser Marker kann nicht programmiert werden. Bitte setzen Sie einen anderen Marker auf das Programm und versuchen Sie es erneut.";
+"Something went wrong" = "Etwas ist schief gelaufen";
+//DAta Capture
+//RFID
+"RFID Program" = "RFID-Programm";
+"EMS Passive / Path / Cable depth" = "EMS Passive / Pfad / Kabeltiefe";
+"Locator Record Capture" = "Lokalisierungsaufzeichnung";
+"Cable Accessories" = "Kabelzubehör";
+"Cancel RFID?" = "Abbrechen RFID?";
+"Are you sure you want to cancel this RFID screen?" = "Sind Sie sicher, dass Sie diesen RFID-Bildschirm abbrechen möchten?";
+"Select Project" = "Projekt auswählen";
+"Please select project" = "Bitte Projekt auswählen";
+"Select Product Type" = "Wählen Sie den Produkttyp";
+"Please select product type" = "Bitte wählen Sie den Produkttyp";
+"Select Utility Type" = "Wählen Sie den Diensttyp aus";
+"Please select utility type" = "Bitte wählen Sie den Dienstprogrammtyp";
+"Select RFID Template" = "RFID-Vorlage auswählen";
+"You don't have privilege to create new project" = "Sie haben kein Privileg, ein neues Projekt zu erstellen";
+"Please enter project name" = "Bitte geben Sie den Projektnamen ein";
+"Project added successfully" = "Projekt erfolgreich hinzugefügt";
+
+"Cancel EMS Passive?" = "EMS Passiv abbrechen?";
+"Are you sure you want to cancel this EMS passive screen?" = "Sind Sie sicher, dass Sie diesen EMS-Passivbildschirm abbrechen möchten?";
+"Cancel Cable Accessories?" = "Kabelzubehör löschen?";
+"Are you sure you want to cancel this cable accessories screen?" = "Sind Sie sicher, dass Sie diesen Kabelzubehörbildschirm abbrechen möchten?";
+
+
+"GPS Location" = "GPS-Standort";
+"RFID Serial Number" ="RFID Seriennummer";
+"Product Type" = "Den Produkttyp";
+"Project" = "Projekt";
+"Utility Type" = "Diensttyp";
+
+"Do you want to lock" = "Willst du sperren?";
+"Do you want to overwrite" = "Möchtest du überschreiben";
+
+//First Login
+"Please enter a 10 digit valid primary phone number" = "Bitte geben Sie eine 10-stellige gültige primäre Telefonnummer ein";
+"Please enter a 10 digit valid primary contact number" = "Bitte geben Sie eine 10-stellige gültige primäre Kontaktnummer ein";
+"Please enter a 10 digit valid primary contact number" = "Bitte geben Sie eine 10-stellige gültige primäre Kontaktnummer ein";
+"Please enter username" = "Bitte geben sie einen Benutzernamen ein";
+"Please enter a valid username. Your username length should be 8 to 15 characters" = "Bitte geben Sie einen gültigen Benutzernamen ein. Ihre Nutzername sollte 8 bis 15 Zeichen lang sein.";
+"Please enter first name" = "Bitte geben Sie den Vornamen ein";
+"Please enter last name" = "Bitte geben Sie den Nachnamen ein";
+"Please enter password" = "Bitte Passwort eingeben";
+"Please enter a valid password. Your password length should be 8 to 15 characters" = "Bitte geben Sie ein gültiges Passwort ein. Ihre Passwortlänge sollte 8 bis 15 Zeichen betragen.";
+"Please enter a valid new password. Your new password should contain atleast 1 uppercase and a numeric" = "Bitte geben Sie ein gültiges neues Passwort ein. Ihr neues Passwort sollte mindestens 1 Großbuchstaben und ein numerisches Passwort enthalten.";
+"Please enter confirm password" = "Bitte geben Sie das Bestätigungspasswort ein";
+
+"New password and confirm password doesn't match" = "Neues Passwort und Passwort bestätigen stimmt nicht überein";
+"Please enter primary phone number" = "Bitte geben Sie die primäre Telefonnummer ein";
+"Please enter a 10 digit valid primary phone number" = "Lease geben Sie eine 10-stellige gültige primäre Telefonnummer ein";
+"Please enter primary email" = "Bitte primäre E-Mail-Adresse eingeben";
+"Please enter a valid primary email address" = "Bitte geben Sie eine gültige primäre E-Mail-Adresse ein";
+"Please select company" = "Bitte Firma auswählen";
+"Please select installer company name" = "Bitte wählen Sie den Namen des Installationsunternehmens";
+"Please enter distributor name" = "Bitte geben Sie den Namen des Händlers ein";
+"Please select security question 1" = "Bitte wählen Sie Sicherheitsfrage 1";
+"Please answer for security question 1" = "Bitte antworten Sie auf Sicherheitsfrage 1";
+"Please select security question 2" = "Bitte wählen Sie Sicherheitsfrage 2";
+
+"Please answer for security question 2" = "Bitte antworten Sie auf Sicherheitsfrage 2";
+"Cancel First Login?" = "Erste Anmeldung abbrechen?";
+"Username already exists" = "Benutzername existiert bereits";
+"User data registered successfully" = "Benutzerdaten erfolgreich registriert";
+"No values in dropdown" = "Keine Werte im Dropdown";
+"Please select a utility company" = "Bitte wählen Sie ein Versorgungsunternehmen";
+
+"Select Installer Company" = "Wählen Sie die Installationsfirma";
+
+"First Name" = "Vorname";
+"Last Name" = "Familienname, Nachname";
+"Primary Phone Number" = "Erste Telefonnummer";
+"Primary Email" = "Erste Email";
+"Utility Company" = "Versorgungsunternehmen";
+"Do you work for an installer company" = "Arbeiten Sie für eine Installateurfirma?";
+"Installer Company" = "Installateurunternehmen";
+"Primary Job Description" = "Primäre Tätigkeitsbeschreibung";
+"Primary Function Area" = "Primärer Funktionsbereich";
+"Are you a distributor?" = "Bist du ein Händler?";
+"Security Question 1" = "Sicherheitsfrage 1";
+
+"Security Question 2" = "Sicherheitsfrage 2";
+"Company Name" = "Name der Firma";
+"Utility Company Type" = "Versorgungsunternehmenstyp";
+
+"Create a new Template" = "Erstellen Sie eine neue Vorlage";
+"Edit template" = "Vorlage bearbeiten";
+
+"Cloud Storage" = "Cloud-Speicher";
+"Local Storage" = "Lokaler Speicher";
+"Primary Functional Area" = "Primärer Funktionsbereich";
+"Version:" = "Ausführung:";
+"What products do you normally buy from 3M?" = "Welche Produkte kaufen Sie normalerweise bei 3M?";
+
+"Locator Record Capture" = "Locator-Aufzeichnungserfassung";
+
+"Location Services Disabled" = "Standortdienste deaktiviert";
+"Please enable location services and try again" = "Bitte verbinden Sie Bluetooth mit jedem Gerät und versuchen Sie es erneut";
+
+
+"Data stored locally" = "Daten werden lokal gespeichert";
+"No internet connection. So your data stored locally" = "Keine Internetverbindung. Also Ihre Daten lokal gespeichert";
+
+"No internet data connection. Settings cannot be changed now. Data can still be captured" = "Keine Internetdatenverbindung. Einstellungen können jetzt nicht geändert werden. Daten können noch erfasst werden";
+"Please add atleast 1 label" = "Bitte fügen Sie mindestens 1 Etikett hinzu";
+"Edit Data Collection Template" = "Datensammlungsvorlage bearbeiten";
+"Template language mismatch" = "Vorlagensprache stimmt nicht überein";
+"No response from locator" = "Keine Antwort vom Locator";
