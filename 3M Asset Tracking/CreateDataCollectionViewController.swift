@@ -43,6 +43,7 @@ class CreateDataCollectionViewController: UIViewController,UITableViewDelegate, 
     @IBOutlet weak var templateNameLabel: UILabel?
     var barcodeScanner:BarcodeScannerViewController?
     let database = DatabaseHandler()
+    var navBarHeight: CGFloat = 0
 
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,6 +70,7 @@ class CreateDataCollectionViewController: UIViewController,UITableViewDelegate, 
 
         // Do any additional setup after loading the view.
         
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
 
         
         let label: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 50))
@@ -118,8 +120,7 @@ class CreateDataCollectionViewController: UIViewController,UITableViewDelegate, 
     
     
     override func viewDidAppear(_ animated: Bool) {
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
+        TealiumHelper.sharedInstance().trackView(title: "RFID Template", data: [:])
     }
   
     
@@ -831,17 +832,7 @@ class CreateDataCollectionViewController: UIViewController,UITableViewDelegate, 
                         
                         let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                         let status =  jsonData?["status"] as! String
-                        
-                        print(status)
-                        
-                        
-                        print(jsonData)
-                        
-                        
-                        
-                        
-                        
-                        
+             
                         
                         DispatchQueue.main.async {
                             hideActivityIndicator()

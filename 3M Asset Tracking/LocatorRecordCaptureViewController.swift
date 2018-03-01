@@ -8,23 +8,32 @@
 
 import UIKit
 
-class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDelegate, UITableViewDelegate, UITableViewDataSource,UITextViewDelegate
+class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDelegate, SearchBarDelegate
 {
     
-    @IBOutlet weak var cancelOutBtn: UIButton!
-    @IBOutlet weak var cancelBtn: UIButton!
-    @IBOutlet weak var saveBtn: UIButton!
     var locationManager = CLLocationManager()
-    weak var delegate: LocationDelegate?
     let timestampFormatter = DateFormatter()
     var timer = Timer()
     var session:AirconsoleSession?
     var responseArray = [UInt8]()
     var labelArray: NSMutableArray = []
     var descriptionArray: NSMutableArray = []
-    @IBOutlet var logPointDescTextView:UITextView!
-    @IBOutlet var table:UITableView!
-    @IBOutlet var sendingLocationView:UIView!
+    @IBOutlet var projectLabel: UILabel!
+    @IBOutlet var projectTextField: UITextField!
+    @IBOutlet weak var projLbl: UILabel!
+    @IBOutlet weak var projectView: UIView?
+    @IBOutlet weak var projectInnerView: UIView?
+    @IBOutlet weak var subInnerBtn: UIButton!
+    @IBOutlet weak var canInnerBtn: UIButton!
+    @IBOutlet weak var projInnerView: UILabel!
+    @IBOutlet weak var startLocationBtn: UIButton!
+    @IBOutlet weak var cancelBtn: UIButton!
+    @IBOutlet weak var arrowButton: UIButton!
+    @IBOutlet weak var sendGpsLabel: UILabel!
+    @IBOutlet weak var recordsCountLabel: UILabel!
+    
+
+    var recordsCount: Int = 0
     let backButton = UIButton(type: .custom)
     var recordTypeId:String = ""
     var utilityCompanyId:String = ""
@@ -36,26 +45,49 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
     var commaArray = NSMutableArray()
     var totalRows: Int = 0
     var totalRowSting:String = ""
-
+    var byesArray = [UInt8]()
+    var backgroundTaskIdentifier: UIBackgroundTaskIdentifier?
+    var navBarHeight: CGFloat = 0
+    var projectInnerViewYposition:CGFloat!
 
     
     //    MARK: - View Life Cycle Methods
     
     override func viewWillAppear(_ animated: Bool) {
         self.changeLanguage()
-    }
-    func changeLanguage(){
-        self.title = NSLocalizedString("Locator Record Capture", comment: "Locator Record Capture")
-        saveBtn.setAttributedTitle(nil, for:  UIControlState.normal)
-        cancelBtn.setAttributedTitle(nil, for:  UIControlState.normal)
-        cancelOutBtn.setAttributedTitle(nil, for:  UIControlState.normal)
-        cancelOutBtn.setTitle(NSLocalizedString("CANCEL", comment: "verify"), for: UIControlState.normal)
-        cancelBtn.setTitle(NSLocalizedString("CANCEL", comment: "verify"), for: UIControlState.normal)
-        saveBtn.setTitle(NSLocalizedString("SAVE", comment: "verify"), for: UIControlState.normal)
+        
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationItem.setHidesBackButton(true, animated:false)
+        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
+
+        TealiumHelper.sharedInstance().trackView(title: "Locator Record Capture", data: [:])
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        timer.invalidate()
+        locationManager.stopUpdatingLocation()
+        self.navigationItem.setHidesBackButton(false, animated:false)
+    }
+    
+    func changeLanguage(){
+        DispatchQueue.main.async {
+        self.title = NSLocalizedString("Locator Record Capture", comment: "Locator Record Capture")
+        self.projLbl.text = NSLocalizedString("Select Project or Add Project", comment: "Project")
+        self.projInnerView.text = NSLocalizedString("Project Name", comment: "")
+        self.subInnerBtn.setTitle(NSLocalizedString("SUBMIT", comment: "verify"), for: UIControlState.normal)
+        self.canInnerBtn.setTitle(NSLocalizedString("CANCEL", comment: "verify"), for: UIControlState.normal)
+        self.startLocationBtn.setTitle(NSLocalizedString("SEND LOCATION", comment: "SEND LOCATION"), for: UIControlState.normal)
+        self.cancelBtn.setTitle(NSLocalizedString("CANCEL", comment: "CANCEL"), for: UIControlState.normal)
+        self.sendGpsLabel.text = ""
+        }
+    }
     override func viewDidLoad() {
-        self.changeLanguage()
+       
+        
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
+
         
         utilityCompanyId = UserDefaults.standard.value(forKey: "utilityCompanyId") as! String
         
@@ -66,148 +98,61 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
         let iconSize = CGRect(origin: CGPoint.zero, size: CGSize(width: 21, height: 44))
         let backButton = UIButton(frame: iconSize)
         backButton.setImage(UIImage(named: "customBackArrow1.png"), for: .normal)
-        backButton.addTarget(self, action: #selector(self.cancelBackButton(sender:)), for: .touchUpInside)
+        backButton.addTarget(self, action: #selector(self.cancelBackButton), for: .touchUpInside)
         backButton.imageView?.contentMode = UIViewContentMode.scaleAspectFit
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: backButton)
         
         
+    
+        storage = database.getSettings(columnName: "Storage")
+
+        
         locationManager = CLLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        locationManager.distanceFilter = 200
         locationManager.requestWhenInUseAuthorization()
+        locationManager.allowsBackgroundLocationUpdates = true
         
         
-        
-        self.sendLocationView()
-        
-        
-        logPointDescTextView.layer.borderColor = UIColor(red: 0.9, green: 0.9, blue: 0.9, alpha: 1.0).cgColor
-        logPointDescTextView.layer.borderWidth = 1.0
-        logPointDescTextView.layer.cornerRadius = 5
-        
-        
-        
-        storage = database.getSettings(columnName: "Storage")
-        
-        
-        
-        
-        
+        let tap1 = UITapGestureRecognizer(target: self, action: #selector(self.projectDropdownClicked))
+        projectLabel.addGestureRecognizer(tap1)
+
+    }
+
+    
+    @IBAction func startSendingLocation(){
+     
+        if projectLabel.text!.isEmpty {
+            
+            showAlert(kEmptyString, message: NSLocalizedString("Please select project or add project", comment: "Please select project"))
+        }
+        else{
+            self.locationManager.startUpdatingLocation()
+        }
     }
     
+   
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:false)
-        // //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
+    func sessionWrite(){
+        print("writing session...")
+        session?.write(byesArray, length: UInt(byesArray.count))
+    }
+    
+    @IBAction func cancelBackButton(){
         
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        timer.invalidate()
-        locationManager.stopUpdatingLocation()
-        self.navigationItem.setHidesBackButton(false, animated:false)
-    }
-    
-    
-    
-    @IBAction func cancelBackButton(sender: UIButton){
-        logPointDescTextView.resignFirstResponder()
         
         let alert = UIAlertController(title: NSLocalizedString("Cancel Screen", comment: "Cancel Screen"), message: NSLocalizedString("Are you sure you want to cancel this screen?", comment: "Are you sure you want to cancel this screen?"), preferredStyle: UIAlertControllerStyle.alert)
         
         alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok"), style: .default, handler: { (action: UIAlertAction!) in
-            
-            
-            if sender.tag == 1 {
-                self.sendLocationView()
-            }
-            else{
                 self.navigationController?.popViewController(animated: true)
-            }
-            
-            
         }))
         
         alert.addAction(UIAlertAction(title:NSLocalizedString("Cancel", comment: "Cancel") , style: .cancel, handler: { (action: UIAlertAction!) in
         }))
-        
         present(alert, animated: true, completion: nil)
-        
-        
     }
     
-    
-    func sendLocationView(){
-        backButton.tag = 0
-        self.sendingLocationView.isHidden = false
-        self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.updateLocation), userInfo: nil, repeats: true)
-        self.locationManager.startUpdatingLocation()
-    }
-    
-    
-    
-    //pragma mark - textView Delegate row lifecycle
-    
-    func textViewDidBeginEditing(_ textView: UITextView) { // became first responder
-        
-        //move textViews up
-        let myScreenRect: CGRect = UIScreen.main.bounds
-        let keyboardHeight : CGFloat = 300
-        
-        UIView.beginAnimations( "animateView", context: nil)
-        let movementDuration:TimeInterval = 0.35
-        var needToMove: CGFloat = 0
-        
-        var frame : CGRect = self.view.frame
-        if (textView.frame.origin.y + textView.frame.size.height + /*self.navigationController.navigationBar.frame.size.height + */UIApplication.shared.statusBarFrame.size.height > (myScreenRect.size.height - keyboardHeight)) {
-            needToMove = (textView.frame.origin.y + textView.frame.size.height + /*self.navigationController.navigationBar.frame.size.height +*/ UIApplication.shared.statusBarFrame.size.height) - (myScreenRect.size.height - keyboardHeight);
-        }
-        
-        frame.origin.y = -needToMove
-        self.view.frame = frame
-        UIView.setAnimationDuration(movementDuration )
-        UIView.commitAnimations()
-        
-        
-        
-        
-    }
-    
-    func textViewDidEndEditing(_ textView: UITextView) {
-        //move textViews back down
-        UIView.beginAnimations( "animateView", context: nil)
-        let movementDuration:TimeInterval = 0.35
-        
-        var frame : CGRect = self.view.frame
-        frame.origin.y = 64
-        self.view.frame = frame
-        UIView.setAnimationDuration(movementDuration)
-        UIView.commitAnimations()
-        
-        
-    }
-    
-    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-        
-        if text == "\n" {
-            textView.resignFirstResponder()
-            return false
-        }
-        return true
-        
-    }
-    
-    
-    
-    
-    
-    func updateLocation(){
-        locationManager.stopUpdatingLocation()
-        locationManager.startUpdatingLocation()
-        
-    }
-    
+   
     
     //    MARK: - CLLocationManagerDelegate Methods
     
@@ -231,17 +176,29 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
         nmea0183GPGGA += String(format: "*%02lX", arguments: [nmeaSentenceChecksum(sentence: nmea0183GPGGA)])
         nmea0183GPGGA = "$" + nmea0183GPGGA
         
-        
         debugPrint(nmea0183GPGGA)
         
-        
-        
-        var byesArray = [UInt8]()
+        byesArray = [UInt8]()
         byesArray = Array(nmea0183GPGGA.utf8)
         byesArray += [13, 10]
+
         
-        session?.write(byesArray, length: UInt(byesArray.count))
-        
+        if(!timer.isValid){
+            
+            projLbl.isEnabled = false
+            projectLabel.isEnabled = false
+            arrowButton.isEnabled = false
+            projectLabel.isUserInteractionEnabled = false
+            startLocationBtn.alpha = 0.5
+            startLocationBtn.isUserInteractionEnabled = false
+            self.sendGpsLabel.text = NSLocalizedString("Sending location to locator...", comment: "")
+
+            self.sessionWrite()
+            backgroundTaskIdentifier = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+                UIApplication.shared.endBackgroundTask(self.backgroundTaskIdentifier!)
+            })
+            self.timer = Timer.scheduledTimer(timeInterval: 10, target: self, selector: #selector(self.sessionWrite), userInfo: nil, repeats: true)
+        }
     }
     
     
@@ -270,7 +227,7 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
     
     func readBytesAvailable(_ count: UInt) {
         
-        
+
         let buffer:UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
         let bytesRead:UInt = session!.read(buffer, bufferLength: 1024)
         
@@ -281,6 +238,9 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
     
                 
                 if(commaArray.count == 3){
+                    SVProgressHUD.show(withStatus: "Receiving data from locator...")
+                    locationManager.stopUpdatingLocation()
+
                     
                     if(buffer[Int(index)] == 44){
                         commaArray.add(",")
@@ -295,7 +255,6 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
                 if buffer[Int(index)] == 44 && commaArray.count < 4{
                     commaArray.add(",")
                 }
-    
                 
                 if  buffer[Int(index)] == 10{
                     carriageReturnArray.add("Carriage Return")
@@ -322,11 +281,10 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
     }
     
     
+
     
     func parser(){
-        
-        logPointDescTextView.text = ""
-        
+
         
         if (responseArray[3] == 77 && responseArray[4] == 82){
             projectName = NSLocalizedString("Read marker records captured from Locator", comment: "Read marker records captured from Locator")
@@ -386,47 +344,16 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
         commaArray = []
         responseArray = []
         timer.invalidate()
-        locationManager.stopUpdatingLocation()
-        backButton.tag = 1
-        self.sendingLocationView.isHidden = true
-        self.table!.reloadData()
-    }
-    
-    
-    
-    // MARK:  UITableView Data Source Methods
-    private func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat    {
-        return 44
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return labelArray.count
-    }
-    
-    
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell : CustomTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "CustomLocatorRecordCaptureCell") as! CustomTableViewCell!)
-        
-        cell.leftTextfield.text = labelArray .object(at: indexPath.row) as? String
-        cell.rightTextfield.text = descriptionArray .object(at: indexPath.row) as? String
-        
-        return cell
+        self.submitButtonClicked()
     }
     
     
     
     
     
-    @IBAction func submitButtonClicked(){
-        
+    
+    func submitButtonClicked(){
         
         
         let  canStoreDataToCloud:String = database.getUserProfile(columnName: "canStoreDataToCloud")
@@ -441,6 +368,7 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
                 viewController.urlString = "https://www.3m.com/3M/en_US/company-us/all-3m-products/~/All-3M-Products/Locating-Marking/Path-Marking/?N=5002385+8710662+8711017+8731984+3294857497&rt=r3&utm_source=app&utm_medium=asset_mgt"
                 self.navigationController!.pushViewController(viewController, animated: true)                }))
             self.present(alert, animated: true, completion: nil)
+            SVProgressHUD.dismiss()
             
         }
         else
@@ -468,13 +396,13 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
     
     
     func successMessage(Message:String){
-        
         let message = NSLocalizedString(Message, comment: Message)
-        let alert = UIAlertController(title: "", message: message, preferredStyle: UIAlertControllerStyle.alert)
-        alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok"), style: .default, handler: { (action: UIAlertAction!) in
-            self.sendLocationView()
-        }))
-        self.present(alert, animated: true, completion: nil)
+         SVProgressHUD.showSuccess(withStatus: message)
+         self.locationManager.startUpdatingLocation()
+        
+        recordsCountLabel.isHidden = false
+        recordsCount += 1
+        recordsCountLabel.text = String(format:"Records Submitted: %d",recordsCount)
     }
     
     func storeLocalDB(){
@@ -484,10 +412,8 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
     
     
     
-    
     func sendToCloud(){
-        
-        showActivityIndicator(false)
+         
         self.storeLocalDB()
         self .performSyncApptoCloud()
     }
@@ -505,7 +431,7 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
                                           "installerCompanyId": installerCompanyId,
                                           "projectId" : projectId,
                                           "projectName" : projectName,
-                                          "logPointDescription":logPointDescTextView.text,
+                                          "logPointDescription":"",
                                           "userProfileId" : userProfileId] as [String : Any]
         
         
@@ -598,7 +524,7 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
                 if let error = error {
                     print ("\(error)")
                     showAlert(kEmptyString, message: "\(error)")
-                    hideActivityIndicator()
+                    SVProgressHUD.dismiss()
                 }
                 if let data = data {
                     do{
@@ -607,11 +533,9 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
                         let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                         let status =  jsonData?["status"] as! String
                         
-                        print(status)
-                        print(jsonData)
                         
                         DispatchQueue.main.async {
-                            hideActivityIndicator()
+                            SVProgressHUD.dismiss()
                             
                             if(status == "Error"){
                                 let data: String = (jsonData as AnyObject).value(forKey: "data") as! String
@@ -621,8 +545,6 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
                             {
                                 self.database.deleteLogData()
                                 self.successMessage(Message: "Log data added successfully")
-                                
-                                
                             }
                         }
                         
@@ -638,6 +560,238 @@ class LocatorRecordCaptureViewController: UIViewController , CLLocationManagerDe
         
         
         
+    }
+    
+    
+    
+    
+    
+    func projectDropdownClicked(sender: UIButton)
+    {
+        
+        let viewController = UIStoryboard(name: "Custom", bundle: nil).instantiateViewController(withIdentifier: "SearchBarViewController") as! SearchBarViewController
+        
+        
+        let projectTableArray:NSArray = database .getProjectArray()
+        
+        
+        let projectArray = projectTableArray .object(at: 0) as! NSArray
+        let projectIdArray = projectTableArray .object(at: 1) as! NSArray
+        
+        viewController.delegate = self
+        viewController.companyArray = projectArray
+        viewController.utilityCompanyIdArray = projectIdArray
+        viewController.titleString = NSLocalizedString("Select Project", comment: "Select Project")
+        viewController.needAddButton = true
+        
+        
+        self.navigationController!.pushViewController(viewController, animated: true)
+        
+    }
+    
+    func selectedValue(company: String,utilityCompanyId: String,titleString: String){
+        if company != "" {
+            projectLabel.text = company
+            projectId = utilityCompanyId
+        }
+        else
+        {
+            projectTextField.text = ""
+            projectView?.isHidden = false
+        }
+    }
+    
+    
+    
+    
+    //pragma mark - textField Delegate row lifecycle
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) { // became first responder
+        
+        
+        
+        
+        //move textfields up
+        let myScreenRect: CGRect = UIScreen.main.bounds
+        let keyboardHeight : CGFloat = 300
+        
+        
+        UIView.beginAnimations( "animateView", context: nil)
+        let movementDuration:TimeInterval = 0.35
+        
+        
+        var needToMove: CGFloat = -navBarHeight
+        
+        var frame : CGRect = self.view.frame
+        
+        
+        if (textField.frame.origin.y + textField.frame.size.height +
+            /*self.navigationController.navigationBar.frame.size.height + */
+            UIApplication.shared.statusBarFrame.size.height > (myScreenRect.size.height - keyboardHeight)) {
+            needToMove = (textField.frame.origin.y + textField.frame.size.height + /*self.navigationController.navigationBar.frame.size.height +*/ UIApplication.shared.statusBarFrame.size.height) - (myScreenRect.size.height - keyboardHeight);
+        }
+        
+        if projectView?.isHidden == false {
+            self.projectInnerView?.frame.origin.y = -needToMove
+        }
+        else
+        {
+            frame.origin.y = -needToMove
+            self.view.frame = frame
+        }
+        
+        
+        
+        UIView.setAnimationDuration(movementDuration)
+        UIView.commitAnimations()
+        
+        
+        
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        
+        //move textfields back down
+        UIView.beginAnimations( "animateView", context: nil)
+        let movementDuration:TimeInterval = 0.35
+        
+        
+        if projectView?.isHidden == false {
+            self.projectInnerView?.frame.origin.y = projectInnerViewYposition
+        }
+        else
+        {
+            var frame : CGRect = self.view.frame
+            frame.origin.y = navBarHeight
+            self.view.frame = frame
+        }
+        
+        
+        
+        UIView.setAnimationDuration(movementDuration)
+        UIView.commitAnimations()
+        
+        
+        
+        
+        
+    }
+    
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {   //delegate method
+        textField.resignFirstResponder()
+        
+        return true
+    }
+    
+    
+    @IBAction func cancelBtnClicked() {
+        projectTextField .resignFirstResponder()
+        projectView?.isHidden = true
+    }
+    
+    
+    
+    
+    @IBAction func projectAddBtnClicked() {
+        
+        let project = projectTextField.text!.trimmingCharacters(in: NSCharacterSet.whitespaces)
+        let canCreateNewProjects:String = database .canCreateNewProjects()
+        if canCreateNewProjects == "N" {
+            showAlert("", message: NSLocalizedString("You don't have privilege to create new project", comment: "You don't have privilege to create new project"))
+            self.cancelBtnClicked()
+            
+        }
+        else if (project .isEmpty) {
+            showAlert("", message: NSLocalizedString("Please enter project name", comment: "Please enter project name"))
+        }
+        else{
+            projectTextField .resignFirstResponder()
+            
+            SVProgressHUD.show(withStatus: "Loading...")
+            
+            let session = URLSession.shared
+            
+            let url = String(format:"%@project",kUrlBase)
+            let request = NSMutableURLRequest(url: NSURL(string: url)! as URL)
+            
+            request.httpMethod = "POST"
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            
+            
+            
+            let params = ["projectName": self.projectTextField.text!,
+                          "utilityCompanyId":utilityCompanyId] as [String : Any]
+            
+            
+            
+            do{
+                request.httpBody = try JSONSerialization.data(withJSONObject: params, options: JSONSerialization.WritingOptions())
+                let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
+                    if let response = response {
+                        let nsHTTPResponse = response as! HTTPURLResponse
+                        let statusCode = nsHTTPResponse.statusCode
+                        print ("status code = \(statusCode)")
+                    }
+                    
+                    
+                    
+                    if let error = error {
+                        print ("\(error)")
+                        showAlert(kEmptyString, message: "\(error)")
+                        SVProgressHUD.dismiss()
+                    }
+                    if let data = data {
+                        do{
+                            
+                            
+                            let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
+                            
+                            let status =  jsonData?["status"] as! String
+                            
+                            
+                            
+                            DispatchQueue.main.async {
+                                SVProgressHUD.dismiss()
+                                
+                                
+                                
+                                
+                                if(status == "InValid" || status == "Error"){
+                                    self.projectLabel.text = ""
+                                    let data: String = (jsonData as AnyObject).value(forKey: "data") as! String
+                                    showAlert(kEmptyString, message:data)
+                                }
+                                else
+                                {
+                                    self.projectLabel.text = self.projectTextField.text
+                                    
+                                    let data =  jsonData?["data"] as! NSDictionary
+                                    let id:NSNumber = data.value(forKey: "projectId") as! NSNumber
+                                    self.projectId = String(describing: id)
+                                    self.database.insertProject(array: [data])
+                                    
+                                    let alert = UIAlertController(title: "", message: NSLocalizedString("Project added successfully", comment: "Project added successfully"), preferredStyle: UIAlertControllerStyle.alert)
+                                    alert.addAction(UIAlertAction(title: NSLocalizedString("Ok", comment: "Ok"), style: .default, handler: { (action: UIAlertAction!) in
+                                        self.projectView?.isHidden = true
+                                        
+                                    }))
+                                    self.present(alert, animated: true, completion: nil)
+                                }
+                            }
+                            
+                            
+                        }catch _ {
+                        }
+                    }
+                })
+                task.resume()
+            }catch _ {
+                print ("Oops something went wrong")
+            }
+        }
     }
     
     

@@ -2768,6 +2768,9 @@ class DatabaseHandler: NSObject {
                         if (results3?.next() == true){
                             descriptionArray .add(results3!.string(forColumn: "languageDisplayName"))
                         }
+                        else{
+                            descriptionArray .add("")
+                        }
                         
                     }
                     else

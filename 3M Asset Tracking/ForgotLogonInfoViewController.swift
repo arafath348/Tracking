@@ -55,23 +55,25 @@ class ForgotLogonInfoViewController: UIViewController {
     @IBOutlet weak var confirmNewpaswordLbl: UILabel!
     @IBOutlet weak var showBtn: UIButton!
     @IBOutlet weak var showBtn2: UIButton!
-    
     @IBOutlet weak var sumbitPasswordBtn: UIButton!
-    //_____________
-    class InsetButtonsNavigationBar: UINavigationBar {
-        
-        override func layoutSubviews() {
-            super.layoutSubviews()
-            
-            for view in subviews {
-                // Setting the layout margins to 0 lines the bar buttons items up at
-                // the edges of the screen. You can set this to any number to change
-                // the spacing.
-                view.layoutMargins = .zero
-            }
-        }
-        
-    }
+    var navBarHeight: CGFloat = 0
+    
+    
+//    //_____________
+//    class InsetButtonsNavigationBar: UINavigationBar {
+//
+//        override func layoutSubviews() {
+//            super.layoutSubviews()
+//
+//            for view in subviews {
+//                // Setting the layout margins to 0 lines the bar buttons items up at
+//                // the edges of the screen. You can set this to any number to change
+//                // the spacing.
+//                view.layoutMargins = .zero
+//            }
+//        }
+//
+//    }
     
     func changeLanguage(){
         
@@ -108,7 +110,7 @@ class ForgotLogonInfoViewController: UIViewController {
    
     override func viewDidAppear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(true, animated:false)
-    //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
+//        TealiumHelper.sharedInstance().trackView(title: NSStringFromClass(self.classForCoder), data: [:])
 
     }
    
@@ -134,7 +136,7 @@ class ForgotLogonInfoViewController: UIViewController {
         
         userNameTextField.font = UIFont(name: "3MCircularTT-Book", size: 14)!
         
-        
+         navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
         
         
     }
@@ -553,7 +555,7 @@ class ForgotLogonInfoViewController: UIViewController {
         
         UIView.beginAnimations( "animateView", context: nil)
         let movementDuration:TimeInterval = 0.35
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         if (textField.frame.origin.y + textField.frame.size.height +
@@ -593,7 +595,7 @@ class ForgotLogonInfoViewController: UIViewController {
         let movementDuration:TimeInterval = 0.35
         
         var frame : CGRect = self.view.frame
-        frame.origin.y = 64
+        frame.origin.y = navBarHeight
         self.view.frame = frame
         UIView.setAnimationDuration(movementDuration)
         UIView.commitAnimations()

@@ -30,14 +30,12 @@ class TemplateConfigurationViewController: UIViewController, UITableViewDelegate
     let database = DatabaseHandler()
     var templateId: String = ""
     var templateTypeId: String = ""
-//For localization
     @IBOutlet weak var popOkBtn: UIButton!
-    
     @IBOutlet weak var popCanBtn: UIButton!
-    
     @IBOutlet weak var popEditLbl: UILabel!
     @IBOutlet weak var popCreateLbl: UILabel!
-   //------
+    var navBarHeight: CGFloat = 0
+
     override func viewWillAppear(_ animated: Bool) {
         popupView?.isHidden = true
         //For localization
@@ -75,7 +73,8 @@ self.popOkBtn.setAttributedTitle(nil, for: UIControlState.normal)
         // Do any additional setup after loading the view.
         
         
-        
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
+
         templateArray = [NSLocalizedString("RFID Template", comment: "RFID Template"),NSLocalizedString("Data Collection Template", comment: "Data Collection Template")]
         
         
@@ -94,7 +93,7 @@ self.popOkBtn.setAttributedTitle(nil, for: UIControlState.normal)
         
         UIView.beginAnimations( "animateView", context: nil)
         let movementDuration:TimeInterval = 0.35
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         if (textField.frame.origin.y + textField.frame.size.height +
@@ -116,7 +115,7 @@ self.popOkBtn.setAttributedTitle(nil, for: UIControlState.normal)
         let movementDuration:TimeInterval = 0.35
         
         var frame : CGRect = self.view.frame
-        frame.origin.y = 64
+        frame.origin.y = navBarHeight
         self.view.frame = frame
         UIView.setAnimationDuration(movementDuration)
         UIView.commitAnimations()
@@ -208,7 +207,6 @@ self.popOkBtn.setAttributedTitle(nil, for: UIControlState.normal)
             }
             else
             {
-                
                 
                 if(createTextField.isEnabled == true){
                     self.validateTemplatenameApi()
@@ -385,12 +383,7 @@ self.popOkBtn.setAttributedTitle(nil, for: UIControlState.normal)
                         
                         let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                         let status =  jsonData?["status"] as! String
-                        
-                        print(status)
-                        
-                        
-                        print(jsonData)
-                        
+                                            
                         
                         
                         

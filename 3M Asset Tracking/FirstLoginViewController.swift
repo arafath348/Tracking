@@ -172,6 +172,7 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     var companyInnerViewYposition:CGFloat!
     var installerCompanyInnerViewYposition:CGFloat!
     var isCancelScreen:Bool = false
+    var navBarHeight: CGFloat = 0
 
     
     
@@ -218,9 +219,9 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         self.primaryEmailLbl.text = NSLocalizedString("Primary Email", comment: "")
         self.whatproductsLbl.text = NSLocalizedString("What products do you normally buy from 3M?", comment: "")
 
-        self.doULbl.text = NSLocalizedString("Do you work for an installer company", comment: "")
+        self.doULbl.text = NSLocalizedString("Do you work for an installer company?", comment: "")
         self.primaryJobDesLbl.text = NSLocalizedString("Primary Job Description", comment: "")
-        self.primaryFuncAreaLbl.text = NSLocalizedString("Primary Function Area", comment: "")
+        self.primaryFuncAreaLbl.text = NSLocalizedString("Primary Functional Area", comment: "")
         self.AreULbl.text = NSLocalizedString("Are you a distributor?", comment: "")
        
         self.secQues1Lbl.text = NSLocalizedString("Security Question 1", comment: "")
@@ -294,14 +295,13 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         
         self .addNextButton()
         
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
         
-        
-        
-        
-        
-   
+
 
     }
+    
+ 
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -395,7 +395,6 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         else if !(passwordTextField.text!.characters.count >= 8 &&  passwordTextField.text!.characters.count <= 15)
         {
               alertMessage.append(NSLocalizedString("Please enter a valid password. Your password length should be 8 to 15 characters", comment: "Please enter a valid password. Your password length should be 8 to 15 characters"))
-          
         }
         else if !isPasswordValid(passwordTextField.text!)
         {
@@ -520,17 +519,15 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 
         
         if sender.tag == 1 {
-            backButton.tag = sender.tag + 1
-
             if validateData1(){
                 view1.isHidden = true
+                backButton.tag = sender.tag + 1
             }
         }
         else if sender.tag == 2 {
-            backButton.tag = sender.tag + 1
-
             if validateData2(){
                 view2.isHidden = true
+                backButton.tag = sender.tag + 1
             }
         }
         else if sender.tag == 3 {
@@ -612,9 +609,10 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         //move textfields up
         let myScreenRect: CGRect = UIScreen.main.bounds
         let keyboardHeight : CGFloat
+
         
         if companyView?.isHidden == false || installerCompanyView?.isHidden == false {
-            keyboardHeight = 350
+            keyboardHeight = 350 + navBarHeight
         }
         else{
             keyboardHeight = 305
@@ -625,7 +623,7 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         let movementDuration:TimeInterval = 0.35
         
         
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         
@@ -671,7 +669,7 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
         else
         {
             var frame : CGRect = self.view.frame
-            frame.origin.y = 64
+            frame.origin.y = navBarHeight
             self.view.frame = frame
         }
         
@@ -1521,6 +1519,7 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
 
     @IBAction func companyAddBtnClicked() {
     if(validateDataAddCompany()){
+        
         companyView.isHidden = true
          companyLabel.text = addCompanyTextField.text
          utilityCompanyIDString = ""
@@ -1584,6 +1583,8 @@ class FirstLoginViewController: UIViewController,UIPickerViewDelegate,UIPickerVi
     
     
     @IBAction func companyCancelBtnClicked() {
+        
+        currentTextField.resignFirstResponder()
         companyView.isHidden = true
         installerCompanyView.isHidden = true
     }

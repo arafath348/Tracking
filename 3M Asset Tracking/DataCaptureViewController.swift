@@ -16,7 +16,7 @@ class DataCaptureViewController: UIViewController, UITableViewDelegate, UITableV
     
     override func viewDidAppear(_ animated: Bool) {
         //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
+   
     }
     override func viewWillAppear(_ animated: Bool) {
         dataCaptureArray = NSMutableArray()
@@ -121,6 +121,9 @@ class DataCaptureViewController: UIViewController, UITableViewDelegate, UITableV
             let viewController = UIStoryboard(name: "Airconsole", bundle: nil).instantiateViewController(withIdentifier: "DeviceListViewController") as! DeviceListViewController
             viewController.fromScreen = "Locator Record Capture"
             self.navigationController!.pushViewController(viewController, animated: true)
+            
+//            let viewController = self.storyboard!.instantiateViewController(withIdentifier: "LocatorRecordCaptureViewController") as! LocatorRecordCaptureViewController
+//            self.navigationController!.pushViewController(viewController, animated: true)
         }
     }
     

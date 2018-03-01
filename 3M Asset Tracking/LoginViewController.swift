@@ -9,12 +9,18 @@
 import UIKit
 import AppCenterCrashes
 
+
 class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDataSource, UIImagePickerControllerDelegate,UINavigationControllerDelegate,UISearchBarDelegate {
     
+    
+    
+    
+    
+    
     let device = UIDevice.current
-
+    
     @IBOutlet weak var userGuideBtn: UIButton!
- 
+    
     @IBOutlet weak var userTextField: UITextField!
     @IBOutlet weak var pswdTextField: UITextField!
     @IBOutlet weak var companyTextField: UITextField!
@@ -24,7 +30,7 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     @IBOutlet weak var companyView: UIView?
     @IBOutlet weak var webView: UIWebView!
     @IBOutlet weak var termsView:UIView!
-
+    
     //FOR Localization adding outlets here
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var alreadyReg: UILabel!
@@ -34,7 +40,8 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     @IBOutlet weak var versionLbl: UILabel!
     @IBOutlet weak var termsBtn: UIButton!
     @IBOutlet weak var continueBtn: UIButton!
-    
+    @IBOutlet weak var widthConstraint: NSLayoutConstraint?
+
     
     //---------------
     var companyArray = NSArray()
@@ -49,15 +56,15 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     var picker = UIPickerView()
     
     var deviceInformation:NSString = ""
- 
+    
     @IBAction func userGuideBtnClicked(_ sender: Any) {
-       
+        
         let viewController = UIStoryboard(name: "Custom", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
         viewController.urlString = "https://multimedia.3m.com/mws/media/1466836O/instructions-for-3m-asset-tracking-app.pdf"
         self.navigationController!.pushViewController(viewController, animated: true)
     }
     @IBAction func termsBtnClicked(_ sender: Any) {
-       
+        
         let viewController = UIStoryboard(name: "Custom", bundle: nil).instantiateViewController(withIdentifier: "WebViewViewController") as! WebViewViewController
         viewController.urlString = "https://multimedia.3m.com/mws/media/1461224O/terms-of-service-and-license-for-3m-asset-management-system.pdf"
         self.navigationController!.pushViewController(viewController, animated: true)
@@ -69,23 +76,23 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         userGuideBtn.setTitle(NSLocalizedString("3M Asset Tracking User Guide", comment: "3M Asset Tracking User Guide"), for: UIControlState.normal)
         termsBtn.setTitle(NSLocalizedString("Terms and Conditions", comment: "terms"), for: UIControlState.normal)
         let version:String = NSLocalizedString("Version:", comment: "")
-        versionLbl.text = String(format:"%@ 1.0.4",version)
+        versionLbl.text = String(format:"%@ 1.0.6",version)
         
         
         nameLbl.text = NSLocalizedString("3M Asset Tracking", comment: "3M Asset Tracking")
-       
+        
         
         alreadyReg.text = NSLocalizedString("Already Registered? Log in below", comment: "Already Registered? Log in below")
         loginBtn.setTitle(NSLocalizedString("Login", comment: "Login"), for: UIControlState.normal)
         forgotUsrpwrd.setTitle(NSLocalizedString("Forgot Username / Password", comment: "forgot"), for: UIControlState.normal)
-  agreeBtn.setTitle(NSLocalizedString("I Agree", comment: "agree"), for: UIControlState.normal)
-         continueBtn.setTitle(NSLocalizedString("Continue", comment: "continue"), for: UIControlState.normal)
+        agreeBtn.setTitle(NSLocalizedString("I Agree", comment: "agree"), for: UIControlState.normal)
+        continueBtn.setTitle(NSLocalizedString("Continue", comment: "continue"), for: UIControlState.normal)
         signUpButton.setTitle(NSLocalizedString("Logging in for the first time? Register here", comment: "Logging in for the first time? Register here"), for: UIControlState.normal)
-
+        
     }
     
-
- 
+    
+    
     func webViewDidFinishLoad(_ webView: UIWebView)
     {
         hideActivityIndicator()
@@ -103,9 +110,11 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.changeLanguage()
-
+        
         // Do any additional setup after loading the view.
         
+       
+      
 
         
         let isFirstLaunch = !UserDefaults.standard.bool(forKey: "TermsAccepted")
@@ -122,44 +131,52 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
             
             termsView.isHidden = false
             agreeBtn.isHidden = true
-           
+            
+    
+            
         }
         
         
-       // let signupText = NSMutableAttributedString.init(string: NSLocalizedString("Logging in for the first time? Register here", comment: "Logging in for the first time? Register here"))
+        // let signupText = NSMutableAttributedString.init(string: NSLocalizedString("Logging in for the first time? Register here", comment: "Logging in for the first time? Register here"))
         
         //Hiding this font attribute since it is not working fine for multiple languages
-      /*  signupText.setAttributes([NSFontAttributeName: UIFont(name: "3MCircularTT-Book", size: 14)!,
-                                  NSForegroundColorAttributeName: UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1.0)],
-                                 range: NSMakeRange(0, 30))
-        
-        
-        signupText.setAttributes([NSFontAttributeName:  UIFont(name: "3MCircularTT-Bold", size: 14)!,
-                                  NSForegroundColorAttributeName: UIColor.black],
-                                 range: NSMakeRange(31, 13))*/
+        /*  signupText.setAttributes([NSFontAttributeName: UIFont(name: "3MCircularTT-Book", size: 14)!,
+         NSForegroundColorAttributeName: UIColor(red: 115/255, green: 115/255, blue: 115/255, alpha: 1.0)],
+         range: NSMakeRange(0, 30))
+         
+         
+         signupText.setAttributes([NSFontAttributeName:  UIFont(name: "3MCircularTT-Bold", size: 14)!,
+         NSForegroundColorAttributeName: UIColor.black],
+         range: NSMakeRange(31, 13))*/
         signUpButton.setTitle(NSLocalizedString("Logging in for the first time? Register here", comment: "Logging in for the first time? Register here"), for: UIControlState.normal)
-  
-       // signUpButton?.setAttributedTitle(signupText, for: .normal)
+        
+        // signUpButton?.setAttributedTitle(signupText, for: .normal)
         // Hide the navigation bar on the this view controller
         
-       self.navigationController?.setNavigationBarHidden(true, animated: animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
         self.loginView?.isHidden = false
         self.companyView?.isHidden = true
+        
         
         userTextField.text = ""
         pswdTextField.text = ""
         
-       
-//        userTextField.text = "September23"
-//        pswdTextField.text = "Test@1234"
-
-//        userTextField.text = "ramaraju"
-//        pswdTextField.text = "Password9"
+//        userTextField.text = "installer a"
+//        pswdTextField.text = "Password1"
         
+            userTextField.text = "September23"
+            pswdTextField.text = "Test@1234"
+        
+//                userTextField.text = "ramaraju"
+//                pswdTextField.text = "Password9"
+     
+        
+
+
     }
     
     
-    
+
     
     
     
@@ -170,16 +187,59 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         self.navigationController?.setNavigationBarHidden(false, animated: animated)
     }
     
-  override func viewDidAppear(_ animated: Bool) {
-   //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
+    override func viewDidAppear(_ animated: Bool) {
+//        TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
 
+   
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            // It's an iPhone
+            self.loginView?.removeFromSuperview()
+            self.view.addSubview(self.loginView!)
+            loginView?.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 50).isActive = true
+
+
+                let xConstraint = NSLayoutConstraint(item: loginView!, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+                let yConstraint = NSLayoutConstraint(item: loginView!, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
+                self.view.addConstraint(xConstraint)
+                self.view.addConstraint(yConstraint)
+                loginView?.superview!.bringSubview(toFront: termsView)
+            
+            
+            
+            self.companyView?.removeFromSuperview()
+            self.view.addSubview(self.companyView!)
+            companyView?.widthAnchor.constraint(equalToConstant: self.view.frame.size.width - 50).isActive = true
+            
+            
+            let xConstraint2 = NSLayoutConstraint(item: companyView!, attribute: .centerX, relatedBy: .equal, toItem: self.view, attribute: .centerX, multiplier: 1, constant: 0)
+            let yConstraint2 = NSLayoutConstraint(item: companyView!, attribute: .centerY, relatedBy: .equal, toItem: self.view, attribute: .centerY, multiplier: 1, constant: 0)
+            self.view.addConstraint(xConstraint2)
+            self.view.addConstraint(yConstraint2)
+
+            
+            
+
+
+            
+        case .unspecified: break
+        case .pad: break
+        case .tv: break
+        case .carPlay: break
+        }
+        
+   
+    
     }
+    
+  
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+      
         self.changeLanguage()
-
+        
         let modelName = device.modelName
         let systemVersion = device.systemVersion
         deviceInformation = String(format:"Device Model:%@, iOS Version:%@",modelName,systemVersion) as NSString
@@ -276,8 +336,8 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
     @IBAction func loginButtonClicked()
     {
         
-
-
+        
+        
         userTextField.resignFirstResponder()
         pswdTextField.resignFirstResponder()
         
@@ -304,7 +364,7 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         showActivityIndicator(false)
         
         let parameter = String(format:"username=%@&password=%@",userTextField.text!,pswdTextField.text!)
-    
+        
         let loginURL = String(format:"%@user/login",kUrlBase)
         let url = NSURL(string: loginURL)
         
@@ -319,8 +379,8 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         // Set the POST body for the request
         request.httpBody = parameter.data(using: String.Encoding(rawValue: String.Encoding.utf8.rawValue));
         request.addValue(NSString(format:"%@",deviceInformation) as String, forHTTPHeaderField:"device-os")
-       // [request addValue:[NSString stringWithFormat:@"%@",deviceInformation] forHTTPHeaderField:@"device-os"];
-
+        // [request addValue:[NSString stringWithFormat:@"%@",deviceInformation] forHTTPHeaderField:@"device-os"];
+        
         //request.allHTTPHeaderFields = headers
         
         let task = URLSession.shared.dataTask(with: request as URLRequest) {
@@ -369,41 +429,21 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                         let dic1:NSDictionary = jsonResult.value(forKey: "data") as! NSDictionary
                         self.profilesArray = dic1.value(forKey: "profiles") as! NSArray
                         self.companyArray = self.profilesArray.value(forKey: "utilityCompany")  as! NSArray
-                        
-                        
-                        
-                        let userProfileId:Int = (self.profilesArray.value(forKey: "userProfileId") as AnyObject) .object(at: 0) as! Int
-                       
-                        
-                        
-                        
-                        
-                        if let oldUserProfileId:String = UserDefaults.standard.value(forKey: "userProfileId") as? String{
-                            if (oldUserProfileId != String(userProfileId)) {
-                                let  database = DatabaseHandler()
-                                database.updateLastSyncTimeSetting(lastSyncTime: "")
-                            }
-                        }
-                        
-                        
-                        
-                        UserDefaults.standard.set(String(userProfileId), forKey:"userProfileId")
-                        
                         let userName:String = (self.profilesArray.value(forKey: "userName") as AnyObject) .object(at: 0) as! String
                         UserDefaults.standard.set(userName, forKey:"userName")
                         
                         
                         
-                        
+                        TealiumHelper.sharedInstance().trackView(title: "Login Success", data: [:])
                         
                         
                         DispatchQueue.main.async {
                             if (self.companyArray.count > 1)
                             {
                                 
-
                                 
-                         
+                                
+                                
                                 
                                 
                                 
@@ -412,7 +452,7 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                                     self.utilityCompanyIdArray.add(String(describing: (self.companyArray.value(forKey: "utilityCompanyId") as AnyObject) .object(at: i) as! NSNumber))
                                 }
                                 
-                               let myString = NSString(format: NSLocalizedString("Hi %@, Please select a company", comment: "str") as NSString, self.userTextField.text!)
+                                let myString = NSString(format: NSLocalizedString("Hi %@, Please select a company", comment: "str") as NSString, self.userTextField.text!)
                                 self.companyListLabel?.text = NSLocalizedString(myString as String, comment: myString as String)  as String
                                 self.loginView?.isHidden = true
                                 self.companyView?.isHidden = false
@@ -428,6 +468,14 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
                                 
                                 
                                 
+                                let userProfileId:Int = (self.profilesArray.value(forKey: "userProfileId") as AnyObject) .object(at: 0) as! Int
+                                if let oldUserProfileId:String = UserDefaults.standard.value(forKey: "userProfileId") as? String{
+                                    if (oldUserProfileId != String(userProfileId)) {
+                                        let  database = DatabaseHandler()
+                                        database.updateLastSyncTimeSetting(lastSyncTime: "")
+                                    }
+                                }
+                                UserDefaults.standard.set(String(userProfileId), forKey:"userProfileId")
                                 
                                 
                                 
@@ -520,10 +568,10 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         
         userTextField.resignFirstResponder()
         pswdTextField.resignFirstResponder()
-
+        
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "ForgotLogonInfoViewController") as! ForgotLogonInfoViewController
         self.navigationController!.pushViewController(viewController, animated: true)
-
+        
         
     }
     
@@ -638,17 +686,34 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
         self.companyTextField.text = utilityCompanyNameArray .object(at: selectedRow) as? String
         
         
+        let  database = DatabaseHandler()
         
         let utilityCompanyId:Int = (self.profilesArray.value(forKey: "utilityCompanyId") as AnyObject) .object(at: selectedRow) as! Int
         
         if let oldUtilityCompanyId:String = UserDefaults.standard.value(forKey: "utilityCompanyId") as? String{
             if (oldUtilityCompanyId != String(utilityCompanyId)) {
-                let  database = DatabaseHandler()
                 database.updateLastSyncTimeSetting(lastSyncTime: "")
             }
         }
         
         UserDefaults.standard.set(String(utilityCompanyId), forKey:"utilityCompanyId")
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        let userProfileId:Int = (self.profilesArray.value(forKey: "userProfileId") as AnyObject) .object(at: selectedRow) as! Int
+        if let oldUserProfileId:String = UserDefaults.standard.value(forKey: "userProfileId") as? String{
+            if (oldUserProfileId != String(userProfileId)) {
+                database.updateLastSyncTimeSetting(lastSyncTime: "")
+            }
+        }
+        UserDefaults.standard.set(String(userProfileId), forKey:"userProfileId")
+        
         
         
         
@@ -729,16 +794,16 @@ class LoginViewController: UIViewController,UIPickerViewDelegate,UIPickerViewDat
 //Adding the extension to get the curent connected device model name and OS version
 extension UIDevice {
     
-  
-        var modelName: String {
-            var systemInfo = utsname()
-            uname(&systemInfo)
-            let machineMirror = Mirror(reflecting: systemInfo.machine)
-            let identifier = machineMirror.children.reduce("") { identifier, element in
-                guard let value = element.value as? Int8, value != 0 else { return identifier }
-                return identifier + String(UnicodeScalar(UInt8(value)))
-            }
-
+    
+    var modelName: String {
+        var systemInfo = utsname()
+        uname(&systemInfo)
+        let machineMirror = Mirror(reflecting: systemInfo.machine)
+        let identifier = machineMirror.children.reduce("") { identifier, element in
+            guard let value = element.value as? Int8, value != 0 else { return identifier }
+            return identifier + String(UnicodeScalar(UInt8(value)))
+        }
+        
         switch identifier {
             
         case "iPod5,1":                                 return "iPod Touch 5"

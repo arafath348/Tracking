@@ -48,8 +48,7 @@ class CreateRFIDTemplateViewController: UIViewController,UITableViewDelegate, UI
     
     
     override func viewDidAppear(_ animated: Bool) {
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
+        TealiumHelper.sharedInstance().trackView(title: "RFID Template", data: [:])
     }
     func changeLanguage()
     {

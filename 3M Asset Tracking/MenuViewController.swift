@@ -233,7 +233,6 @@ class MenuViewController: UIViewController {
                         }
                         
   
-                               print(json)
                         
                           if let data = json?["data"] as? [String : Any],
                              let tables = data["tables"] as? [String : Any],

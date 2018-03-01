@@ -10,18 +10,25 @@ import UIKit
 import AppCenter
 import AppCenterCrashes
 import AVFoundation
+var responseAllValuesArray = [UInt8]()
+var serialNo: String? = ""
+var success: Bool = true
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+   
 
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         GMSServices.provideAPIKey("AIzaSyBsQNC2u6ylC8xPXO1yoXDNmpShac8-NDg")
         Localization.create()
-//        TealiumHelper.startTracking()
     
+        
+        TealiumHelper.sharedInstance().start()
+
 //       Testing
 //        MSAppCenter.start("04b1e4af-d869-47c8-a509-452a9304f490", withServices:[
 //            MSCrashes.self
@@ -31,28 +38,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             MSAppCenter.start("cbbe1a24-3f59-49fd-876d-00e97f550a72", withServices:[
                     MSCrashes.self
                     ])
-        
+
         do {
             try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         }
         catch let error as NSError {
             print(error)
         }
-        
-        //        do {
-        //            try AVAudioSession.sharedInstance().setActive(true)
-        //        }
-        //        catch let error as NSError {
-        //            print(error)
-        //        }
-        
-        //import AppCenterCrashes
-        //        MSCrashes.generateTestCrash()
-        
+
+        SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         
         return true
     }
     
+    
+    
+    
+    
+
     
    
   

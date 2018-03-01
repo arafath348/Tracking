@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationManagerDelegate,LocationDelegate, tblLogDataDetailsDelegate{
+class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationManagerDelegate,LocationDelegate, tblLogDataDetailsDelegate,GMSMapViewDelegate{
     
     //For localization
     @IBOutlet weak var canInnerBtn: UIButton!
@@ -18,16 +18,12 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     @IBOutlet weak var productLbl: UILabel!
     @IBOutlet weak var utilityLbl: UILabel!
     @IBOutlet weak var dataColLbl: UILabel!
-    
     @IBOutlet weak var locationCommentLbl: UILabel!
-    
     @IBOutlet weak var projLbl: UILabel!
     @IBOutlet weak var gpsLbl: UILabel!
     @IBOutlet weak var upcLbl: UILabel!
     @IBOutlet weak var sumbitBtn: UIButton!
-    
     @IBOutlet weak var verifyBtn: UIButton!
-    //------
     @IBOutlet var dataCollectionLabel: UILabel!
     @IBOutlet var projectLabel: UILabel!
     @IBOutlet var productTypeLabel: UILabel!
@@ -35,11 +31,13 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     @IBOutlet var upcCodeLabel: UILabel!
     @IBOutlet var gpsLabel: UILabel!
     @IBOutlet var sequenceTextField: UITextField!
-    
-    
     @IBOutlet weak var projectView: UIView?
     @IBOutlet weak var projectInnerView: UIView?
-    var projectInnerViewYposition:CGFloat!
+    @IBOutlet var productUrlButton: UIButton!
+    @IBOutlet var dataSheetUrlButton: UIButton!
+    @IBOutlet var instructionSheetUrlButton: UIButton!
+    @IBOutlet var productVideoUrlButton: UIButton!
+    
     
     
     let database = DatabaseHandler()
@@ -51,12 +49,9 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     var userProfileId:String = ""
     var installerCompanyId:String = ""
     var storage:String = ""
+    var projectInnerViewYposition:CGFloat!
     
-    
-    @IBOutlet var productUrlButton: UIButton!
-    @IBOutlet var dataSheetUrlButton: UIButton!
-    @IBOutlet var instructionSheetUrlButton: UIButton!
-    @IBOutlet var productVideoUrlButton: UIButton!
+
     var lattitudeDouble:Double = 0.0
     var longitudeDouble:Double = 0.0
     var utilityCompanyId:String = ""
@@ -64,24 +59,17 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     
     var labelArray1 = NSArray()
     var rightArray1 = NSArray()
-    
-    
-    
-    
+
     @IBOutlet var projectTextField: UITextField!
     var currentTextField: UITextField!
+    var vwGMap = GMSMapView()
+    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var currentLocationSwitch: UISwitch!
+    var bottomPadding:CGFloat = 0.0
+    var navBarHeight: CGFloat = 0
+
     
-    
-    
-    
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:false)
-        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
-        
-        
-    }
+
     func changeLanguage(){
         
         self.title = NSLocalizedString("EMS Passive / Path / Cable depth", comment: "EMS Passive / Path / Cable depth")
@@ -112,6 +100,7 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     }
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(false, animated:false)
+        self.locationManager.stopUpdatingLocation()
     }
     
     
@@ -140,8 +129,9 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
         
         // Do any additional setup after loading the view.
         
-        
-        
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
+
+
         
         let iconSize = CGRect(origin: CGPoint.zero, size: CGSize(width: 21, height: 44))
         let backButton = UIButton(frame: iconSize)
@@ -180,12 +170,48 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
         
         
         
-        self.determineMyCurrentLocation()
-        
-        
         productUrlButton.imageView?.contentMode = .scaleAspectFit
 
+   
+
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
+        vwGMap = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 40, height: 300), camera: camera)
+        vwGMap.camera = camera
+        // Add GMSMapView to current view
+        self.mapView .addSubview(vwGMap)
+        vwGMap.delegate = self
+        vwGMap.settings.compassButton = true
+        vwGMap.isMyLocationEnabled = true
+        vwGMap.mapType = kGMSTypeHybrid
+        vwGMap.settings.myLocationButton = true
         
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationItem.setHidesBackButton(true, animated:false)
+        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
+        TealiumHelper.sharedInstance().trackView(title: "EMS Passive", data: [:])
+        self.determineMyCurrentLocation()
+        
+        if #available(iOS 11.0, *) {
+            bottomPadding = view.safeAreaInsets.bottom
+            print(bottomPadding)
+            
+        }
+        
+    }
+    
+    func determineMyCurrentLocation() {
+        
+        if(currentLocationSwitch.isOn){
+            self.locationManager.requestWhenInUseAuthorization()
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.distanceFilter = 1
+                locationManager.startUpdatingLocation()
+            }
+        }
     }
     
     
@@ -392,28 +418,21 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
         
         //move textfields up
         let myScreenRect: CGRect = UIScreen.main.bounds
-        let keyboardHeight : CGFloat = 300
+        let keyboardHeight : CGFloat = 300 + bottomPadding
         
-        //        if projectView?.isHidden == false{
-        //            keyboardHeight = 350
-        //        }
-        //        else{
-        //            keyboardHeight = 300
-        //        }
-        //        
-        
+
         UIView.beginAnimations( "animateView", context: nil)
         let movementDuration:TimeInterval = 0.35
         
         
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         
         
         if (textField.frame.origin.y + textField.frame.size.height +
             /*self.navigationController.navigationBar.frame.size.height + */
-            UIApplication.shared.statusBarFrame.size.height > (myScreenRect.size.height - keyboardHeight)) {
+            UIApplication.shared.statusBarFrame.size.height + bottomPadding > (myScreenRect.size.height - keyboardHeight)) {
             needToMove = (textField.frame.origin.y + textField.frame.size.height + /*self.navigationController.navigationBar.frame.size.height +*/ UIApplication.shared.statusBarFrame.size.height) - (myScreenRect.size.height - keyboardHeight);
         }
         
@@ -446,7 +465,7 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
         else
         {
             var frame : CGRect = self.view.frame
-            frame.origin.y = 64
+            frame.origin.y = navBarHeight
             self.view.frame = frame
         }
         
@@ -535,7 +554,6 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
                             
                             let status =  jsonData?["status"] as! String
                             
-                            print(jsonData)
                             
                             DispatchQueue.main.async {
                                 hideActivityIndicator()
@@ -582,6 +600,8 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
         
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GoogleMapViewController") as! GoogleMapViewController
         viewController.delegate = self
+        viewController.latitude = lattitudeDouble
+        viewController.longitude = longitudeDouble
         self.navigationController!.pushViewController(viewController, animated: true)
     }
     
@@ -589,10 +609,10 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     
     
     func selectedLocation(lattitude: Double, longitude:Double){
-        
         gpsLabel.text = String(format:"%f, %f", lattitude, longitude)
         lattitudeDouble = lattitude
         longitudeDouble = longitude
+        currentLocationSwitch.setOn(false, animated: false)
     }
     
     func validateData() -> Bool {
@@ -920,8 +940,6 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
                         let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                         let status =  jsonData?["status"] as! String
                         
-                        print(status)
-                        print(jsonData)
                         
                         DispatchQueue.main.async {
                             hideActivityIndicator()
@@ -1052,40 +1070,52 @@ class EmsPassiveViewController: UIViewController,SearchBarDelegate,CLLocationMan
     
     
     
-    func determineMyCurrentLocation() {
+ 
+
+    
+    
+    
+    //    MARK: - CLLocationManagerDelegate Methods
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         
-        // A minimum distance a device must move before update event generated
-        locationManager.distanceFilter = 500
+        let userLocation = locations.last
+        lattitudeDouble = userLocation!.coordinate.latitude
+        longitudeDouble = userLocation!.coordinate.longitude
         
-        // Request permission to use location service
-        locationManager.requestWhenInUseAuthorization()
+        print(lattitudeDouble,longitudeDouble)
         
-        // Request permission to use location service when the app is run
-        locationManager.requestWhenInUseAuthorization()
+        DispatchQueue.main.async {
+            self.gpsLabel.text = String(format:"%f, %f", userLocation!.coordinate.latitude, userLocation!.coordinate.longitude)
+        }
+
         
-        // Start getting update of user's location
-        locationManager.startUpdatingLocation()
+        if vwGMap.camera.target.latitude == 0 && vwGMap.camera.target.longitude == 0 {
+            let camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
+                                                  longitude: userLocation!.coordinate.longitude,
+                                                  zoom: 15)
+            mapView.isHidden = false
+            vwGMap.camera = camera
+        }
         
         
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
-        lattitudeDouble = userLocation.coordinate.latitude
-        longitudeDouble = userLocation.coordinate.longitude
-        
-        gpsLabel.text = String(format:"%f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        
-    }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print("Error \(error)")
+    }
+    
+    @IBAction func switchChanged(mySwitch: UISwitch) {
+        let value = mySwitch.isOn
+        print(value)
+        if(mySwitch.isOn){
+            locationManager.startUpdatingLocation()
+        }
+        else{
+            locationManager.stopUpdatingLocation()
+        }
     }
     
     

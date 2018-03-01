@@ -17,6 +17,7 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
     
     var session:AirconsoleSession?
     var responseArray = [UInt8]()
+    var responseAllValuesArray = [UInt8]()
     var success: Bool = true
     let database = DatabaseHandler()
     let recordTypeID:String = "1"
@@ -27,22 +28,26 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
     var dataDescriptionArray = NSArray()
     var fromScreen: String = ""
     var dummyArray = [UInt8]()
-    
-    
+     let textView = UITextView()
+    var serialNo: String? = ""
+    var locatorLanguageCode = [UInt8]()
+
     
     var LocatorRecordCapture:LocatorRecordCaptureViewController?
     var storage:String = ""
     let timestampFormatter = DateFormatter()
     var locationManager = CLLocationManager()
     let task = DispatchWorkItem {
-        hideActivityIndicator()
-        showAlert(NSLocalizedString("", comment: ""), message: NSLocalizedString("Request Timeout", comment: "Request Timeout"))
+        SVProgressHUD.showInfo(withStatus: NSLocalizedString("Request Timeout", comment: "Request Timeout"))
     }
-    
     
     
     override func viewDidAppear(_ animated: Bool) {
         //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
+        
+        textView.frame = CGRect(x: 10.0, y: self.view.frame.size.height / 2 + 40, width: self.view.frame.size.width - 20, height: self.view.frame.size.height / 2 - 45)
+        self.view.addSubview(textView)
+        self.view?.superview!.bringSubview(toFront: textView)
         
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -154,8 +159,13 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
             }
             else{
                 //                self.sendLocation()
-                showActivityIndicator(false)
+                SVProgressHUD.show(withStatus: "Loading...")
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 120, execute: task)
+                
+                success = true
+                responseAllValuesArray = []
+                responseArray = []
+                
                 session?.write(self.rfidBytesArray, length: UInt(self.rfidBytesArray.count))
             }
         }
@@ -182,87 +192,151 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
         
     }
     
-    
-    
+
     func readBytesAvailable(_ count: UInt) {
+
+
+    let buffer:UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
+    let bytesRead:UInt = session!.read(buffer, bufferLength: 1024)
+
+
+    if (bytesRead > 0) {
         
-        
-        let buffer:UnsafeMutablePointer<UInt8> = UnsafeMutablePointer<UInt8>.allocate(capacity: 1024)
-        let bytesRead:UInt = session!.read(buffer, bufferLength: 1024)
-        
-        if (bytesRead > 0) {
+       var index:UInt = 0
+        while (index < bytesRead) {
             
-            if(buffer[0] == 213 && buffer[1] == 2){
-                print(buffer[2])
-                if buffer[2] == 1 {
-                    success = true
-                }
-                else if(buffer[2] == 18 || buffer[2] == 19 || buffer[2] == 20 || buffer[2] == 21 || buffer[2] == 22){
+            let count:Int = responseAllValuesArray.count
+            if(count < 3){
+                responseAllValuesArray += [buffer[Int(index)]]
+            }
+            else if(success && responseAllValuesArray[count-3] == 213 && responseAllValuesArray[count-2] == 2){
+                
+                if(responseAllValuesArray[count-1] == 2){
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("Verification failed", comment: "Verification failed"))
                     success = false
                 }
-                else
-                {
-                    // Error Message
+                else if(responseAllValuesArray[count-1] == 3){
+                    SVProgressHUD.showError(withStatus: NSLocalizedString("Lock failed", comment: "Lock failed"))
                     success = false
-                    hideActivityIndicator()
-                    self.task.cancel()
+                }
+                else if(responseAllValuesArray[count-1] == 4){
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("More than one marker detected", comment: "More than one marker detected"))
+                    success = false
+                }
+                else if(responseAllValuesArray[count-1] == 5){
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("CRC Failure", comment: "CRC Failure"))
+                    success = false
+                }
+                else if(responseAllValuesArray[count-1] == 6){
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("Incomplete Data", comment: "Incomplete Data"))
+                    success = false
+                }
+                else if(responseAllValuesArray[count-1] == 7){
                     
-                    if(buffer[2] == 2){
-                        showAlert(NSLocalizedString("Verification failed", comment: "Verification failed"), message: NSLocalizedString("Please try again", comment: "Please try again"))
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("No ID Marker Found", comment: "No ID Marker Found"))
+                    success = false
+                }
+                else if(responseAllValuesArray[count-1] == 8){
+                    SVProgressHUD.showError(withStatus: NSLocalizedString("Error in reading marker", comment: "Error in reading marker"))
+                    success = false
+                    
+                }
+                else if(responseAllValuesArray[count-1] == 9){
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("Incompatible Marker", comment: "Incompatible Marker"))
+                     success = false
+                }
+                else if(responseAllValuesArray[count-1] == 17){
+                    SVProgressHUD.showError(withStatus: NSLocalizedString("User data is locked on the marker. Cannot program this marker. Please place another marker to program and press Retry", comment: ""))
+                    success = false
+                }
+                else if(responseAllValuesArray[count-1] == 11){
+                    
+                    if(buffer[Int(index)] != 213 && buffer[Int(index)] != 3){
+                        locatorLanguageCode += [buffer[Int(index)]]
                     }
-                    else if(buffer[2] == 3){
-                        showAlert(NSLocalizedString("Lock failed", comment: "Lock failed"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 4){
-                        showAlert(NSLocalizedString("More than one marker detected", comment: "More than one marker detected"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 5){
-                        showAlert(NSLocalizedString("CRC Failure", comment: "CRC Failure"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 6){
-                        showAlert(NSLocalizedString("Incomplete Data", comment: "Incomplete Data"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 7){
-                        showAlert(NSLocalizedString("No iD Marker Found", comment: "No iD Marker Found"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 8){
-                        showAlert(NSLocalizedString("Error in reading marker", comment: "Error in reading marker"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 9){
-                        showAlert(NSLocalizedString("Incompatible marker", comment: "Incompatible marker"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else if(buffer[2] == 16){
-                        showAlert(NSLocalizedString("User Data Locked", comment: "User Data Locked"), message: NSLocalizedString("User data is locked on the marker. Cannot program this marker. Please place another marker to program and try again", comment: "User data is locked on the marker. Cannot program this marker. Please place another marker to program and try again"))
-                    }
-                    else if(buffer[2] == 17){
-                        showAlert(NSLocalizedString("Template language mismatch", comment: "Template language mismatch"), message: NSLocalizedString("Please try again", comment: "Please try again"))
-                    }
-                    else {
-                        showAlert(NSLocalizedString("Something went wrong", comment: "Something went wrong"), message: NSLocalizedString("Please try again", comment: "Please try again"))
+                    else if(buffer[Int(index)] == 3){
+                        let database = DatabaseHandler()
+
+                        let locatorLanguage:String = getLanguageFromCode(languageCode: locatorLanguageCode)
+                        let appLanguage:String = database.getLanguageSettings().object(at: 0) as! String
+                        let errorMessage:String = NSLocalizedString(String(format:"Template language mismatch. Locator Language is %@ while app language is %@",locatorLanguage,appLanguage), comment: "")
+                        SVProgressHUD.showError(withStatus: errorMessage)
+                        success = false
                     }
                 }
+                else if(responseAllValuesArray[count-1] == 12){
+                    SVProgressHUD.show(withStatus: NSLocalizedString("Command received...", comment: ""))
+                    success = true
+                   if(buffer[Int(index)] == 3){
+                      responseAllValuesArray = []
+                    }
+                }
+                else if(responseAllValuesArray[count-1] == 18){
+                    success = true
+                    
+                     if(buffer[Int(index)] != 213 && buffer[Int(index)] != 3){
+                      let charcter = String(describing: UnicodeScalar(UInt8(buffer[Int(index)])))
+                      serialNo! += charcter
+                    }
+                     else if(buffer[Int(index)] == 3){
+                        let serialNumber:String = NSLocalizedString(String(format:"ID marker found (%@). Writing to the marker...",serialNo!), comment: "")
+                        SVProgressHUD.show(withStatus: serialNumber)
+                        responseAllValuesArray = []
+                    }
                 
-                if(buffer[2] != 22){
-                    responseArray = []
+                }
+                else if(responseAllValuesArray[count-1] == 14){
+                    success = true
+                    SVProgressHUD.show(withStatus: NSLocalizedString("Writing to the marker done. Verifying the data", comment: ""))
+                    if(buffer[Int(index)] == 3){
+                        responseAllValuesArray = []
+                    }
+                }
+                else if(responseAllValuesArray[count-1] == 15){
+                    success = true
+                    SVProgressHUD.show(withStatus: NSLocalizedString("Verifying the data done", comment: ""))
+                    if(buffer[Int(index)] == 3){
+                        responseAllValuesArray = []
+                    }
+                }
+                else if(responseAllValuesArray[count-1] == 1){
+                    success = true
+                    if(buffer[Int(index)] != 213 && buffer[Int(index)] != 3){
+                        SVProgressHUD.show(withStatus: NSLocalizedString("Marker write is successful", comment: ""))
+                        responseArray += [buffer[Int(index)]]
+                    }
+                   else if(buffer[Int(index)] == 3){
+                     responseAllValuesArray = []
+                     self.sendToLocalDB()
+                    }
+                }
+                else if(responseAllValuesArray[count-1] == 16){
+                    SVProgressHUD.show(withStatus: NSLocalizedString("Progmkrs command is completed", comment: ""))
+                    responseAllValuesArray = []
+                }
+                else {
+                    success = false
+                     SVProgressHUD.showError(withStatus: NSLocalizedString("Something went wrong", comment: ""))
                 }
             }
-            
-            if(success){
-                
-            }
+
+            index = index + 1
         }
-        
-        buffer.deinitialize()
-        buffer.deallocate(capacity: 1024)
-        
-        
-        
-        let count:Int = responseArray.count
-        if(success && count > 8 && responseArray[0] == 213 && responseArray[1] == 2 && responseArray[2] == 1 && responseArray[count-2] == 213 && responseArray[count-1] == 3){
-            self.sendToLocalDB()
-        }
-        
+
+
     }
+
+    buffer.deinitialize()
+    buffer.deallocate(capacity: 1024)
+
+
+    }
+
+
+
+
+    
+    
     
     
     
@@ -275,7 +349,7 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
         
         var string: String? = ""
         
-        for i in 4 ..< responseArray.count - 4{
+        for i in 1 ..< responseArray.count - 1{
             
             if (responseArray[i] == 31){
                 rfidLabelArray.add(string!)
@@ -509,9 +583,7 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
                 
                 
                 if let error = error {
-                    print ("\(error)")
-                    showAlert(kEmptyString, message: "\(error)")
-                    hideActivityIndicator()
+                    SVProgressHUD.showError(withStatus: "\(error)")
                     self.task.cancel()
                 }
                 if let data = data {
@@ -523,12 +595,12 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
                         
                         
                         DispatchQueue.main.async {
-                            hideActivityIndicator()
+                            SVProgressHUD.dismiss()
                             self.task.cancel()
                             
                             if(status == "Error"){
                                 let data: String = (jsonData as AnyObject).value(forKey: "data") as! String
-                                showAlert(kEmptyString, message:data)
+                                SVProgressHUD.showError(withStatus: data)
                             }
                             else
                             {
@@ -588,18 +660,10 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
         do{
             request.httpBody = data! as Data
             let task = session.dataTask(with: request as URLRequest, completionHandler: {(data, response, error) in
-                if let response = response {
-                    let nsHTTPResponse = response as! HTTPURLResponse
-                    let statusCode = nsHTTPResponse.statusCode
-                    print ("status code = \(statusCode)")
-                }
-                
-                
+            
                 
                 if let error = error {
-                    print ("\(error)")
-                    showAlert(kEmptyString, message: NSLocalizedString("Please check your network availability", comment: "Please check your network availability"))
-                    hideActivityIndicator()
+                    SVProgressHUD.showError(withStatus: "\(error)")
                     self.task.cancel()
                 }
                 if let data = data {
@@ -637,31 +701,30 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
                 }
             })
             task.resume()
-        }catch _ {
-            print ("Oops something went wrong")
         }
         
     }
     
     
+
     
     //    func sendLocation(){
     //        if (CLLocationManager.locationServicesEnabled())
     //        {
-    //            showActivityIndicator(false)
+    //            SVProgressHUD.show(withStatus: "Loading...")
     //            locationManager.startUpdatingLocation()
     //
     //            let when = DispatchTime.now() + 5
     //            DispatchQueue.main.asyncAfter(deadline: when) {
     //
-    //                hideActivityIndicator()
+    //                SVProgressHUD.dismiss()
     //                self.locationManager.stopUpdatingLocation()
     //                self.session?.write(self.rfidBytesArray, length: UInt(self.rfidBytesArray.count))
     //            }
     //        }
     //        else
     //        {
-    //            hideActivityIndicator()
+    //            SVProgressHUD.dismiss()
     //            showAlert(NSLocalizedString("Location Services Disabled", comment: "Location Services Disabled"), message: NSLocalizedString("Please enable location services and try again", comment: "Please enable location services and try again"))
     //        }
     //    }
@@ -725,7 +788,7 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
         return CLong(checksum)
     }
     func successMessage(Message:String){
-        hideActivityIndicator()
+        SVProgressHUD.dismiss()
         self.task.cancel()
         
         if(session!.connected){
@@ -740,6 +803,9 @@ class SessionDetailsViewController: UITableViewController, AirconsoleSessionDele
         }))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    
+    
     
     
 }

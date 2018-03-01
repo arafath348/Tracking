@@ -142,7 +142,12 @@ self.title = NSLocalizedString("Data Collection Template", comment: "")
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell : CustomTableViewCell = (tableView.dequeueReusableCell(withIdentifier: "CustomDataCollectionCell") as! CustomTableViewCell!)
         cell.titleLabel.text = labelArray .object(at: indexPath.row) as? String
+       
+        
+        
+        
         cell.rightTextfield.text = rightArray .object(at: indexPath.row) as? String
+        
         cell.rightTextfield.addTarget(self, action: #selector(descTextFieldDidChange(textField:)), for: .editingChanged)
 
         cell.rightDropDownButton.tag = indexPath.row

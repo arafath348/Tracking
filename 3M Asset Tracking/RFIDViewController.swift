@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDelegate,LocationDelegate, tblRFIDLogDataDetailsDelegate, tblLogDataDetailsDelegate{
+class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDelegate,LocationDelegate, tblRFIDLogDataDetailsDelegate, tblLogDataDetailsDelegate, GMSMapViewDelegate{
     //For Localization
     //Innerview***
     @IBOutlet weak var projNameLbl: UILabel!
@@ -27,8 +27,6 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
     @IBOutlet weak var prjLbl: UILabel!
     @IBOutlet weak var utilityLbl: UILabel!
     @IBOutlet weak var verifyBtn: UIButton!
-    //______
-    
     @IBOutlet var RFIDView: UIView!
     @IBOutlet var dataCollectionLabel: UILabel!
     @IBOutlet var projectLabel: UILabel!
@@ -45,7 +43,6 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
     @IBOutlet weak var projectView: UIView?
     @IBOutlet weak var projectInnerView: UIView?
     var projectInnerViewYposition:CGFloat!
-    
     
     let database = DatabaseHandler()
     var rfidTemplateTypeId: String = "1"
@@ -72,14 +69,15 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
     
     let recordTypeID:String = "1"
     var rfidBytesArray : [UInt8] = []
-    
-    
     var  canStoreDataToCloud:String = ""
     var  utilityCompanyVerifiedState:String = ""
-    
-    
     @IBOutlet var projectTextField: UITextField!
     var currentTextField: UITextField!
+    var vwGMap = GMSMapView()
+    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var currentLocationSwitch: UISwitch!
+    var navBarHeight: CGFloat = 0
+    
     
     func changeLanguage(){
         self.title = NSLocalizedString("Data Capture - RFID", comment: "Data Capture")
@@ -125,17 +123,10 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
         self.changeLanguage()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:false)
-        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
-        
-        
-        
-    }
+
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(false, animated:false)
+        self.locationManager.stopUpdatingLocation()
     }
     
     
@@ -163,6 +154,8 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
         
         // Do any additional setup after loading the view.
         
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
+
         
         canStoreDataToCloud = database.getUserProfile(columnName: "canStoreDataToCloud")
         utilityCompanyVerifiedState = database.getUtilityCompany(columnName: "verified")
@@ -204,19 +197,44 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
         userProfileId = UserDefaults.standard.value(forKey: "userProfileId") as! String
         installerCompanyId = database.getUserProfile(columnName: "installerCompanyID")
         
-        
-        
-        
+
         storage = database.getSettings(columnName: "Storage")
-        
-        self.determineMyCurrentLocation()
-        
         productUrlButton.imageView?.contentMode = .scaleAspectFit
 
         
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
+        vwGMap = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 40, height: 300), camera: camera)
+        vwGMap.camera = camera
+        // Add GMSMapView to current view
+        self.mapView .addSubview(vwGMap)
+        vwGMap.delegate = self
+        vwGMap.settings.compassButton = true
+        vwGMap.isMyLocationEnabled = true
+        vwGMap.mapType = kGMSTypeHybrid
+        vwGMap.settings.myLocationButton = true
+        
+    }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationItem.setHidesBackButton(true, animated:false)
+        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
+        TealiumHelper.sharedInstance().trackView(title: "RFID", data: [:])
+        self.determineMyCurrentLocation()
+        
     }
     
-    
+    func determineMyCurrentLocation() {
+        
+        if(currentLocationSwitch.isOn){
+            self.locationManager.requestWhenInUseAuthorization()
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.distanceFilter = 1
+                locationManager.startUpdatingLocation()
+            }
+        }
+    }
     
     
     
@@ -512,7 +530,7 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
         let movementDuration:TimeInterval = 0.35
         
         
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         
@@ -552,10 +570,9 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
         else
         {
             var frame : CGRect = self.view.frame
-            frame.origin.y = 64
+            frame.origin.y = navBarHeight
             self.view.frame = frame
         }
-        
         
         
         UIView.setAnimationDuration(movementDuration)
@@ -643,13 +660,7 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
                             let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                             
                             let status =  jsonData?["status"] as! String
-                            print(jsonData)
-                            
-                            
-                            
-                            
-                            
-                            
+           
                             DispatchQueue.main.async {
                                 hideActivityIndicator()
                                 
@@ -695,6 +706,8 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
         
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GoogleMapViewController") as! GoogleMapViewController
         viewController.delegate = self
+        viewController.latitude = lattitudeDouble
+        viewController.longitude = longitudeDouble
         self.navigationController!.pushViewController(viewController, animated: true)
     }
     
@@ -702,10 +715,10 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
     
     
     func selectedLocation(lattitude: Double, longitude:Double){
-        
         gpsLabel.text = String(format:"%f, %f", lattitude, longitude)
         lattitudeDouble = lattitude
         longitudeDouble = longitude
+        currentLocationSwitch.setOn(false, animated: false)
     }
     
     func validateData() -> Bool {
@@ -736,24 +749,7 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
     
     
     
-    //    func sendRFIDtblLogDataDetails(labelArray: NSArray, rightArray: NSArray, templateName: String)
-    //    {
-    //
-    //
-    //        rfidLabelArray = []
-    //        rfidDescriptionArray = []
-    //
-    //        if(labelArray.count == 0){
-    //            rfidTemplateLabel.text = ""
-    //        }
-    //        else{
-    //            rfidLabelArray = labelArray
-    //            rfidDescriptionArray = rightArray
-    //            rfidTemplateLabel.text = templateName
-    //        }
-    //    }
-    //
-    //
+    
     
     
     func sendRFIDtblLogDataDetails(bytesArray: [UInt8], templateName: String)  {
@@ -1096,7 +1092,6 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
                         let status =  jsonData?["status"] as! String
                         
                         print(status)
-                        print(jsonData)
                         
                         DispatchQueue.main.async {
                             hideActivityIndicator()
@@ -1218,42 +1213,50 @@ class RFIDViewController: UIViewController,SearchBarDelegate,CLLocationManagerDe
     
     
     
-    func determineMyCurrentLocation() {
+
+    
+    //    MARK: - CLLocationManagerDelegate Methods
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
         
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
         
-        // A minimum distance a device must move before update event generated
-        locationManager.distanceFilter = 500
+        let userLocation = locations.last
+        lattitudeDouble = userLocation!.coordinate.latitude
+        longitudeDouble = userLocation!.coordinate.longitude
         
-        // Request permission to use location service
-        locationManager.requestWhenInUseAuthorization()
+        print(lattitudeDouble,longitudeDouble)
         
-        // Request permission to use location service when the app is run
-        locationManager.requestWhenInUseAuthorization()
+        DispatchQueue.main.async {
+            self.gpsLabel.text = String(format:"%f, %f", userLocation!.coordinate.latitude, userLocation!.coordinate.longitude)
+        }
         
-        // Start getting update of user's location
-        locationManager.startUpdatingLocation()
+  
+        
+        if vwGMap.camera.target.latitude == 0 && vwGMap.camera.target.longitude == 0 {
+            let camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
+                                                  longitude: userLocation!.coordinate.longitude,
+                                                  zoom: 15)
+            mapView.isHidden = false
+            vwGMap.camera = camera
+        }
         
         
     }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
-        
-        lattitudeDouble = userLocation.coordinate.latitude
-        longitudeDouble = userLocation.coordinate.longitude
-        
-        
-        gpsLabel.text = String(format:"%f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        
-    }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print("Error \(error)")
+    }
+    
+    @IBAction func switchChanged(mySwitch: UISwitch) {
+        let value = mySwitch.isOn
+        print(value)
+        if(mySwitch.isOn){
+            locationManager.startUpdatingLocation()
+        }
+        else{
+            locationManager.stopUpdatingLocation()
+        }
     }
     
 

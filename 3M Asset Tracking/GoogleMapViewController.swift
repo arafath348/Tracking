@@ -24,37 +24,29 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate,GMSMa
     @IBOutlet weak var latLongLabel: UILabel!
     @IBOutlet weak var mapView: UIView!
     weak var delegate: LocationDelegate?
-
     @IBOutlet weak var saveBtn: UIButton!
-    
+    var latitude:Double = 0.0
+    var longitude:Double = 0.0
     
     //    MARK: - View Life Cycle Methods
     
     
     override func viewDidAppear(_ animated: Bool) {
         locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        saveBtn.setAttributedTitle(nil, for:  UIControlState.normal)
-        
-        saveBtn.setTitle(NSLocalizedString("SAVE", comment: "save"), for: UIControlState.normal)
-
-        // A minimum distance a device must move before update event generated
-        locationManager.distanceFilter = 500
-        
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
         // Request permission to use location service
         locationManager.requestWhenInUseAuthorization()
         
-        // Request permission to use location service when the app is run
-        locationManager.requestWhenInUseAuthorization()
-        
-        // Start getting update of user's location
-        locationManager.startUpdatingLocation()
-        
+
+        saveBtn.setAttributedTitle(nil, for:  UIControlState.normal)
+        saveBtn.setTitle(NSLocalizedString("SAVE", comment: "save"), for: UIControlState.normal)
+
         
         
+        latLongLabel.text = String(format:"%f, %f", latitude, longitude)
+        marker.position = CLLocationCoordinate2DMake(latitude, longitude)
         
-        
-        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 22.300000, longitude: 70.783300, zoom: 10.0)
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: latitude, longitude: longitude, zoom: 15.0)
         
         vwGMap = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: mapView.frame.width, height: mapView.frame.height), camera: camera)
         
@@ -69,6 +61,8 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate,GMSMa
         vwGMap.settings.myLocationButton = true
         vwGMap.mapType = kGMSTypeHybrid
 
+        marker.map = self.vwGMap
+        marker.icon = GMSMarker.markerImage(with: UIColor(red: 133/255.0, green:185.0/255.0, blue: 51.0/255.0, alpha: 1.0))
         
         
         let iconSize = CGRect(origin: CGPoint.zero, size: CGSize(width: 21, height: 44))
@@ -161,44 +155,36 @@ class GoogleMapViewController: UIViewController, CLLocationManagerDelegate,GMSMa
     
     //    MARK: - CLLocationManagerDelegate Methods
     
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus)
-    {
-        if (status == CLAuthorizationStatus.authorizedWhenInUse)
-        {
-            vwGMap.isMyLocationEnabled = true
-        }
-    }
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
-    {
-        
-        
-        let newLocation = locations.last
-        vwGMap.camera = GMSCameraPosition.camera(withTarget: newLocation!.coordinate, zoom: 15.0)
-        vwGMap.settings.myLocationButton = true
-        self.mapView .addSubview(vwGMap)
-
-        latLongLabel.text = String(format:"%f, %f", newLocation!.coordinate.latitude, newLocation!.coordinate.longitude)
-        marker.position = CLLocationCoordinate2DMake(newLocation!.coordinate.latitude, newLocation!.coordinate.longitude)
-        marker.map = self.vwGMap
-        marker.icon = GMSMarker.markerImage(with: UIColor(red: 133/255.0, green:185.0/255.0, blue: 51.0/255.0, alpha: 1.0))
-
-        
-        
-        let geoCoder = CLGeocoder()
-        geoCoder.reverseGeocodeLocation(newLocation!, completionHandler: { (placemarks, error) -> Void in
-            let placeMark = placemarks![0]
-            
-            if let locationCity = placeMark.addressDictionary!["City"] as? NSString {
-                self.marker.title = locationCity as String
-            }
-            
-            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
-                self.marker.snippet = locationName as String
-            }
-            
-        })
-    }
+    
+//    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+//    {
+//
+//
+//        let newLocation = locations.last
+//        vwGMap.camera = GMSCameraPosition.camera(withTarget: newLocation!.coordinate, zoom: 15.0)
+//        vwGMap.settings.myLocationButton = true
+//        self.mapView .addSubview(vwGMap)
+//
+//        latLongLabel.text = String(format:"%f, %f", newLocation!.coordinate.latitude, newLocation!.coordinate.longitude)
+//
+//
+//
+//
+//        let geoCoder = CLGeocoder()
+//        geoCoder.reverseGeocodeLocation(newLocation!, completionHandler: { (placemarks, error) -> Void in
+//            let placeMark = placemarks![0]
+//
+//            if let locationCity = placeMark.addressDictionary!["City"] as? NSString {
+//                self.marker.title = locationCity as String
+//            }
+//
+//            if let locationName = placeMark.addressDictionary!["Name"] as? NSString {
+//                self.marker.snippet = locationName as String
+//            }
+//
+//        })
+//    }
     
     
     func mapView(_ mapView: GMSMapView!, didTap marker: GMSMarker!) -> Bool {

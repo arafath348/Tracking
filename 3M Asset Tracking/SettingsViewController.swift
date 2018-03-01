@@ -117,13 +117,11 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
     var utilityCompanyID:String = ""
     let database = DatabaseHandler()
     var functionTypeId: String = ""
+    var navBarHeight: CGFloat = 0
+
     
     
-    
-    override func viewDidAppear(_ animated: Bool) {
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
-    }
+ 
     func changeLanguage(){
         
         self.title =  NSLocalizedString("Settings", comment: "Settings")
@@ -248,7 +246,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         
         currentTextField = addCompanyTextField
         
-        settingsArray = [NSLocalizedString("Locator Pairing", comment: "Locator Pairing"),NSLocalizedString("Template Configuration", comment: "Template Configuration"),NSLocalizedString("Barcode Scanner", comment: "Barcode Scanner"),NSLocalizedString("GPS Provider", comment: "GPS Provider"),NSLocalizedString("Language Settings", comment: "Language Settings"),NSLocalizedString("Data Storage", comment: "Data Storage"),NSLocalizedString("Add Utility Company", comment: "Add Utility Company"),NSLocalizedString("Add Installer Company", comment: "Add Installer Company"),NSLocalizedString("Change Primary Function", comment: "Change Primary Function"),NSLocalizedString("Associate Another Company", comment: "Associate Another Company"),NSLocalizedString("Change Password", comment: "Change Password")]
+        settingsArray = [NSLocalizedString("Locator Pairing", comment: "Locator Pairing"), NSLocalizedString("Template Configuration", comment: "Template Configuration"), NSLocalizedString("Barcode Scanner", comment: "Barcode Scanner"),
+            NSLocalizedString("GPS Provider", comment: "GPS Provider"),
+            NSLocalizedString("Language Settings", comment: "Language Settings"),
+            NSLocalizedString("Data Storage", comment: "Data Storage"),
+            NSLocalizedString("Add Utility Company", comment: "Add Utility Company"),
+            NSLocalizedString("Add Installer Company", comment: "Add Installer Company"),
+            NSLocalizedString("Change Primary Function", comment: "Change Primary Function"),
+            NSLocalizedString("Associate Another Company", comment: "Associate Another Company"),
+            NSLocalizedString("Change Password", comment: "Change Password")]
         imageArray = ["settings_pairing","settings_template","settings_barcode","settings_locator","settings_language", "settings_data_storage","settings_template","settings_barcode","settings_locator","settings_language", "settings_data_storage"]
         
         
@@ -491,11 +497,15 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             self.navigationController!.pushViewController(viewController, animated: true)
         }
         else if(indexPath.row == 6){
+            
+            TealiumHelper.sharedInstance().trackView(title: "Add Utility Company", data: [:])
+
             companyView?.isHidden = false
         }
         else if(indexPath.row == 7){
             
-            
+            TealiumHelper.sharedInstance().trackView(title: "Add Installer Company", data: [:])
+
             let viewController = UIStoryboard(name: "Custom", bundle: nil).instantiateViewController(withIdentifier: "SearchBarViewController") as! SearchBarViewController
             
             
@@ -520,6 +530,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             
         else if(indexPath.row == 9)
         {
+            TealiumHelper.sharedInstance().trackView(title: "Associate Another Company", data: [:])
             associateCompanyView?.isHidden = false
         }
         else if(indexPath.row == 10){
@@ -552,6 +563,8 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
             }
             else if(indexPath.row == 8){
                 
+                TealiumHelper.sharedInstance().trackView(title: "Change Primary Function", data: [:])
+
                 popOverVC.titleString = NSLocalizedString("Primary Functional Area", comment: "Primary Functional Area")
                 popOverVC.popupArray = [NSLocalizedString("RFID Marker / EMS Passive Marker", comment: "RFID Marker / EMS Passive Marker"),NSLocalizedString("Cable Accessories", comment: "Cable Accessories"),NSLocalizedString("Both", comment: "Both")]
                 
@@ -708,7 +721,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let keyboardHeight : CGFloat
         
         if companyView?.isHidden == false || installerCompanyView?.isHidden == false {
-            keyboardHeight = 350
+            keyboardHeight = 350 + navBarHeight
         }
         else{
             keyboardHeight = 300
@@ -719,7 +732,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         let movementDuration:TimeInterval = 0.35
         
         
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         
@@ -765,7 +778,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
         else
         {
             var frame : CGRect = self.view.frame
-            frame.origin.y = 64
+            frame.origin.y = navBarHeight
             self.view.frame = frame
         }
         
@@ -1328,10 +1341,7 @@ class SettingsViewController: UIViewController, UITableViewDelegate, UITableView
                         let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                         
                         let status =  jsonData?["status"] as! String
-                        
-                        print(jsonData)
-                        
-                        
+      
                         
                         DispatchQueue.main.async {
                             hideActivityIndicator()

@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocationManagerDelegate,LocationDelegate, tblLogDataDetailsDelegate, UITextViewDelegate{
+class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocationManagerDelegate,LocationDelegate, tblLogDataDetailsDelegate, UITextViewDelegate,GMSMapViewDelegate{
     
     @IBOutlet var dataCollectionLabel: UILabel!
     @IBOutlet var projectLabel: UILabel!
@@ -34,9 +34,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
     @IBOutlet weak var projDescription: UILabel!
     @IBOutlet weak var submitBtn: UIButton!
     
-    //_____
-    
-    
+
     @IBOutlet weak var projectView: UIView?
     @IBOutlet weak var projectInnerView: UIView?
     var projectInnerViewYposition:CGFloat!
@@ -65,24 +63,26 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
     var rightArray1 = NSArray()
     var storage:String = ""
     var barButtonClicked:Bool = false
-
+    var vwGMap = GMSMapView()
+    @IBOutlet weak var mapView: UIView!
+    @IBOutlet weak var currentLocationSwitch: UISwitch!
+    var navBarHeight: CGFloat = 0
     
     
     
     @IBOutlet var projectTextField: UITextField!
     var currentTextField: UITextField!
     
+
+
     
-    override func viewDidAppear(_ animated: Bool) {
-        self.navigationItem.setHidesBackButton(true, animated:false)
-        
-        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
-    }
+    
+    
     override func viewWillDisappear(_ animated: Bool) {
         self.navigationItem.setHidesBackButton(false, animated:false)
+        self.locationManager.stopUpdatingLocation()
     }
+    
     func changeLanguage(){
         self.title = NSLocalizedString("Data Capture - Cable Accessories", comment: "EMS Passive / Path / Cable depth")
         
@@ -109,6 +109,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
     override func viewWillAppear(_ animated: Bool) {
         
         self.changeLanguage()
+        
     }
     
     func customBackButton(){
@@ -135,6 +136,8 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         self.changeLanguage()
         
         // Do any additional setup after loading the view.
+        
+          navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
         
         storage = database.getSettings(columnName: "Storage")
         
@@ -167,16 +170,43 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         userProfileId = UserDefaults.standard.value(forKey: "userProfileId") as! String
         installerCompanyId = database.getUserProfile(columnName: "installerCompanyID")
         
-        let  canStoreDataToCloud:String = database.getUserProfile(columnName: "canStoreDataToCloud")
-        
-        print(canStoreDataToCloud )
-        
-        self.determineMyCurrentLocation()
+        productUrlButton.imageView?.contentMode = .scaleAspectFit
         
         
-        productUrlButton.imageView?.contentMode = .scaleAspectFit 
+        
+        
+        let camera: GMSCameraPosition = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 15.0)
+        vwGMap = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 40, height: 300), camera: camera)
+        vwGMap.camera = camera
+        // Add GMSMapView to current view
+        self.mapView .addSubview(vwGMap)
+        vwGMap.delegate = self
+        vwGMap.settings.compassButton = true
+        vwGMap.isMyLocationEnabled = true
+        vwGMap.mapType = kGMSTypeHybrid
+        vwGMap.settings.myLocationButton = true
         
     }
+    override func viewDidAppear(_ animated: Bool) {
+        
+        self.navigationItem.setHidesBackButton(true, animated:false)
+        projectInnerViewYposition = self.projectInnerView?.frame.origin.y
+        TealiumHelper.sharedInstance().trackView(title: "Cable Accessories", data: [:])
+        self.determineMyCurrentLocation()
+    }
+    
+    func determineMyCurrentLocation() {
+        if(currentLocationSwitch.isOn){
+            self.locationManager.requestWhenInUseAuthorization()
+            if CLLocationManager.locationServicesEnabled() {
+                locationManager.delegate = self
+                locationManager.desiredAccuracy = kCLLocationAccuracyBest
+                locationManager.distanceFilter = 1
+                locationManager.startUpdatingLocation()
+            }
+        }
+    }
+    
     
     
     func addDoneButton() {
@@ -408,8 +438,8 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         
         UIView.beginAnimations( "animateView", context: nil)
         let movementDuration:TimeInterval = 0.35
-        var needToMove: CGFloat = 0
-        
+        var needToMove: CGFloat = -navBarHeight
+
         var frame : CGRect = self.view.frame
         if (textView.frame.origin.y + textView.frame.size.height + /*self.navigationController.navigationBar.frame.size.height + */UIApplication.shared.statusBarFrame.size.height > (myScreenRect.size.height - keyboardHeight)) {
             needToMove = (textView.frame.origin.y + textView.frame.size.height + /*self.navigationController.navigationBar.frame.size.height +*/ UIApplication.shared.statusBarFrame.size.height) - (myScreenRect.size.height - keyboardHeight);
@@ -431,7 +461,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         let movementDuration:TimeInterval = 0.35
         
         var frame : CGRect = self.view.frame
-        frame.origin.y = 64
+        frame.origin.y = navBarHeight
         self.view.frame = frame
         UIView.setAnimationDuration(movementDuration)
         UIView.commitAnimations()
@@ -471,7 +501,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         let movementDuration:TimeInterval = 0.35
         
         
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         
@@ -522,7 +552,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         else
         {
             var frame : CGRect = self.view.frame
-            frame.origin.y = 64
+            frame.origin.y = navBarHeight
             self.view.frame = frame
         }
         
@@ -616,8 +646,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
                                 hideActivityIndicator()
                                 
                                 
-                                print(jsonData)
-                                
+
                                 
                                 if(status == "InValid" || status == "Error"){
                                     self.projectLabel.text = ""
@@ -659,6 +688,9 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         currentTextField.resignFirstResponder()
         let viewController = self.storyboard!.instantiateViewController(withIdentifier: "GoogleMapViewController") as! GoogleMapViewController
         viewController.delegate = self
+        viewController.latitude = lattitudeDouble
+        viewController.longitude = longitudeDouble
+
         self.navigationController!.pushViewController(viewController, animated: true)
     }
     
@@ -670,6 +702,9 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
         gpsLabel.text = String(format:"%f, %f", lattitude, longitude)
         lattitudeDouble = lattitude
         longitudeDouble = longitude
+        
+        currentLocationSwitch.setOn(false, animated: false)
+        
     }
     
     func validateData() -> Bool {
@@ -986,8 +1021,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
                         let jsonData =  try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? NSDictionary
                         let status =  jsonData?["status"] as! String
                         
-                        print(status)
-                        print(jsonData)
+    
                         
                         hideActivityIndicator()
                         
@@ -1115,38 +1149,8 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
     
     
     
-    func determineMyCurrentLocation() {
-        
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyKilometer
-        
-        // A minimum distance a device must move before update event generated
-        locationManager.distanceFilter = 500
-        
-        // Request permission to use location service
-        locationManager.requestWhenInUseAuthorization()
-        
-        // Request permission to use location service when the app is run
-        locationManager.requestWhenInUseAuthorization()
-        
-        // Start getting update of user's location
-        locationManager.startUpdatingLocation()
-        
-        
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        let userLocation:CLLocation = locations[0] as CLLocation
-        print("user latitude = \(userLocation.coordinate.latitude)")
-        print("user longitude = \(userLocation.coordinate.longitude)")
-        lattitudeDouble = userLocation.coordinate.latitude
-        longitudeDouble = userLocation.coordinate.longitude
-        
-        
-        gpsLabel.text = String(format:"%f, %f", userLocation.coordinate.latitude, userLocation.coordinate.longitude)
-        
-    }
-    
+
+ 
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error)
     {
         print("Error \(error)")
@@ -1154,7 +1158,47 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
     
     
     
+    //    MARK: - CLLocationManagerDelegate Methods
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation])
+    {
+
+
+        let userLocation = locations.last
+        lattitudeDouble = userLocation!.coordinate.latitude
+        longitudeDouble = userLocation!.coordinate.longitude
+        
+        print(lattitudeDouble,longitudeDouble)
+
+        DispatchQueue.main.async {
+            self.gpsLabel.text = String(format:"%f, %f", userLocation!.coordinate.latitude, userLocation!.coordinate.longitude)
+        }
+        
+
+
+        if vwGMap.camera.target.latitude == 0 && vwGMap.camera.target.longitude == 0 {
+            let camera = GMSCameraPosition.camera(withLatitude: userLocation!.coordinate.latitude,
+                                                  longitude: userLocation!.coordinate.longitude,
+                                                  zoom: 15)
+            mapView.isHidden = false
+            vwGMap.camera = camera
+        }
+        
+
+    }
+
+    
   
+    @IBAction func switchChanged(mySwitch: UISwitch) {
+        let value = mySwitch.isOn
+         print(value)
+        if(mySwitch.isOn){
+            locationManager.startUpdatingLocation()
+        }
+        else{
+            locationManager.stopUpdatingLocation()
+        }
+    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -1163,7 +1207,7 @@ class CableAccesoriesViewController: UIViewController,SearchBarDelegate,CLLocati
     
     
     
-    
+ 
     /*
      // MARK: - Navigation
      

@@ -34,14 +34,11 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
     var longitude:Double = 0.0
     var parameters = [String:Any]()
     var locationManager = CLLocationManager()
-
     
+    var navigationBarHeight: CGFloat = 0
+
     override func viewDidAppear(_ animated: Bool) {
-        //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
-        
-        
-        
-        
+        TealiumHelper.sharedInstance().trackView(title: "Data Lookup", data: [:])        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +46,7 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
      storage = database.getSettings(columnName: "Storage")
 
         
+
         
         if let typeDropDown:String = UserDefaults.standard.value(forKey: "typeDropDown") as? String{
             let searchBarText:String = UserDefaults.standard.value(forKey: "searchBarText") as! String
@@ -56,7 +54,7 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
             searchbar.text = searchBarText
         }
         
-        
+        print(exportBtn.frame.origin.y)
         
     }
     func changeLanguage(){
@@ -86,9 +84,10 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
         
         
         
+
         let camera = GMSCameraPosition.camera(withLatitude: 0, longitude: 0, zoom: 10)
-        
-        datalookupMapView = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 20, height: self.view.frame.size.height - 230), camera: camera)
+
+        datalookupMapView = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 20, height: self.exportBtn.frame.origin.y - mapView.frame.origin.y - 10), camera: camera)
         datalookupMapView.camera = camera
         datalookupMapView.mapType = kGMSTypeHybrid
         datalookupMapView.delegate = self
@@ -96,6 +95,7 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
         
         self.determineMyCurrentLocation()
         
+  
         
     }
     
@@ -403,7 +403,6 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
                         
                         let status: String = (jsonData as AnyObject).value(forKey: "status") as! String
 
-                        print(jsonData)
                         
                         DispatchQueue.main.async {
 
@@ -861,7 +860,6 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
                         
                         hideActivityIndicator()
                         
-                        print(jsonData)
                         
                         let data =  jsonData!["data"] as! String
                         print(data)
@@ -915,10 +913,11 @@ class DataLookupViewController: UIViewController, CLLocationManagerDelegate,GMSM
         print("user longitude = \(userLocation.coordinate.longitude)")
         
         locationManager.stopUpdatingLocation()
-        
-        
+        datalookupMapView.removeFromSuperview()
+
+
         let camera = GMSCameraPosition.camera(withLatitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude, zoom: 10)
-        self.datalookupMapView = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 20, height: self.view.frame.size.height - 166), camera: camera)
+        self.datalookupMapView = GMSMapView.map(withFrame:  CGRect(x: 0, y: 0, width: self.view.frame.size.width - 20, height: self.exportBtn.frame.origin.y - mapView.frame.origin.y - 10), camera: camera)
         self.datalookupMapView.camera = camera
         self.datalookupMapView.mapType = kGMSTypeHybrid
         self.datalookupMapView.delegate = self

@@ -9,24 +9,19 @@
 import UIKit
 
 class ChangePasswordViewController: UIViewController {
-    //For localization
     @IBOutlet weak var saveBtn: UIButton!
-    
     @IBOutlet weak var showBtn2: UIButton!
     @IBOutlet weak var showBtn1: UIButton!
-    
     @IBOutlet weak var showBtn3: UIButton!
     @IBOutlet weak var usernameLbl: UILabel!
-    
     @IBOutlet weak var confirmPaswordLbl: UILabel!
     @IBOutlet weak var newPaswordLbl: UILabel!
     @IBOutlet weak var oldPaswordLbl: UILabel!
-    //--------
-    
     @IBOutlet weak var changePasswordUserTextField: UITextField!
     @IBOutlet weak var changePasswordOldPasswordTextField: UITextField!
     @IBOutlet weak var changePasswordNewPasswordUserTextField: UITextField!
     @IBOutlet weak var changePasswordConfirmPasswordUserTextField: UITextField!
+    var navBarHeight: CGFloat = 0
     
     override func viewDidAppear(_ animated: Bool) {
         //TealiumHelper.trackView(NSStringFromClass(self.classForCoder), dataSources: [:])
@@ -39,10 +34,8 @@ class ChangePasswordViewController: UIViewController {
         self.changeLanguage()
 
 
-        //        changePasswordUserTextField.text = "asahoo2"
-        //        changePasswordOldPasswordTextField.text = "Test@12345"
-        //        changePasswordNewPasswordUserTextField.text = "test"
-        //        changePasswordConfirmPasswordUserTextField.text = "test"
+        navBarHeight = UIApplication.shared.statusBarFrame.height + self.navigationController!.navigationBar.frame.height
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -222,7 +215,7 @@ class ChangePasswordViewController: UIViewController {
         
         UIView.beginAnimations( "animateView", context: nil)
         let movementDuration:TimeInterval = 0.35
-        var needToMove: CGFloat = -64
+        var needToMove: CGFloat = -navBarHeight
         
         var frame : CGRect = self.view.frame
         if (textField.frame.origin.y + textField.frame.size.height +
@@ -246,7 +239,7 @@ class ChangePasswordViewController: UIViewController {
         let movementDuration:TimeInterval = 0.35
         
         var frame : CGRect = self.view.frame
-        frame.origin.y = 64
+        frame.origin.y = navBarHeight
         self.view.frame = frame
         UIView.setAnimationDuration(movementDuration)
         UIView.commitAnimations()

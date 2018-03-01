@@ -102,6 +102,87 @@ func isPasswordValid(_ password : String) -> Bool{
 }
 
 
+func getLanguageFromCode(languageCode:[UInt8]) -> String{
+    
+    var language:String = ""
+    if(languageCode == [0, 0, 1]){
+        language = "English"
+    }
+    else if(languageCode == [0, 7, 2]){
+        language = "Polish"
+    }
+    else if(languageCode == [0, 17, 2]){
+        language = "Czech"
+    }
+    else if(languageCode == [6, 2, 0]){
+        language = "Korean"
+    }
+    else if(languageCode == [6, 1, 0]){
+        language = "Japanese"
+    }
+    else if(languageCode == [0, 5, 1]){
+        language = "Finnish"
+    }
+    else if(languageCode == [6, 3, 0]){
+        language = "Taiwanese"
+    }
+    else if(languageCode == [0, 2, 1]){
+        language = "German"
+    }
+    else if(languageCode == [0, 15, 1]){
+        language = "Dutch"
+    }
+    else if(languageCode == [6, 0, 0]){
+        language = "Chinese"
+    }
+    else if(languageCode == [0, 3, 1]){
+        language = "French"
+    }
+    else if(languageCode == [0, 8, 1]){
+        language = "Italian"
+    }
+    else if(languageCode == [0, 10, 3]){
+        language = "Russian"
+    }
+    else if(languageCode == [0, 19, 5]){
+        language = "Turkish"
+    }
+    else if(languageCode == [0, 11, 4]){
+        language = "Estonian"
+    }
+    else if(languageCode == [0, 1, 1]){
+        language = "Spanish"
+    }
+    else if(languageCode == [0, 4, 1]){
+        language = "Romanian"
+    }
+    else if(languageCode == [0, 9, 1]){
+        language = "Norway"
+    }
+    else if(languageCode == [0, 6, 1]){
+        language = "Danish"
+    }
+    else if(languageCode == [0, 18, 1]){
+        language = "French"
+    }
+    else if(languageCode == [0, 14, 1]){
+        language = "Portuguese"
+    }
+    else if(languageCode == [0, 144, 1]){
+        language = "BAA"
+    }
+    else if(languageCode == [0, 12, 4]){
+        language = "Swedish"
+    }
+    else if(languageCode == [0, 13, 4]){
+        language = "Lithuanian"
+    }
+    
+    
+    return language
+}
+
+
 
 
 
